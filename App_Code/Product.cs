@@ -105,8 +105,7 @@ public class Product
         conn.Open();
         SqlDataReader dr = cmd.ExecuteReader();
         //Check if there are any resultsets
-        try
-        {
+       
             if (dr.Read())
             {
                 prod_Name = dr["Product_Name"].ToString();
@@ -124,11 +123,8 @@ public class Product
             dr.Close();
             dr.Dispose();
             return prodDetail;
-        }
-        catch (SqlException ex)
-        {
-            return 0;
-        }
+        
+        
     }
 
     public List<Product> getProductAll()
@@ -143,8 +139,7 @@ public class Product
         conn.Open();
         SqlDataReader dr = cmd.ExecuteReader();
         //Continue to read the resultsets row by row if not the end
-        try
-        {
+      
             while (dr.Read())
             {
                 prod_ID = dr["Product_ID"].ToString();
@@ -160,11 +155,8 @@ public class Product
             dr.Close();
             dr.Dispose();
             return prodList;
-        }
-        catch (SqlException ex)
-        {
-            return 0;
-        }
+        
+        
     }
     //****** Lab4 Database end
 
