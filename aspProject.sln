@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "P2 ShoppingCart v1.2(1)", ".", "{A814B429-91E7-493D-8446-144F6B123C2F}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "aspProject", ".", "{A814B429-91E7-493D-8446-144F6B123C2F}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_2151"
-		Debug.AspNetCompiler.PhysicalPath = "..\P2 ShoppingCart v1.2\"
+		Debug.AspNetCompiler.PhysicalPath = "..\aspProject\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2151\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_2151"
-		Release.AspNetCompiler.PhysicalPath = "..\P2 ShoppingCart v1.2\"
+		Release.AspNetCompiler.PhysicalPath = "..\aspProject\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2151\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "2151"
-		SlnRelativePath = "..\P2 ShoppingCart v1.2\"
+		SlnRelativePath = "..\aspProject\"
 	EndProjectSection
 EndProject
 Global
