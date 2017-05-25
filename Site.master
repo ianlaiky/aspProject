@@ -22,8 +22,7 @@
                     <td>
             <div class="title">
                 <h1>
-                    e-Store web Application
-                </h1>
+                    e-Store web Appp</h1>
             </div>                               
                     </td>
                     <td>&nbsp;</td>
@@ -54,5 +53,7 @@
         
     </div>
 </form>
+    <p>
+        P</p>
 </body>
 </html>
