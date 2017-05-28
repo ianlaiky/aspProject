@@ -25,7 +25,7 @@
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
     <meta itemprop="description"
-        content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+        content="design">
     <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
@@ -48,7 +48,7 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
     <link href="assets/css/material-dashboard2.css" rel="stylesheet" />
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
+
     <link href="assets/css/demo2.css" rel="stylesheet" />
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -148,14 +148,11 @@
 <script src="assets/js/jquery.select-bootstrap.js"></script>
 <!--  DataTables.net Plugin    -->
 <script src="assets/js/jquery.datatables.js"></script>
-<!-- Sweet Alert 2 plugin -->
-<script src="assets/js/sweetalert2.js"></script>
+
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
 <script src="assets/js/jasny-bootstrap.min.js"></script>
-<!--  Full Calendar Plugin    -->
-<script src="ssets/js/fullcalendar.min.js"></script>
-<!-- TagsInput Plugin -->
-<script src="assets/js/jquery.tagsinput.js"></script>
+
+
 <!-- Material Dashboard javascript methods -->
 <script src="assets/js/material-dashboard2.js"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
