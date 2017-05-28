@@ -9,6 +9,7 @@
      <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
     <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -86,12 +87,12 @@
                                    
                                  
 
-                                      
+                                       <form runat="server" method="post">
 
 
                                          <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
 
-
+                                           </form>
 
 
                                   

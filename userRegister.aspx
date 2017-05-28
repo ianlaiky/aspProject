@@ -1,29 +1,35 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.master" AutoEventWireup="true" CodeFile="userRegister.aspx.cs" Inherits="userRegister" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="userRegister.aspx.cs" Inherits="userRegister" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
    
-    <form id="frm" runat="server">
+
+
+   
+
     Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:TextBox ID="TextBox1" runat="server" Height="25px" Width="214px"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
     <br />
     Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-</form>
+    <br />
+<%--angualrjs testing--%>
+        <div ng-app=""> 
+        
+           <input id="Text1" runat="server" type="text" ng-model="temptest"/>
+
+            <p>Name is : {{temptest}}</p>
+
+            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+    </div>
+
+
+
 
    
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
-
-    <br />
-    <br />
-    <br />
 </asp:Content>
 
