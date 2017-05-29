@@ -87,7 +87,7 @@
                                    
                                  
 
-                                       <form runat="server" method="post">
+                                       <form class="form" runat="server" method="post">
 
 
                                          <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
