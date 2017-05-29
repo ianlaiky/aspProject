@@ -6,7 +6,6 @@
 
    
 
-
    
 
     Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -21,6 +20,10 @@
         
            <input id="Text1" runat="server" type="text" ng-model="temptest"/><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Text1" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
 &nbsp;<p>Name is : {{temptest}}</p>
+
+            <br />
+
+      
 
             <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
     </div>
