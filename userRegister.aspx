@@ -1,10 +1,32 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.master" AutoEventWireup="true" CodeFile="userRegister.aspx.cs" Inherits="userRegister" %>
 
-<%-- helllo --%>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
+<script type="text/javascript">
+    
+    $(document).ready(function () {
+        console.log("readydfsdfg!");
 
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        
+    });
+   
+
+    function GeneratePwd() {
+        if (document.getElementById("<%=TextBox1.ClientID%>").value != "") {
+            console.log("readydfsdfg!");
+            console.log(document.getElementById("<%=TextBox1.ClientID%>").value);
+            document.getElementById("<%=TextBox1.ClientID%>").value = md5(document.getElementById("<%=TextBox1.ClientID%>").value);
+        }
+    }
+   
+
+    var hash = md5("valuejghee");
+    console.log("<%=TextBox1.ClientID%>");
+</script>
+
+
+    <%--<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
 
     <div class="card-content">
         <div class="input-group">
@@ -29,7 +51,7 @@
                 class="form-control" required>
 
             <p>Passsword test: {{temptest}}</p>
-        </div>
+        </div>--%>
         <!-- If you want to add a checkbox to this form, uncomment this code -->
         <%--<div class="checkbox">--%>
         <%--<label>--%>
@@ -41,11 +63,17 @@
 
 
     <%--form action--%>
+
+
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+
     <div class="footer text-center">
-        <asp:Button ID="Button1" class="btn btn-primary btn-round" runat="server" Text="Register" />
+        <asp:Button ID="Button1" class="btn btn-primary btn-round" runat="server" Text="Register" OnClick="Button1_Click1"/>
+
+        
        
     </div>
-
+   
 
 </asp:Content>
 

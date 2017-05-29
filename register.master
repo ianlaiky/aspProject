@@ -55,9 +55,26 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="assets/js/md5.min.js"></script>
+
+   
+
+
+
+
 </head>
 
 <body>
+     <%--<script>
+        $(document).ready(function () {
+            console.log("ready!");
+        });
+
+    </script>--%>
     <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
         <div class="container">
             <div class="navbar-header">
