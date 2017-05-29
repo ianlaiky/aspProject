@@ -21,13 +21,13 @@ public partial class userRegister : System.Web.UI.Page
 
             System.Diagnostics.Debug.WriteLine("testing");
 
-            String a = TextBox1.Text;
-            String c = Text1.Value.ToString();
+            //String a = TextBox1.Text;
+            //String c = Text1.Value.ToString();
 
 
 
-            System.Diagnostics.Debug.WriteLine("testing 1 " + a);
-            System.Diagnostics.Debug.WriteLine("testing 1 " + c);
+            //System.Diagnostics.Debug.WriteLine("testing 1 " + a);
+            //System.Diagnostics.Debug.WriteLine("testing 1 " + c);
 
         }
     }
