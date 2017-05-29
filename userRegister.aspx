@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.master" AutoEventWireup="true" CodeFile="userRegister.aspx.cs" Inherits="userRegister" %>
 
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+<%-- helllo --%>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
 
     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
