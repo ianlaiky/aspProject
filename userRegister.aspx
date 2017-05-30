@@ -34,6 +34,11 @@
     <%-- TODO: Phone no, password (see below), pass verify****** and cap + other data --%>
     <%--check intellji for reference--%>
 
+
+
+
+    <%--IMPT:Pass hash on client is done, generate salt to be hashed on client side & hash and salt on server side--%>
+
     <div class="card-content">
 
         <div class="input-group">
