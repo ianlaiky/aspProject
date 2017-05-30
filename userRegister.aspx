@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.master" AutoEventWireup="true" CodeFile="userRegister.aspx.cs" Inherits="userRegister" %>
 <%-- TO DO LISt --%>
 <%--<%Response.Write(Session.SessionID)%>--%>
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
  
 <script type="text/javascript">
@@ -59,13 +64,17 @@
         <%--<a href="#something">terms and conditions</a>.--%>
         <%--</label>--%>
         <%--</div>--%>
-    </div>
+    <%--</div>--%>
 
 
     <%--form action--%>
 
 
+
     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+
+    <asp:HiddenField ID="antiforgery" runat="server"/>
+
 
     <div class="footer text-center">
         <asp:Button ID="Button1" class="btn btn-primary btn-round" runat="server" Text="Register" OnClick="Button1_Click1"/>
