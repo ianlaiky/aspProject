@@ -32,6 +32,7 @@
 
 
     <%-- TODO: Phone no, password (see below), pass verify****** and cap + other data --%>
+    <%--check intellji for reference--%>
 
     <div class="card-content">
 
