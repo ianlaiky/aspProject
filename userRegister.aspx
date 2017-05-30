@@ -31,13 +31,17 @@
     </script>
 
 
+
+
     <%-- TODO: Phone no, password (see below), pass verify****** and cap + other data --%>
+    <%--DATABASE--%>
     <%--check intellji for reference--%>
 
 
 
 
     <%--IMPT:Pass hash on client is done, generate salt to be hashed on client side & hash and salt on server side--%>
+    <%--Angularjs check pass strnth--%>
 
     <div class="card-content">
 
