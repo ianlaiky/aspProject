@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.master" AutoEventWireup="true" CodeFile="userRegister.aspx.cs" Inherits="userRegister" %>
 
-<%-- TO DO LISt --%>
-<%--<%Response.Write(Session.SessionID)%>--%>
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
@@ -30,6 +29,11 @@
         console.log("<%=TextBox1.ClientID%>");
     </script>
 
+
+    <%--Test phone--%> 
+
+    <%--What is the equiv of response.setattribute--%>
+    <%--have first page store all encrypted? data then use above to transfer to the phone page for verifivcation--%>
 
 
 
