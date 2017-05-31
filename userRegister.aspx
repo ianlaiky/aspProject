@@ -56,9 +56,13 @@
         </div>
 
 
+        <br />
 
 
+        <center>
+ <div class="g-recaptcha" data-sitekey="6Ld9kCMUAAAAAJUvZurvKQGtAybXBjEKmi3w9-Q5" runat="server"></div>
 
+</center>
 
     </div>
 
@@ -76,6 +80,6 @@
 
     </div>
 
-
+   
 </asp:Content>
 
