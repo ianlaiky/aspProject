@@ -16,6 +16,7 @@
         });
 
 
+
         function GeneratePwd() {
             if (document.getElementById("<%=TextBox1.ClientID%>").value != "") {
                 console.log("readydfsdfg!");
