@@ -48,6 +48,31 @@
     <%--Angularjs check pass strnth--%>
 
     <div class="card-content">
+         <asp:HiddenField ID="antiforgery" runat="server" />
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">face</i>
+            </span>
+            <asp:TextBox ID="TextBox3" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
+
+
+
+        </div>
+
+
+         <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">face</i>
+            </span>
+          
+               <asp:TextBox ID="TextBox1" runat="server"  class="form-control" placeholder="Password..."></asp:TextBox>
+
+
+        </div>
+
+
+        
 
         <div class="input-group">
             <span class="input-group-addon">
@@ -58,6 +83,58 @@
 
 
         </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">face</i>
+            </span>
+            <asp:TextBox ID="TextBox4" runat="server" class="form-control" placeholder="Last Name..."></asp:TextBox>
+
+
+
+        </div>
+
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">face</i>
+            </span>
+            <asp:TextBox ID="TextBox5" runat="server" class="form-control" placeholder="Phone Number..."></asp:TextBox>
+
+
+
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">face</i>
+            </span>
+            <asp:TextBox ID="TextBox6" runat="server" class="form-control" placeholder="Address..."></asp:TextBox>
+
+
+
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">face</i>
+            </span>
+            <asp:TextBox ID="TextBox7" runat="server" class="form-control" placeholder="Email..."></asp:TextBox>
+
+
+
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">face</i>
+            </span>
+            <asp:TextBox ID="TextBox8" runat="server" class="form-control" placeholder="Age..."></asp:TextBox>
+
+
+
+        </div>
+
 
 
         <br />
@@ -70,11 +147,6 @@
 
     </div>
 
-    <%--TODO: add these guys down here to the main div--%>
-    <%--ME\/--%>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-    <%--AND ME \/--%>
-    <asp:HiddenField ID="antiforgery" runat="server" />
 
 
     <div class="footer text-center">
