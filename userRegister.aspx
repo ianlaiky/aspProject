@@ -13,6 +13,16 @@
             console.log("readydfsdfg!");
 
 
+            //var node = document.createElement("LI");                 // Create a <li> node
+            //var textnode = document.createTextNode("Water");
+            //node.appendChild(textnode);
+
+            //document.getElementById("<%=TextBox3.ClientID%>").appendChild(node);
+
+            //$("#form-group is-empty").append('<p>Test</p>');
+
+
+
         });
 
 
@@ -28,6 +38,9 @@
 
         var hash = md5("valuejghee");
         console.log("<%=TextBox1.ClientID%>");
+
+
+
 
 
 
@@ -61,6 +74,7 @@
            
            <%--UpdatePanel controls--%>
             <asp:TextBox ID="TextBox3" width="50%" alight="left" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
+           
               
               
         
