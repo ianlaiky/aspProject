@@ -52,7 +52,7 @@
 
         <div class="input-group">
             <span class="input-group-addon">
-                <i class="material-icons">face</i>
+                <i class="material-icons">perm_identity</i>
             </span>
             <asp:TextBox ID="TextBox3" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
 
@@ -63,7 +63,7 @@
 
          <div class="input-group">
             <span class="input-group-addon">
-                <i class="material-icons">face</i>
+                <i class="material-icons">lock_outline</i>
             </span>
           
                <asp:TextBox ID="TextBox1" runat="server"  class="form-control" placeholder="Password..."></asp:TextBox>
@@ -78,26 +78,18 @@
             <span class="input-group-addon">
                 <i class="material-icons">face</i>
             </span>
+            <div>
             <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="First Name..."></asp:TextBox>
+             <asp:TextBox ID="TextBox4" runat="server" class="form-control" placeholder="Last Name..."></asp:TextBox>
 
-
-
+</div>
         </div>
 
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="material-icons">face</i>
-            </span>
-            <asp:TextBox ID="TextBox4" runat="server" class="form-control" placeholder="Last Name..."></asp:TextBox>
-
-
-
-        </div>
 
 
         <div class="input-group">
             <span class="input-group-addon">
-                <i class="material-icons">face</i>
+                <i class="material-icons">contact_phone</i>
             </span>
             <asp:TextBox ID="TextBox5" runat="server" class="form-control" placeholder="Phone Number..."></asp:TextBox>
 
@@ -107,7 +99,7 @@
 
         <div class="input-group">
             <span class="input-group-addon">
-                <i class="material-icons">face</i>
+                <i class="material-icons">location_on</i>
             </span>
             <asp:TextBox ID="TextBox6" runat="server" class="form-control" placeholder="Address..."></asp:TextBox>
 
@@ -117,7 +109,7 @@
 
         <div class="input-group">
             <span class="input-group-addon">
-                <i class="material-icons">face</i>
+                <i class="material-icons">email</i>
             </span>
             <asp:TextBox ID="TextBox7" runat="server" class="form-control" placeholder="Email..."></asp:TextBox>
 
@@ -127,11 +119,15 @@
 
         <div class="input-group">
             <span class="input-group-addon">
-                <i class="material-icons">face</i>
+                <i class="material-icons">cake</i>
             </span>
-            <asp:TextBox ID="TextBox8" runat="server" class="form-control" placeholder="Age..."></asp:TextBox>
+            <asp:TextBox ID="TextBox8" runat="server" class="form-control" placeholder="Birthday..."></asp:TextBox>
+
+              
 
 
+
+            <%--do angular js datepicker--%>
 
         </div>
 
