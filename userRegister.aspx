@@ -28,6 +28,9 @@
 
         var hash = md5("valuejghee");
         console.log("<%=TextBox1.ClientID%>");
+
+
+
     </script>
 
 
@@ -55,9 +58,12 @@
             <span class="input-group-addon">
                 <i class="material-icons">perm_identity</i>
             </span>
-            <asp:TextBox ID="TextBox3" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
-
-
+           
+           <%--UpdatePanel controls--%>
+            <asp:TextBox ID="TextBox3" width="50%" alight="left" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
+              
+              
+        
 
         </div>
 
