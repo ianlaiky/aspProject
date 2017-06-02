@@ -86,6 +86,8 @@ public partial class userRegister : System.Web.UI.Page
 
         }
     }
+
+    
 }
 public static class AntiforgeryChecker
 {
