@@ -84,6 +84,7 @@ public partial class userRegister : System.Web.UI.Page
             System.Diagnostics.Debug.WriteLine(TextBox1.Text);
 
 
+
         }
     }
 
