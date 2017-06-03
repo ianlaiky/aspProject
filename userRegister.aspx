@@ -13,8 +13,6 @@
             console.log("readydfsdfg!");
 
             
-
-
             //var node = document.createElement("LI");                 // Create a <li> node
             //var textnode = document.createTextNode("Water");
             //node.appendChild(textnode);
