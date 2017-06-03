@@ -11,8 +11,9 @@ using System.Configuration;
 /// </summary>
 public class UserCustomer
 {
-
     
+
+
     private string _username;
     private string _passwordhash;
     private string _passwordsalt;
@@ -24,7 +25,6 @@ public class UserCustomer
     private string _age;
     private string _nric;
     string _connStr = ConfigurationManager.ConnectionStrings["FanclubContext"].ConnectionString;
-
     public UserCustomer()
     {
         //
@@ -32,26 +32,19 @@ public class UserCustomer
 
     }
 
-
-
-
-
-
-    public UserCustomer(string username, string passwordhash, string passwordsalt, string phoneNo, string address, string firstName, string lastname, string email, string age, string nric)
+    public UserCustomer(string username, string passwordhash, string passwordsalt, string phoneNo, string address, string firstName, string lastName, string email, string age, string nric)
     {
-
-        this.Username = username;
-        this.Passwordhash = passwordhash;
-        this.Passwordsalt = passwordsalt;
-        this.PhoneNo = phoneNo;
-        this.Address = address;
-        this.FirstName = firstName;
-        this.LastName = lastname;
-        this.Email = email;
-        this.Age = age;
-        this.Nric = nric;
+        _username = username;
+        _passwordhash = passwordhash;
+        _passwordsalt = passwordsalt;
+        _phoneNo = phoneNo;
+        _address = address;
+        _firstName = firstName;
+        _lastName = lastName;
+        _email = email;
+        _age = age;
+        _nric = nric;
     }
-
     public string Username
     {
         get
@@ -184,7 +177,6 @@ public class UserCustomer
 
    
 
-   
 
     public int CustomerInsert()
     {
