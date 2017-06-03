@@ -33,6 +33,10 @@ public class UserCustomer
     }
 
 
+
+
+
+
     public UserCustomer(string username, string passwordhash, string passwordsalt, string phoneNo, string address, string firstName, string lastname, string email, string age, string nric)
     {
 

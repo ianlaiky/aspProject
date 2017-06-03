@@ -56,7 +56,7 @@
 
 
 
-<%--     todo Phone no, password (see below), pass verify and cap + other data --%>
+<%--    todo Phone no, password (see below), pass verify and cap + other data --%>
 <%--    DATABASE--%>
 <%--    check intellji for reference--%>
 
