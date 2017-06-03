@@ -182,7 +182,7 @@ public class UserCustomer
 
    
 
-    public int customerInsert()
+    public int CustomerInsert()
     {
         string msg = null;
         int result = 0;
