@@ -16,6 +16,8 @@
         });
 
 
+
+
         function GeneratePwd() {
             if (document.getElementById("<%=TextBox1.ClientID%>").value != "") {
                 console.log("readydfsdfg!");
@@ -42,7 +44,7 @@
     <%--check intellji for reference--%>
 
 
-
+    
 
     <%--IMPT:Pass hash on client is done, generate salt to be hashed on client side & hash and salt on server side--%>
     <%--Angularjs check pass strnth--%>
