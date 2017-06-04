@@ -12,8 +12,19 @@
         $(document).ready(function () {
             console.log("readydfsdfg!");
 
+            
+            //var node = document.createElement("LI");                 // Create a <li> node
+            //var textnode = document.createTextNode("Water");
+            //node.appendChild(textnode);
+
+            //document.getElementById("<%=TextBox3.ClientID%>").appendChild(node);
+
+            //$("#form-group is-empty").append('<p>Test</p>');
+
+
 
         });
+
 
 
 
@@ -29,6 +40,12 @@
 
         var hash = md5("valuejghee");
         console.log("<%=TextBox1.ClientID%>");
+
+
+
+
+
+
     </script>
 
 
@@ -39,9 +56,9 @@
 
 
 
-    <%-- TODO: Phone no, password (see below), pass verify****** and cap + other data --%>
-    <%--DATABASE--%>
-    <%--check intellji for reference--%>
+<%--    todo Phone no, password (see below), pass verify and cap + other data --%>
+<%--    DATABASE--%>
+<%--    check intellji for reference--%>
 
 
     
@@ -51,14 +68,28 @@
 
     <div class="card-content">
          <asp:HiddenField ID="antiforgery" runat="server" />
+       
+        
+        
+        
 
         <div class="input-group">
             <span class="input-group-addon">
                 <i class="material-icons">perm_identity</i>
             </span>
-            <asp:TextBox ID="TextBox3" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
+           
+           <%--UpdatePanel controls--%>
+            <asp:TextBox ID="TextBox3" width="50%" alight="left" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
+           
+               
 
+         
+<%--todo username to be done like last project?            --%>
+           
 
+         
+           
+        
 
         </div>
 
@@ -74,18 +105,18 @@
         </div>
 
 
-        
-
         <div class="input-group">
             <span class="input-group-addon">
                 <i class="material-icons">face</i>
             </span>
             <div>
-            <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="First Name..."></asp:TextBox>
-             <asp:TextBox ID="TextBox4" runat="server" class="form-control" placeholder="Last Name..."></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="First Name..."></asp:TextBox>
+                <asp:TextBox ID="TextBox4" runat="server" class="form-control" placeholder="Last Name..."></asp:TextBox>
 
-</div>
+            </div>
         </div>
+
+
 
 
 
@@ -154,6 +185,6 @@
 
     </div>
 
-   
+    <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click"/>
 </asp:Content>
 

@@ -15,20 +15,25 @@ public partial class userRegister : System.Web.UI.Page
 
         
 
+
         if (!IsPostBack)
         {
             // Validate initially to force asterisks
             // to appear before the first roundtrip.
             Button1.Attributes.Add("onClick", "GeneratePwd();");
+         
 
 
             Guid token = Guid.NewGuid();
             Session["AntiforgeryToken"] = token;
             antiforgery.Value = token.ToString();
 
+
             System.Diagnostics.Debug.WriteLine("Token");
             System.Diagnostics.Debug.WriteLine(token);
             System.Diagnostics.Debug.WriteLine(antiforgery.Value);
+
+
 
 
             //Testing redirect
@@ -46,8 +51,6 @@ public partial class userRegister : System.Web.UI.Page
                 Response.Redirect("XSS detected");
             }
         }
-
-
     }
 
 
@@ -82,8 +85,11 @@ public partial class userRegister : System.Web.UI.Page
             System.Diagnostics.Debug.WriteLine(TextBox1.Text);
 
 
+
         }
     }
+
+
 }
 public static class AntiforgeryChecker
 {
