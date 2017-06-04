@@ -25,6 +25,9 @@ public class UserCustomer
     private string _age;
     private string _nric;
     string _connStr = ConfigurationManager.ConnectionStrings["FanclubContext"].ConnectionString;
+
+    
+
     public UserCustomer()
     {
         //
