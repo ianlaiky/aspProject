@@ -45,10 +45,12 @@ public partial class userRegister : System.Web.UI.Page
         {
 
             Guid stored = (Guid)Session["AntiforgeryToken"];
-            Guid sent = new Guid(antiforgery.Value);
-            if (sent != stored)
+            string tokenstored = stored.ToString();
+            string sent = antiforgery.Value;
+            string tokensent = antiforgery.Value.ToString();
+            if (tokenstored!=tokensent)
             {
-                Response.Redirect("XSS detected");
+                Response.Redirect("errorxss.aspx",false);
             }
         }
     }
