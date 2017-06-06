@@ -20,7 +20,7 @@ public partial class userRegister : System.Web.UI.Page
         {
             // Validate initially to force asterisks
             // to appear before the first roundtrip.
-            Button1.Attributes.Add("onClick", "GeneratePwd();");
+            
          
 
 
@@ -68,7 +68,7 @@ public partial class userRegister : System.Web.UI.Page
 
             if (!isCaptchaValid)
             {
-                System.Diagnostics.Debug.WriteLine("testing testing sdrdsofjskjfd");
+                System.Diagnostics.Debug.WriteLine("Captcha failure");
 
 
                 // E.g. Return to view or set an error message to visible
@@ -84,7 +84,7 @@ public partial class userRegister : System.Web.UI.Page
 
             System.Diagnostics.Debug.WriteLine("testing");
 
-            System.Diagnostics.Debug.WriteLine(TextBox1.Text);
+            System.Diagnostics.Debug.WriteLine("Password is: "+TextBox1.Text);
 
 
 
