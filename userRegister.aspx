@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.master" AutoEventWireup="true" CodeFile="userRegister.aspx.cs" Inherits="userRegister" %>
-
-
+<%@ Import Namespace="System.Security.Cryptography" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
@@ -8,6 +7,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 
     <script type="text/javascript">
+        
+
+        <%
+     
+
+        //Generate random "salt"
+        RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+        byte[] saltByte = new byte[8];
+
+        //Fills array of bytes with a cryptographically strong sequence of random values. 
+        rng.GetBytes(saltByte);
+          string salt = Convert.ToBase64String(saltByte);
+
+         %>
 
         $(document).ready(function () {
             console.log("readydfsdfg!");
@@ -25,7 +38,7 @@
 
         });
 
-
+    
 
 
 
@@ -33,17 +46,20 @@
             if (document.getElementById("<%=TextBox1.ClientID%>").value != "") {
                 console.log("readydfsdfg!");
                 console.log(document.getElementById("<%=TextBox1.ClientID%>").value);
-            document.getElementById("<%=TextBox1.ClientID%>").value = md5(document.getElementById("<%=TextBox1.ClientID%>").value);
+
+
+
+                document.getElementById("<%=TextBox1.ClientID%>").value = md5(document.getElementById("<%=TextBox1.ClientID%>").value + "<%=salt%>");
+
+                document.getElementById('<%=HiddenFieldForSalt.ClientID%>').value = "<%=salt%>";
+
+                return true;
             }
         }
 
 
         var hash = md5("valuejghee");
         console.log("<%=TextBox1.ClientID%>");
-
-
-
-
 
 
     </script>
@@ -71,7 +87,11 @@
        
         
         
+       For debuging purpose: salt: <%=salt %>
         
+<%--        salt hidden textbox--%>
+        <asp:HiddenField ID="HiddenFieldForSalt" runat="server" />
+
 
         <div class="input-group">
             <span class="input-group-addon">
@@ -179,7 +199,7 @@
 
 
     <div class="footer text-center">
-        <asp:Button ID="Button1" class="btn btn-primary btn-round" runat="server" Text="Register" OnClick="Button1_Click1" />
+        <asp:Button ID="Button1" class="btn btn-primary btn-round" runat="server" Text="Register" OnClick="Button1_Click1" OnClientClick="if(!GeneratePwd()){return false}"/>
 
 
 
