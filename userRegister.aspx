@@ -87,7 +87,7 @@
        
         
         
-       For debuging purpose: salt: <%=salt %>
+<%--       For debuging purpose: salt: <%=salt %>--%>
         
 <%--        salt hidden textbox--%>
         <asp:HiddenField ID="HiddenFieldForSalt" runat="server" />
