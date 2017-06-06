@@ -7,7 +7,7 @@
     
     <div class="card card-login card-hidden">
         <div class="card-header text-center" data-background-color="rose">
-            <h4 class="card-title">Login</h4>
+            <htu4 class="card-title">Logins</htu4>
            
         </div>
         <p class="category text-center">
@@ -45,7 +45,7 @@
             </button>
         </div>
          <div class="footer text-center">
-            <button id="loginPageBtn" type="submit"
+            <button id="forgetPassword" type="submit"
                     class="btn btn-rose btn-simple btn-wd btn-lg"> Forget Password
             </button>
         </div>
