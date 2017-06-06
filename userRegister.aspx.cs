@@ -85,6 +85,7 @@ public partial class userRegister : System.Web.UI.Page
             System.Diagnostics.Debug.WriteLine("testing");
 
             System.Diagnostics.Debug.WriteLine("Password is: "+TextBox1.Text);
+            System.Diagnostics.Debug.WriteLine("Salt value: "+HiddenFieldForSalt.Value);
 
 
 

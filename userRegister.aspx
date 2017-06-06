@@ -51,6 +51,8 @@
 
                 document.getElementById("<%=TextBox1.ClientID%>").value = md5(document.getElementById("<%=TextBox1.ClientID%>").value + "<%=salt%>");
 
+                document.getElementById('<%=HiddenFieldForSalt.ClientID%>').value = "<%=salt%>";
+
                 return true;
             }
         }
@@ -86,6 +88,10 @@
         
         
        For debuging purpose: salt: <%=salt %>
+        
+<%--        salt hidden textbox--%>
+        <asp:HiddenField ID="HiddenFieldForSalt" runat="server" />
+
 
         <div class="input-group">
             <span class="input-group-addon">
