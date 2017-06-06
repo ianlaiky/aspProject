@@ -18,6 +18,6 @@ public partial class login : System.Web.UI.Page
     }
     protected void forgetpassword(object sender, EventArgs e)
     {
-        Response.Redirect("forgetpassword.aspx", false);
+        Response.Redirect("2faLogin.aspx", false);
     }
 }
