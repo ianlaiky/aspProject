@@ -3,8 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     
     <div class="card card-login card-hidden">
+        <br>
         
-      <h4 style="font-size: 25px">A one time code has been sent to your number ending ****7766</h4>
+<%--      <h4 style="font-size: 25px">A one time code has been sent to your number ending ****7766</h4>--%>
+        <span class ="label label-warning">A one time code has been sent to your number ending ****7766</span>
         <br/>
         <div class="card-content">
             <div class="input-group">

@@ -14,10 +14,15 @@ public partial class login : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
+        
+    }
+    //    protected void forgetpassword(object sender, EventArgs e)
+    //    {
+    //        Response.Redirect("2faLogin.aspx", false);
+    //    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
         Response.Redirect("2faLogin.aspx", false);
     }
-//    protected void forgetpassword(object sender, EventArgs e)
-//    {
-//        Response.Redirect("2faLogin.aspx", false);
-//    }
 }
