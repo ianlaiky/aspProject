@@ -3,11 +3,17 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 
     <script type="text/javascript">
         
+        
+//        $(function () {
+//            $("#datepicker").datepicker();
+//        });
+      
 
         <%
      
@@ -61,8 +67,6 @@
         var hash = md5("valuejghee");
         console.log("<%=TextBox1.ClientID%>");
 
-        
-
 
     </script>
 
@@ -74,10 +78,10 @@
 
 
 
-<%--    todo Phone no, password (see below), pass verify and cap + other data --%>
+<%--    todo Phone no, password (see below), passord verify and cap + other data --%>
 <%--    DATABASE--%>
 <%--    check intellji for reference--%>
-
+<%--    todo pass strength--%>
 
     
 
@@ -180,6 +184,19 @@
 
 
             <%--do angular js datepicker--%>
+            
+            
+           
+                       
+               
+      
+         
+
+            
+            <!-- javascript -->
+
+          
+	
 
         </div>
 

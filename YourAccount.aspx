@@ -22,5 +22,27 @@
                 </td>
             </tr>
         </table>
+<!-- markup -->
+<input class="datepicker form-control" type="text" value="03/12/2016"/>
+
+<!-- javascript -->
+
+<script>$('.datepicker').datepicker({
+	weekStart:1
+});</script>
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">#</th>
+            <th>Transaction Date</th>
+            <th>Value Date</th>
+            <th>Description</th>
+            <th>Withdrawels(SGD)</th>
+            <th>Deposits(SGD)</th>
+        </tr>
+    </thead>
+    </table>
+
 </asp:Content>
 
