@@ -6,7 +6,7 @@
             <i class="material-icons">mail_outline</i>
         </div>
         <div class="card-content">
-            <h4 class="card-title">Forget Password</h4>
+            <span style="font-size:25px" class="label label-primary">Forget Password</span>
             <div class="form-group label-floating">
                 <label class="control-label">
                     Email Address

@@ -11,196 +11,77 @@ using System.Configuration;
 /// </summary>
 public class UserCustomer
 {
-    
-
-
-    private string _username;
-    private string _passwordhash;
-    private string _passwordsalt;
-    private string _phoneNo;
-    private string _address;
-    private string _firstName;
-    private string _lastName;
-    private string _email;
-    private string _age;
-    private string _nric;
     string _connStr = ConfigurationManager.ConnectionStrings["FanclubContext"].ConnectionString;
-
-    
-
     public UserCustomer()
     {
         //
         // TODO: Add constructor logic here
-
     }
 
-    public UserCustomer(string username, string passwordhash, string passwordsalt, string phoneNo, string address, string firstName, string lastName, string email, string age, string nric)
+
+    public UserCustomer(string username, string passwordhash, string passwordsalt, string phoneNo, string address, string firstName, string lastName, string email, string birthday, string emailVerified, string phoneVerified, string nric)
     {
-        _username = username;
-        _passwordhash = passwordhash;
-        _passwordsalt = passwordsalt;
-        _phoneNo = phoneNo;
-        _address = address;
-        _firstName = firstName;
-        _lastName = lastName;
-        _email = email;
-        _age = age;
-        _nric = nric;
-    }
-    public string Username
-    {
-        get
-        {
-            return _username;
-        }
-
-        set
-        {
-            _username = value;
-        }
+        this.Username = username;
+        this.Passwordhash = passwordhash;
+        this.Passwordsalt = passwordsalt;
+        this.PhoneNo = phoneNo;
+        this.Address = address;
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.Email = email;
+        this.Birthday = birthday;
+        this.EmailVerified = emailVerified;
+        this.PhoneVerified = phoneVerified;
+        this.Nric = nric;
     }
 
-    public string Passwordhash
-    {
-        get
-        {
-            return _passwordhash;
-        }
+    public string Username { get; set; }
 
-        set
-        {
-            _passwordhash = value;
-        }
-    }
+    public string Passwordhash { get; set; }
 
-    public string Passwordsalt
-    {
-        get
-        {
-            return _passwordsalt;
-        }
+    public string Passwordsalt { get; set; }
 
-        set
-        {
-            _passwordsalt = value;
-        }
-    }
+    public string PhoneNo { get; set; }
 
-    public string PhoneNo
-    {
-        get
-        {
-            return _phoneNo;
-        }
+    public string Address { get; set; }
 
-        set
-        {
-            _phoneNo = value;
-        }
-    }
+    public string FirstName { get; set; }
 
-    public string Address
-    {
-        get
-        {
-            return _address;
-        }
+    public string LastName { get; set; }
 
-        set
-        {
-            _address = value;
-        }
-    }
+    public string Email { get; set; }
 
-    public string FirstName
-    {
-        get
-        {
-            return _firstName;
-        }
+    public string Birthday { get; set; }
 
-        set
-        {
-            _firstName = value;
-        }
-    }
+    public string EmailVerified { get; set; }
 
-    public string LastName
-    {
-        get
-        {
-            return _lastName;
-        }
+    public string PhoneVerified { get; set; }
 
-        set
-        {
-            _lastName = value;
-        }
-    }
+    public string Nric { get; set; }
 
-    public string Email
-    {
-        get
-        {
-            return _email;
-        }
-
-        set
-        {
-            _email = value;
-        }
-    }
-
-    public string Age
-    {
-        get
-        {
-            return _age;
-        }
-
-        set
-        {
-            _age = value;
-        }
-    }
-
-    public string Nric
-    {
-        get
-        {
-            return _nric;
-        }
-
-        set
-        {
-            _nric = value;
-        }
-    }
-
-   
-
-
+    
     public int CustomerInsert()
     {
         string msg = null;
         int result = 0;
-        string queryStr = "INSERT INTO Products(username,passwordhash,passwordsalt,phoneNo,address,firstName,lastName,email,age,nric)" + "values (@username,@passwordhash,@passwordsalt,@phoneNo,@address,@firstName,@lastname,@email,@age,@nric)";
+        string queryStr =
+            "INSERT INTO Products(username,passwordhash,passwordsalt,phoneNo,address,firstName,lastName,email,birthday,emailVerified,phoneVerified,nric)" +
+            "values (@username,@passwordhash,@passwordsalt,@phoneNo,@address,@firstName,@lastname,@email,@age,@nric)";
         //+ "values (@Product_ID, @Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
         try
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@username", this.Username);
-            cmd.Parameters.AddWithValue("@passwordhash", this.Passwordhash);
-            cmd.Parameters.AddWithValue("@passwordsalt", this.Passwordsalt);
-            cmd.Parameters.AddWithValue("@phoneNo", this.PhoneNo);
-            cmd.Parameters.AddWithValue("@address", this.Address);
-            cmd.Parameters.AddWithValue("@firstName", this.FirstName);
-            cmd.Parameters.AddWithValue("@lastname", this.LastName);
-            cmd.Parameters.AddWithValue("@email", this.Email);
-            cmd.Parameters.AddWithValue("@age", this.Age);
-            cmd.Parameters.AddWithValue("@nric", this.Nric);
+            cmd.Parameters.AddWithValue("@username", Username);
+            cmd.Parameters.AddWithValue("@passwordhash", Passwordhash);
+            cmd.Parameters.AddWithValue("@passwordsalt", Passwordsalt);
+            cmd.Parameters.AddWithValue("@phoneNo", PhoneNo);
+            cmd.Parameters.AddWithValue("@address", Address);
+            cmd.Parameters.AddWithValue("@firstName", FirstName);
+            cmd.Parameters.AddWithValue("@lastname", LastName);
+            cmd.Parameters.AddWithValue("@email", Email);
+            cmd.Parameters.AddWithValue("@age", Birthday);
+            cmd.Parameters.AddWithValue("@nric", Nric);
 
             conn.Open();
             result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
@@ -211,8 +92,5 @@ public class UserCustomer
         {
             return 0;
         }
-    }//end Insert
-
-
-
+    } //end Insert
 }
