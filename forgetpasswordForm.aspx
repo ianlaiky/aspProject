@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/testingofform.master" AutoEventWireup="true" CodeFile="ttt.aspx.cs" Inherits="ttt" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/testingofform.master" AutoEventWireup="true" CodeFile="forgetpasswordForm.aspx.cs" Inherits="ttt" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
