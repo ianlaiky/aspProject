@@ -14,7 +14,7 @@
                 <a href="#about" data-toggle="tab">I forgot my password</a>
             </li>
             <li>
-                <a href="#account" data-toggle="tab">I know my password but i can'y sign in</a>
+                <a href="#account" data-toggle="tab">I know my password but i can't sign in</a>
             </li>
             <li>
                 <a href="#address" data-toggle="tab">I think someone else is using my account</a>
