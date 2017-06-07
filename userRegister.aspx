@@ -94,7 +94,7 @@
 <%--        salt hidden textbox--%>
         <asp:HiddenField ID="HiddenFieldForSalt" runat="server" />
 
-
+    
         <div class="input-group">
             <span class="input-group-addon">
                 <i class="material-icons">perm_identity</i>
@@ -109,10 +109,7 @@
 <%--todo username to be done like last project?            --%>
            
 
-         
-           
-        
-
+       
         </div>
 
 
