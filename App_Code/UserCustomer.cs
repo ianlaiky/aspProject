@@ -65,8 +65,8 @@ public class UserCustomer
         string msg = null;
         int result = 0;
         string queryStr =
-            "INSERT INTO Products(username,passwordhash,passwordsalt,phoneNo,address,firstName,lastName,email,birthday,emailVerified,phoneVerified,nric)" +
-            "values (@username,@passwordhash,@passwordsalt,@phoneNo,@address,@firstName,@lastname,@email,@age,@nric)";
+            "INSERT INTO Customer(username,passwordhash,passwordsalt,phoneNo,address,firstName,lastName,email,birthday,emailVerified,phoneVerified,nric)" +
+            "values (@username,@passwordhash,@passwordsalt,@phoneNo,@address,@firstName,@lastname,@email,@birthday,@emailVerified,@phoneVerified,@nric)";
         //+ "values (@Product_ID, @Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
         try
         {
@@ -80,8 +80,11 @@ public class UserCustomer
             cmd.Parameters.AddWithValue("@firstName", FirstName);
             cmd.Parameters.AddWithValue("@lastname", LastName);
             cmd.Parameters.AddWithValue("@email", Email);
-            cmd.Parameters.AddWithValue("@age", Birthday);
+            cmd.Parameters.AddWithValue("@birthday", Birthday);
+            cmd.Parameters.AddWithValue("@emailVerified", EmailVerified);
+            cmd.Parameters.AddWithValue("@phoneVerified", PhoneVerified);
             cmd.Parameters.AddWithValue("@nric", Nric);
+
 
             conn.Open();
             result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
