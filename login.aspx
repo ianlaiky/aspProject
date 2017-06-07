@@ -44,10 +44,11 @@
         
             
             <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
+           
         </div>
          <div class="footer text-center">
-            <button id="forgetPassword" type="submit"
-                    class="btn btn-rose btn-simple btn-wd btn-lg"> Forget Password</button>
+             <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button2" runat="server" Text="Forget Password" OnClick="Button2_Click1"  />
+           
         </div>
     </div>
     

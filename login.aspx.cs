@@ -25,4 +25,9 @@ public partial class login : System.Web.UI.Page
     {
         Response.Redirect("2faLogin.aspx", false);
     }
+
+    protected void Button2_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("ttt.aspx",false);
+    }
 }
