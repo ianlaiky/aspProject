@@ -5,25 +5,57 @@
             <tr>
                 <td class="auto-style2">Name(as per bank&#39;s record):</td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server" Width="247px"></asp:TextBox>
+                   <div class="col-sm-4">
+	<div class="form-group label-floating has-success">
+		<label class="control-label">Success input</label>
+		<input type="text" value="Success" class="form-control" />
+		<span class="form-control-feedback">
+			<i class="material-icons">done</i>
+		</span>
+	</div>
+</div>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Account no:</td>
                 <td>
-                    <asp:TextBox ID="TextBox2" runat="server" Width="245px"></asp:TextBox>
+                    <div class="col-sm-4">
+	<div class="form-group label-floating has-success">
+		<label class="control-label">Success input</label>
+		<input type="text" value="Success" class="form-control" />
+		<span class="form-control-feedback">
+			<i class="material-icons">done</i>
+		</span>
+	</div>
+</div>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Email of account holder(if you wish to notify them of payment:</td>
                 <td>
-                    <asp:TextBox ID="TextBox3" runat="server" Width="246px"></asp:TextBox>
+                  <div class="col-sm-4">
+	<div class="form-group label-floating has-success">
+		<label class="control-label">Success input</label>
+		<input type="text" value="Success" class="form-control" />
+		<span class="form-control-feedback">
+			<i class="material-icons">done</i>
+		</span>
+	</div>
+</div>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">Your initials:</td>
                 <td>
-                    <asp:TextBox ID="TextBox4" runat="server" Width="244px"></asp:TextBox>
+                   <div class="col-sm-4">
+	<div class="form-group label-floating has-success">
+		<label class="control-label">Success input</label>
+		<input type="text" value="Success" class="form-control" />
+		<span class="form-control-feedback">
+			<i class="material-icons">done</i>
+		</span>
+	</div>
+</div>
                 </td>
             </tr>
         </table>

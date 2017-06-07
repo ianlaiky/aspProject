@@ -9,10 +9,16 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:TextBox ID="TextBox1" runat="server" Height="33px"></asp:TextBox>
+                    <div class="col-sm-4">
+	<div class="form-group">
+    	<input type="text" value="$0.00" placeholder="" class="form-control" />
+	</div>
                 </td>
                 <td>
-                    <asp:TextBox ID="TextBox2" runat="server" Height="38px"></asp:TextBox>
+                  <div class="col-sm-4">
+	<div class="form-group">
+    	<input type="text" value="$0.00" placeholder="" class="form-control" />
+	</div>
                 </td>
             </tr>
         </table>
