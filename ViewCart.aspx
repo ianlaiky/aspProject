@@ -16,6 +16,12 @@ jh
         </asp:TemplateField>
         <asp:BoundField DataField="Product_Price" DataFormatString="{0:C}" HeaderText="Unit Price" />
         <asp:BoundField DataField="TotalPrice" DataFormatString="{0:C}" HeaderText="Total Price" />
+
+
+
+
+
+
     </Columns>
 </asp:GridView>
     <br />
