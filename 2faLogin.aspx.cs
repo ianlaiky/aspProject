@@ -11,4 +11,9 @@ public partial class _2faLogin : System.Web.UI.Page
     {
 
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TransferFund.aspx", false);
+    }
 }

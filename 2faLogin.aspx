@@ -24,7 +24,7 @@
            
         </div>
         <div class="footer text-center">
-            <asp:Button ID="Button2" class="btn btn-rose btn-simple btn-wd btn-lg" runat="server" Text="Sign in" />
+            <asp:Button ID="Button2" class="btn btn-rose btn-simple btn-wd btn-lg" runat="server" Text="Sign in" OnClick="Button2_Click" />
         </div>
        
     </div>
