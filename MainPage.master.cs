@@ -11,4 +11,12 @@ public partial class MainPage : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void homeTest(object sender, EventArgs e)
+    {
+        System.Diagnostics.Debug.WriteLine("testr ");
+
+        Response.Redirect("login.aspx");
+
+    }
 }
