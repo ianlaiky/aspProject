@@ -11,22 +11,7 @@ using System.Configuration;
 /// </summary>
 public class UserCustomer
 {
-    
-
-
-    private string _username;
-    private string _passwordhash;
-    private string _passwordsalt;
-    private string _phoneNo;
-    private string _address;
-    private string _firstName;
-    private string _lastName;
-    private string _email;
-    private string _age;
-    private string _nric;
     string _connStr = ConfigurationManager.ConnectionStrings["FanclubContext"].ConnectionString;
-
-    
 
     public UserCustomer()
     {
@@ -35,150 +20,49 @@ public class UserCustomer
 
     }
 
-    public UserCustomer(string username, string passwordhash, string passwordsalt, string phoneNo, string address, string firstName, string lastName, string email, string age, string nric)
+    public UserCustomer(string username, string passwordhash, string passwordsalt, string phoneNo, string address, string firstName, string lastName, string email, string age, string nric, string emailVerified, string phoneVerified)
     {
-        _username = username;
-        _passwordhash = passwordhash;
-        _passwordsalt = passwordsalt;
-        _phoneNo = phoneNo;
-        _address = address;
-        _firstName = firstName;
-        _lastName = lastName;
-        _email = email;
-        _age = age;
-        _nric = nric;
-    }
-    public string Username
-    {
-        get
-        {
-            return _username;
-        }
-
-        set
-        {
-            _username = value;
-        }
+        Username = username;
+        Passwordhash = passwordhash;
+        Passwordsalt = passwordsalt;
+        PhoneNo = phoneNo;
+        Address = address;
+        FirstName = firstName;
+        LastName = lastName;
+        Email = email;
+        Age = age;
+        Nric = nric;
+        EmailVerified = emailVerified;
+        PhoneVerified = phoneVerified;
     }
 
-    public string Passwordhash
-    {
-        get
-        {
-            return _passwordhash;
-        }
+    public string Username { get; set; }
 
-        set
-        {
-            _passwordhash = value;
-        }
-    }
+    public string Passwordhash { get; set; }
 
-    public string Passwordsalt
-    {
-        get
-        {
-            return _passwordsalt;
-        }
+    public string Passwordsalt { get; set; }
 
-        set
-        {
-            _passwordsalt = value;
-        }
-    }
+    public string PhoneNo { get; set; }
 
-    public string PhoneNo
-    {
-        get
-        {
-            return _phoneNo;
-        }
+    public string Address { get; set; }
 
-        set
-        {
-            _phoneNo = value;
-        }
-    }
+    public string FirstName { get; set; }
 
-    public string Address
-    {
-        get
-        {
-            return _address;
-        }
+    public string LastName { get; set; }
 
-        set
-        {
-            _address = value;
-        }
-    }
+    public string Email { get; set; }
 
-    public string FirstName
-    {
-        get
-        {
-            return _firstName;
-        }
+    public string Age { get; set; }
 
-        set
-        {
-            _firstName = value;
-        }
-    }
+    public string Nric { get; set; }
 
-    public string LastName
-    {
-        get
-        {
-            return _lastName;
-        }
+    public string EmailVerified { get; set; }
 
-        set
-        {
-            _lastName = value;
-        }
-    }
+    public string PhoneVerified { get; set; }
 
-    public string Email
-    {
-        get
-        {
-            return _email;
-        }
+  
 
-        set
-        {
-            _email = value;
-        }
-    }
 
-    public string Age
-    {
-        get
-        {
-            return _age;
-        }
-
-        set
-        {
-            _age = value;
-        }
-    }
-
-    public string Nric
-    {
-        get
-        {
-            return _nric;
-        }
-
-        set
-        {
-            _nric = value;
-        }
-    }
-
-   
 
 
     public int CustomerInsert()
