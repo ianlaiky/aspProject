@@ -11,7 +11,7 @@
            
         </div>
         <p class="category text-center">
-            <span class="label label-success">FAN CLUB BANKINGS</span>
+            <span style="font-size: 20px" class="label label-success">FAN CLUB BANKINGS</span>
         </p>
         <div class="card-content">
             <div class="input-group">

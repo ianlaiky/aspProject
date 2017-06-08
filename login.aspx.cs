@@ -28,6 +28,6 @@ public partial class login : System.Web.UI.Page
 
     protected void Button2_Click1(object sender, EventArgs e)
     {
-        Response.Redirect("ttt.aspx",false);
+        Response.Redirect("forgetpasswordForm.aspx",false);
     }
 }
