@@ -3,16 +3,19 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-   
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 
     <script type="text/javascript">
         
         
-//        $(function () {
-//            $("#datepicker").datepicker();
-//        });
+        $(function () {
+            $("#<%=TextBox8.ClientID%>").datepicker();
+        });
       
 
         <%
@@ -182,6 +185,10 @@
               
 
 
+            
+            
+            
+            
 
             <%--do angular js datepicker--%>
             
@@ -189,7 +196,7 @@
            
                        
                
-      
+         
          
 
             
@@ -199,8 +206,7 @@
 	
 
         </div>
-
-
+      
 
         <br />
 
@@ -220,7 +226,7 @@
 
 
     </div>
-    
+  
     
 <%--todo use this btn for username check--%>
 <%--    <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click"/>--%>
