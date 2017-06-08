@@ -358,7 +358,6 @@
                     <%--<!-- Insert all the awesome body content here--%>
                <a  class="btn btn-default" href="YourAccount.aspx">Home</a>
                      <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>
-                     <img src="assets/img/bank.jng" class="picture-src" id="wizardPicturePreview" title="" />
 
                         <form runat="server">
                                <asp:ContentPlaceHolder ID="MainContent" runat="server"/> 
