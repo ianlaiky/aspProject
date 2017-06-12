@@ -7,6 +7,9 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="assets/js/sha1.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.js"></script>
+
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
@@ -76,6 +79,23 @@
                 console.log("password sha1 " + sha1AsKey);
 
 
+                sha1AsKey = sha1AsKey.toString();
+
+                //using crypto-js, code.google.com/archive/p/crypto-js/
+                //encrypt
+                var ciphertext = CryptoJS.AES.encrypt('my messtage', sha1AsKey);
+
+
+                console.log("cipher " + ciphertext);
+
+                // Decrypt 
+                var decrypt = CryptoJS.AES.decrypt(ciphertext.toString(), sha1AsKey);
+                var plaintext = decrypt.toString(CryptoJS.enc.Utf8);
+
+                console.log("dasds " + plaintext);
+
+
+
                 // must return true; false for testing 
                 return false;
             }
@@ -110,11 +130,25 @@
         console.log("SHA 1 test " + sha1hash);
 
         //end of test
+        sha1hash = sha1hash.toString();
 
 
 
+       
+
+        //encrypt testing usign crypto-js
+
+        //encrypt
+        var ciphertext = CryptoJS.AES.encrypt('my messtage','123');
 
 
+        console.log("cipher " + ciphertext);
+
+        // Decrypt 
+        var bytes = CryptoJS.AES.decrypt(ciphertext.toString(),'123');
+        var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+
+        console.log("dasds " + plaintext);
 
     </script>
 
