@@ -105,11 +105,11 @@
             </span>
            
            <%--UpdatePanel controls--%>
-            <asp:TextBox ID="TextBox3" width="50%" alight="left" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
            
                
 
-         
+            
 <%--todo username to be done like last project?            --%>
            
 
@@ -135,7 +135,9 @@
             <div>
                 <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="First Name..."></asp:TextBox>
                 <asp:TextBox ID="TextBox4" runat="server" class="form-control" placeholder="Last Name..."></asp:TextBox>
-
+                
+                <asp:HiddenField ID="HiddenFieldFirstNameEncrypted" runat="server" />
+                <asp:HiddenField ID="HiddenFieldLastNameEncrypted" runat="server" />
             </div>
         </div>
 
@@ -159,7 +161,7 @@
             </span>
             <asp:TextBox ID="TextBox6" runat="server" class="form-control" placeholder="Address..."></asp:TextBox>
 
-
+            <asp:HiddenField ID="HiddenFieldAddressEncrypted" runat="server" />
 
         </div>
 
