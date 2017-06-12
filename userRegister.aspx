@@ -6,13 +6,16 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="assets/js/sha1.js"></script>
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 
     <script type="text/javascript">
-        
-        
+
+
+       
+
         $(function () {
             $("#<%=TextBox8.ClientID%>").datepicker();
         });
@@ -52,23 +55,65 @@
 
 
         function GeneratePwd() {
-            if (document.getElementById("<%=TextBox1.ClientID%>").value != "") {
+            if ((document.getElementById("<%=TextBox1.ClientID%>").value !== "")&&((document.getElementById("<%=confirmpassword.ClientID%>").value) === (document.getElementById("<%=TextBox1.ClientID%>").value))) {
                 console.log("readydfsdfg!");
                 console.log(document.getElementById("<%=TextBox1.ClientID%>").value);
 
-
+                var passtemp = document.getElementById("<%=TextBox1.ClientID%>").value;
 
                 document.getElementById("<%=TextBox1.ClientID%>").value = md5(document.getElementById("<%=TextBox1.ClientID%>").value + "<%=salt%>");
 
                 document.getElementById('<%=HiddenFieldForSalt.ClientID%>').value = "<%=salt%>";
 
-                return true;
+//               sha1(document.getElementById("<%=TextBox1.ClientID%>").value);
+                var sha1AsKey = sha1.create();
+                sha1AsKey.update(passtemp+"<%=salt%>");
+                sha1AsKey.hex();
+
+
+                console.log("SAlt is " + "<%=salt%>");
+
+                console.log("password sha1 " + sha1AsKey);
+
+
+                // must return true; false for testing 
+                return false;
             }
         }
 
 
+
+        function encryptData() {
+
+
+
+
+            return true;
+
+        }
+
+
+
+        //hash functions test
         var hash = md5("valuejghee");
         console.log("<%=TextBox1.ClientID%>");
+
+
+        console.log("testr? "+sha1('Message to hash'));
+
+
+        sha1('Message to hash');
+        var sha1hash = sha1.create();
+        sha1hash.update('Message to hash');
+        sha1hash.hex();
+
+        console.log("SHA 1 test " + sha1hash);
+
+        //end of test
+
+
+
+
 
 
     </script>
@@ -126,7 +171,7 @@
             </span>
           
                <asp:TextBox ID="TextBox1" runat="server"  class="form-control" placeholder="Password..."></asp:TextBox>
-
+             <asp:TextBox ID="confirmpassword" runat="server" class="form-control" placeholder="Confirm password..."></asp:TextBox>
 
         </div>
 
@@ -187,24 +232,11 @@
               
 
 
-            
+            <asp:HiddenField ID="HiddenFieldBirthdayEncrypted" runat="server" />
             
             
             
 
-            <%--do angular js datepicker--%>
-            
-            
-           
-                       
-               
-         
-         
-
-            
-            <!-- javascript -->
-
-          
 	
 
         </div>
