@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainPage.master" AutoEventWireup="true" CodeFile="YourAccount.aspx.cs" Inherits="YourAccount" %>
-
+ 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-   
+
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">What you have:</td>
@@ -28,7 +28,8 @@
 <!-- javascript -->
 
 <script>$('.datepicker').datepicker({
-	weekStart:1
+    weekStart: 1
+ 
 });</script>
 
     <table class="table">
