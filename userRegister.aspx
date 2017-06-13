@@ -13,7 +13,11 @@
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-
+    <style>
+        .strong   { color: green}
+        .medium   { color: blue}
+        .weak     { color: red}
+    </style>
     <script type="text/javascript">
 
 
@@ -41,13 +45,7 @@
             console.log("readydfsdfg!");
 
             
-            //var node = document.createElement("LI");                 // Create a <li> node
-            //var textnode = document.createTextNode("Water");
-            //node.appendChild(textnode);
-
-            //document.getElementById("<%=TextBox3.ClientID%>").appendChild(node);
-
-            //$("#form-group is-empty").append('<p>Test</p>');
+//            document.getElementById("plscheckpassword").innerHTML = "New text!";
 
 
 
@@ -58,19 +56,26 @@
 
 
         function GeneratePwd() {
-            if ((document.getElementById("<%=TextBox1.ClientID%>").value !== "")&&((document.getElementById("<%=confirmpassword.ClientID%>").value) === (document.getElementById("<%=TextBox1.ClientID%>").value))) {
+            if ((document.getElementById("<%=TextBox1.ClientID%>").value !== "") &&
+            ((document.getElementById("<%=confirmpassword.ClientID%>").value) ===
+                (document.getElementById("<%=TextBox1.ClientID%>").value))) {
+
+
+                document.getElementById("plscheckpassword").innerHTML = "";
+
                 console.log("readydfsdfg!");
                 console.log(document.getElementById("<%=TextBox1.ClientID%>").value);
 
                 var passtemp = document.getElementById("<%=TextBox1.ClientID%>").value;
 
-                document.getElementById("<%=TextBox1.ClientID%>").value = md5(document.getElementById("<%=TextBox1.ClientID%>").value + "<%=salt%>");
+                document.getElementById("<%=TextBox1.ClientID%>").value =
+                    md5(document.getElementById("<%=TextBox1.ClientID%>").value + "<%=salt%>");
 
                 document.getElementById('<%=HiddenFieldForSalt.ClientID%>').value = "<%=salt%>";
 
 //               sha1(document.getElementById("<%=TextBox1.ClientID%>").value);
                 var sha1AsKey = sha1.create();
-                sha1AsKey.update(passtemp+"<%=salt%>");
+                sha1AsKey.update(passtemp + "<%=salt%>");
                 sha1AsKey.hex();
 
 
@@ -95,22 +100,17 @@
                 console.log("dasds " + plaintext);
 
 
-
                 // must return true; false for testing 
+                return true;
+            } else {
+                document.getElementById("plscheckpassword").innerHTML = "Type a password OR Password do not match";
                 return false;
             }
         }
 
 
 
-        function encryptData() {
-
-
-
-
-            return true;
-
-        }
+    
 
 
 
@@ -139,7 +139,9 @@
         //encrypt testing usign crypto-js
 
         //encrypt
-        var ciphertext = CryptoJS.AES.encrypt('my messtage','123');
+        var testval='fd';
+
+        var ciphertext = CryptoJS.AES.encrypt(testval, '123');
 
 
         console.log("cipher " + ciphertext);
@@ -149,6 +151,41 @@
         var plaintext = bytes.toString(CryptoJS.enc.Utf8);
 
         console.log("dasds " + plaintext);
+
+
+
+        //angular js
+
+
+
+        var app = angular.module('myApp', []);
+
+        app.controller('AppCtrl', function ($scope) {
+
+        });
+
+        app.directive("passwordStrength", function () {
+            return {
+                restrict: 'A',
+                link: function (scope, element, attrs) {
+                    scope.$watch(attrs.passwordStrength, function (value) {
+                        console.log(value);
+                        if (angular.isDefined(value)) {
+                            if (value.length > 8) {
+                                scope.strength = 'strong';
+                            } else if (value.length > 3) {
+                                scope.strength = 'medium';
+                            } else {
+                                scope.strength = 'weak';
+                            }
+                        }
+                    });
+                }
+            };
+        });
+
+
+
 
     </script>
 
@@ -187,29 +224,36 @@
             </span>
            
            <%--UpdatePanel controls--%>
-            <asp:TextBox ID="TextBox3" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
+            <asp:TextBox ID="Username" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
            
-               
+            <asp:RequiredFieldValidator ID="UserNameValidator" runat="server" ErrorMessage="Please key in a username" ControlToValidate="Username" ForeColor="Red"></asp:RequiredFieldValidator>  
 
             
-<%--todo username to be done like last project?            --%>
+
            
 
        
         </div>
 
 
-         <div class="input-group">
+         <div class="input-group" ng-app="myApp"  ng-controller="AppCtrl">
             <span class="input-group-addon">
                 <i class="material-icons">lock_outline</i>
             </span>
           
-               <asp:TextBox ID="TextBox1" runat="server"  class="form-control" placeholder="Password..."></asp:TextBox>
+               <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Password..." ng-model="user.password" password-strength="user.password"></asp:TextBox>
+             
+            
+
+             <span data-ng-class="strength">Password Strength is: {{strength}}</span> 
+             <asp:RequiredFieldValidator ID="passwordRequireValidator" runat="server" ErrorMessage="Password not entered" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
              <asp:TextBox ID="confirmpassword" runat="server" class="form-control" placeholder="Confirm password..."></asp:TextBox>
+             <span id="plscheckpassword" style="color: red"></span>
 
         </div>
 
-
+        
+<%--      todo  i stopeed here continue below--%>
         <div class="input-group">
             <span class="input-group-addon">
                 <i class="material-icons">face</i>
