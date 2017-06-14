@@ -24,7 +24,7 @@
        
 
         $(function () {
-            $("#<%=TextBox8.ClientID%>").datepicker();
+            $("#<%=birthdayInput.ClientID%>").datepicker();
         });
       
 
@@ -81,11 +81,11 @@
 
                 console.log("SAlt is " + "<%=salt%>");
 
-                console.log("password sha1 " + sha1AsKey);
+              
 
 
                 sha1AsKey = sha1AsKey.toString();
-
+                console.log("password sha1 " + sha1AsKey);
                 //using crypto-js, code.google.com/archive/p/crypto-js/
                 //encrypt
                 var ciphertext = CryptoJS.AES.encrypt('my messtage', sha1AsKey);
@@ -98,6 +98,46 @@
                 var plaintext = decrypt.toString(CryptoJS.enc.Utf8);
 
                 console.log("dasds " + plaintext);
+
+
+                //encryption process starts here
+                //encrypted for first name
+                var retrievefirstname = document.getElementById('<%=firstNameInput.ClientID%>').value;
+                retrievefirstname = retrievefirstname.toString();
+                var cipherFirstname = CryptoJS.AES.encrypt(retrievefirstname, sha1AsKey);
+//                console.log("Debug cipher for firstname: " + cipherFirstname);
+                document.getElementById('<%=HiddenFieldFirstNameEncrypted.ClientID%>').value = cipherFirstname;
+
+                //encrypted for lastname 
+                var retrieveLastName = document.getElementById('<%=lastNameInput.ClientID%>').value;
+                retrieveLastName = retrieveLastName.toString();
+                var cipherLastname = CryptoJS.AES.encrypt(retrieveLastName, sha1AsKey);
+//                console.log("Debug cipher for lastname: " + cipherLastname);
+                document.getElementById('<%=HiddenFieldLastNameEncrypted.ClientID%>').value = cipherLastname;
+
+                //encrypted for address 
+                var retrieveaddress = document.getElementById('<%=addressInput.ClientID%>').value;
+                retrieveaddress = retrieveaddress.toString();
+                var cipheraddress = CryptoJS.AES.encrypt(retrieveaddress, sha1AsKey);
+//                console.log("Debug cipher for address: " + cipheraddress);
+                document.getElementById('<%=HiddenFieldAddressEncrypted.ClientID%>').value = cipheraddress;
+
+                //encrypted for birthday
+                var retrievebirthday =  document.getElementById('<%=birthdayInput.ClientID%>').value;
+                retrievebirthday = retrievebirthday.toString();
+                var cipherbirthday = CryptoJS.AES.encrypt(retrievebirthday, sha1AsKey);
+//                console.log("Debug cipher for birthday: " + cipherbirthday);
+                document.getElementById('<%=HiddenFieldBirthdayEncrypted.ClientID%>').value = cipherbirthday;
+
+
+
+                //decryp test
+//                var t1 = document.getElementById('<%=HiddenFieldFirstNameEncrypted.ClientID%>').value;
+//                var d1 = CryptoJS.AES.decrypt(t1.toString(), sha1AsKey);
+//                var tex = d1.toString(CryptoJS.enc.Utf8);
+//
+//                console.log("first name " + tex);
+
 
 
                 // must return true; false for testing 
@@ -196,11 +236,11 @@
     <%--have first page store all encrypted? data then use above to transfer to the phone page for verifivcation--%>
 
 
-
+<%--    todo impt: retrieve username from db to make sure no collision--%>
 <%--    todo Phone no, password (see below), passord verify and cap + other data --%>
 <%--    DATABASE--%>
 <%--    check intellji for reference--%>
-<%--    todo pass strength--%>
+<%--    dne pass strength--%>
 
     
 
@@ -252,15 +292,17 @@
 
         </div>
 
-        
-<%--      todo  i stopeed here continue below--%>
+        <br />
+
         <div class="input-group">
             <span class="input-group-addon">
                 <i class="material-icons">face</i>
             </span>
             <div>
-                <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="First Name..."></asp:TextBox>
-                <asp:TextBox ID="TextBox4" runat="server" class="form-control" placeholder="Last Name..."></asp:TextBox>
+                <asp:TextBox ID="firstNameInput" runat="server" class="form-control" placeholder="First Name..."></asp:TextBox>
+                <asp:RequiredFieldValidator ID="firstNameRequiredFieldValidator" runat="server" ErrorMessage="Please enter first name" ControlToValidate="firstNameInput" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="lastNameInput" runat="server" class="form-control" placeholder="Last Name..."></asp:TextBox>
+                <asp:RequiredFieldValidator ID="lastNameRequiredFieldValidator" runat="server" ErrorMessage="Please enter last name" ControlToValidate="lastNameInput" ForeColor="Red"></asp:RequiredFieldValidator>
                 
                 <asp:HiddenField ID="HiddenFieldFirstNameEncrypted" runat="server" />
                 <asp:HiddenField ID="HiddenFieldLastNameEncrypted" runat="server" />
@@ -275,8 +317,8 @@
             <span class="input-group-addon">
                 <i class="material-icons">contact_phone</i>
             </span>
-            <asp:TextBox ID="TextBox5" runat="server" class="form-control" placeholder="Phone Number..."></asp:TextBox>
-
+            <asp:TextBox ID="phoneNumberInput" runat="server" class="form-control" placeholder="Phone Number..."></asp:TextBox>
+            <asp:RequiredFieldValidator ID="PhoneNoRequiredFieldValidator" runat="server" ErrorMessage="Please Key in Phone number" ControlToValidate="phoneNumberInput" ForeColor="Red"></asp:RequiredFieldValidator>
 
 
         </div>
@@ -285,7 +327,8 @@
             <span class="input-group-addon">
                 <i class="material-icons">location_on</i>
             </span>
-            <asp:TextBox ID="TextBox6" runat="server" class="form-control" placeholder="Address..."></asp:TextBox>
+            <asp:TextBox ID="addressInput" runat="server" class="form-control" placeholder="Address..."></asp:TextBox>
+            <asp:RequiredFieldValidator ID="addressInputRequiredFieldValidator" runat="server" ErrorMessage="Please enter an address" ControlToValidate="addressInput" ForeColor="Red"></asp:RequiredFieldValidator>
 
             <asp:HiddenField ID="HiddenFieldAddressEncrypted" runat="server" />
 
@@ -295,9 +338,9 @@
             <span class="input-group-addon">
                 <i class="material-icons">email</i>
             </span>
-            <asp:TextBox ID="TextBox7" runat="server" class="form-control" placeholder="Email..."></asp:TextBox>
-
-
+            <asp:TextBox ID="emailInput" runat="server" class="form-control" placeholder="Email..."></asp:TextBox>
+            <asp:RequiredFieldValidator ID="emailInputRequiredFieldValidator" runat="server" ErrorMessage="Please enter an email" ControlToValidate="emailInput" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="EmailRegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid email address" ControlToValidate="emailInput" ForeColor="Red" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
 
         </div>
 
@@ -305,8 +348,8 @@
             <span class="input-group-addon">
                 <i class="material-icons">cake</i>
             </span>
-            <asp:TextBox ID="TextBox8" runat="server" class="form-control" placeholder="Birthday..."></asp:TextBox>
-
+            <asp:TextBox ID="birthdayInput" runat="server" class="form-control" placeholder="Birthday..."></asp:TextBox>
+            <asp:RequiredFieldValidator ID="birthdayInputRequiredFieldValidator" runat="server" ErrorMessage="Please enter your birthday" ControlToValidate="birthdayInput" ForeColor="Red"></asp:RequiredFieldValidator>
               
 
 

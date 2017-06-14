@@ -60,6 +60,8 @@ public partial class userRegister : System.Web.UI.Page
     {
         if (Page.IsValid)
         {
+            System.Diagnostics.Debug.WriteLine("testing");
+//            Response.Redirect("errorxss.aspx", false);
 
             var encodedResponse = Request.Form["g-Recaptcha-Response"];
             System.Diagnostics.Debug.WriteLine(encodedResponse);
@@ -86,6 +88,10 @@ public partial class userRegister : System.Web.UI.Page
 
             System.Diagnostics.Debug.WriteLine("Password is: "+TextBox1.Text);
             System.Diagnostics.Debug.WriteLine("Salt value: "+HiddenFieldForSalt.Value);
+            System.Diagnostics.Debug.WriteLine("Cipher received from first name: "+ HiddenFieldFirstNameEncrypted.Value);
+            System.Diagnostics.Debug.WriteLine("Cipher received from last name: "+ HiddenFieldLastNameEncrypted.Value);
+            System.Diagnostics.Debug.WriteLine("Cipher received from address: "+ HiddenFieldAddressEncrypted.Value);
+            System.Diagnostics.Debug.WriteLine("Cipher received from birthday: "+ HiddenFieldBirthdayEncrypted.Value);
 
 
 
