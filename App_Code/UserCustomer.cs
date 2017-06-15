@@ -96,4 +96,58 @@ public class UserCustomer
             return 0;
         }
     } //end Insert
+
+
+
+    public List<String> getAllUserName()
+    {
+        List<String> names = new List<String>();
+        string username;
+       
+        string queryStr = "SELECT username FROM Customer";
+        SqlConnection conn = new SqlConnection(_connStr);
+        SqlCommand cmd = new SqlCommand(queryStr, conn);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+        //Continue to read the resultsets row by row if not the end
+
+        while (dr.Read())
+        {
+            username = dr["username"].ToString();
+            
+            names.Add(username);
+        }
+        conn.Close();
+        dr.Close();
+        dr.Dispose();
+        return names;
+
+
+    }
+    public List<String> getAllNric()
+    {
+        List<String> names = new List<String>();
+        string username;
+
+        string queryStr = "SELECT nric FROM Customer";
+        SqlConnection conn = new SqlConnection(_connStr);
+        SqlCommand cmd = new SqlCommand(queryStr, conn);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+        //Continue to read the resultsets row by row if not the end
+
+        while (dr.Read())
+        {
+            username = dr["nric"].ToString();
+
+            names.Add(username);
+        }
+        conn.Close();
+        dr.Close();
+        dr.Dispose();
+        return names;
+
+
+    }
+
 }

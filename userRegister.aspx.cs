@@ -68,6 +68,7 @@ public partial class userRegister : System.Web.UI.Page
             var isCaptchaValid = ReCaptcha.Validate(encodedResponse);
             System.Diagnostics.Debug.WriteLine(isCaptchaValid);
 
+            //do smth
             if (!isCaptchaValid)
             {
                 System.Diagnostics.Debug.WriteLine("Captcha failure");
@@ -92,19 +93,129 @@ public partial class userRegister : System.Web.UI.Page
             System.Diagnostics.Debug.WriteLine("Cipher received from last name: "+ HiddenFieldLastNameEncrypted.Value);
             System.Diagnostics.Debug.WriteLine("Cipher received from address: "+ HiddenFieldAddressEncrypted.Value);
             System.Diagnostics.Debug.WriteLine("Cipher received from birthday: "+ HiddenFieldBirthdayEncrypted.Value);
+            System.Diagnostics.Debug.WriteLine("Cipher received from nric: "+ HiddenFieldNricEncrypted.Value);
 
 
 
+            string uUsername = Username.Text;
+            string uPasswordhash = TextBox1.Text;
+            string uPasswordSalt = HiddenFieldForSalt.Value;
+            string uFirstName = HiddenFieldFirstNameEncrypted.Value;
+            string uLastName = HiddenFieldLastNameEncrypted.Value;
+            string uPhoneNo = phoneNumberInput.Text;
+            string uAddress = HiddenFieldAddressEncrypted.Value;
+            string uEmail = emailInput.Text;
+            string uBirthday = HiddenFieldBirthdayEncrypted.Value;
+            string uemailverified = "false";
+            string uphoneVerified = "false";
+            string uNric = HiddenFieldNricEncrypted.Value;
 
 
 
-          
+            UserCustomer newuser = new UserCustomer(uUsername,uPasswordhash,uPasswordSalt,uPhoneNo,uAddress,uFirstName,uLastName,uEmail,uBirthday,uemailverified,uphoneVerified,uNric);
+            newuser.CustomerInsert();
+
+
+
 
 
         }
 
       
     }
+
+    protected void existinguser_Validate(object source, ServerValidateEventArgs args)
+    {
+
+        UserCustomer customer = new UserCustomer();
+        List<String> usernamelist = customer.getAllUserName();
+
+        try
+        {
+            System.Diagnostics.Debug.WriteLine("validator custom check " + usernamelist.Count + usernamelist[0]);
+        }
+        catch (Exception e)
+        {
+            string dummydata = "091dummydataOnlyonce";
+            UserCustomer n = new UserCustomer(dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata);
+            n.CustomerInsert();
+
+
+        }
+
+        string currentUsername = Username.Text;
+
+        int valtest = 0;
+
+        for (int i = 0; i < usernamelist.Count; i++)
+        {
+
+
+            if (currentUsername.Equals(usernamelist[i]))
+            {
+                valtest++;
+            }
+           
+           
+
+
+
+            System.Diagnostics.Debug.WriteLine("Usernames in list :"+usernamelist[i]);
+
+        }
+
+
+        if (valtest != 0)
+        {
+            args.IsValid = false;
+        }
+        else
+        {
+            args.IsValid = true;
+        }
+
+
+    }
+
+    // did this for nothing TT; forgot that server does not know user's data so check is pointless; at least it knows the username tho TT
+//    protected void existingNric_validate(object source, ServerValidateEventArgs args)
+//    {
+//        
+//        UserCustomer customer = new UserCustomer();
+//        List<string> cusList = customer.getAllNric();
+//        System.Diagnostics.Debug.WriteLine("nric in list :" + cusList.Count);
+//
+//        string currentnirc = nricInput.Text;
+//        System.Diagnostics.Debug.WriteLine("curr nric :" + currentnirc);
+//
+//        int validateme = 0;
+//
+//        for (int i = 0; i < cusList.Count; i++)
+//        {
+//            if (currentnirc.Equals(cusList[i]))
+//            {
+//                validateme++;
+//            }
+//
+//
+//
+//
+//
+//        }
+//        if (validateme != 0)
+//        {
+//            args.IsValid = false;
+//        }
+//        else
+//        {
+//            args.IsValid = true;
+//        }
+//
+//
+//
+//    }
+
+
 
 
 }

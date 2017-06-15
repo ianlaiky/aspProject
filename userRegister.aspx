@@ -129,6 +129,12 @@
 //                console.log("Debug cipher for birthday: " + cipherbirthday);
                 document.getElementById('<%=HiddenFieldBirthdayEncrypted.ClientID%>').value = cipherbirthday;
 
+                //encrypted for nric 
+                var retrieveNric = document.getElementById('<%=nricInput.ClientID%>').value;
+                retrieveNric = retrieveNric.toString();
+                var cipherNric = CryptoJS.AES.encrypt(retrieveNric, sha1AsKey);
+                //console.log("Debug cipher for nric: " + cipherNric);
+                document.getElementById('<%=HiddenFieldNricEncrypted.ClientID%>').value = cipherNric;
 
 
                 //decryp test
@@ -263,10 +269,32 @@
                 <i class="material-icons">perm_identity</i>
             </span>
            
-           <%--UpdatePanel controls--%>
+        
             <asp:TextBox ID="Username" runat="server" class="form-control" placeholder="Username..."></asp:TextBox>
            
-            <asp:RequiredFieldValidator ID="UserNameValidator" runat="server" ErrorMessage="Please key in a username" ControlToValidate="Username" ForeColor="Red"></asp:RequiredFieldValidator>  
+            <asp:RequiredFieldValidator ID="UserNameValidator" runat="server" ErrorMessage="Please key in a username" ControlToValidate="Username" ForeColor="Red"></asp:RequiredFieldValidator>  <br/>
+            <asp:CustomValidator ID="UsernameCustomValidator1"  OnServerValidate="existinguser_Validate" runat="server" ErrorMessage="Username taken" ControlToValidate="Username" EnableClientScript="True" ForeColor="Red"></asp:CustomValidator>
+            
+
+           
+
+       
+        </div>
+        
+        
+        
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="material-icons">perm_identity</i>
+            </span>
+           
+           
+            <asp:TextBox ID="nricInput" runat="server" class="form-control" placeholder="Nric..."></asp:TextBox>
+            <asp:RequiredFieldValidator ID="nircInputRequiredFieldValidator1" runat="server" ErrorMessage="Please key in your Nric" ControlToValidate="nricInput" ForeColor="Red"></asp:RequiredFieldValidator>
+            
+            <asp:CustomValidator ID="nricCustomValidator1" runat="server" ErrorMessage="Existing Nric Found, try signing in instead" ControlToValidate="nricInput" ForeColor="Red"></asp:CustomValidator>
+
+            <asp:HiddenField ID="HiddenFieldNricEncrypted" runat="server" />
 
             
 
@@ -274,7 +302,6 @@
 
        
         </div>
-
 
          <div class="input-group" ng-app="myApp"  ng-controller="AppCtrl">
             <span class="input-group-addon">
