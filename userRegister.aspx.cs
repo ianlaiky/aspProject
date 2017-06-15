@@ -63,12 +63,14 @@ public partial class userRegister : System.Web.UI.Page
             System.Diagnostics.Debug.WriteLine("testing");
 //            Response.Redirect("errorxss.aspx", false);
 
+
+            //captcha start :)
             var encodedResponse = Request.Form["g-Recaptcha-Response"];
             System.Diagnostics.Debug.WriteLine(encodedResponse);
             var isCaptchaValid = ReCaptcha.Validate(encodedResponse);
             System.Diagnostics.Debug.WriteLine(isCaptchaValid);
 
-            //do smth
+            //done at the customvalidator side
             if (!isCaptchaValid)
             {
                 System.Diagnostics.Debug.WriteLine("Captcha failure");
@@ -76,6 +78,9 @@ public partial class userRegister : System.Web.UI.Page
 
                 // E.g. Return to view or set an error message to visible
             }
+            //captcha end :(
+
+
 
             //String a = TextBox1.Text;
             //String c = Text1.Value.ToString();
@@ -115,8 +120,8 @@ public partial class userRegister : System.Web.UI.Page
             UserCustomer newuser = new UserCustomer(uUsername,uPasswordhash,uPasswordSalt,uPhoneNo,uAddress,uFirstName,uLastName,uEmail,uBirthday,uemailverified,uphoneVerified,uNric);
             newuser.CustomerInsert();
 
-
-
+            //hmm
+            Response.Redirect("userRegisterInputConf.aspx");
 
 
         }
@@ -177,43 +182,69 @@ public partial class userRegister : System.Web.UI.Page
 
     }
 
+
+    protected void captcha_validate(object source, ServerValidateEventArgs args)
+    {
+
+
+        //captcha start
+        var encodedResponse = Request.Form["g-Recaptcha-Response"];
+        System.Diagnostics.Debug.WriteLine(encodedResponse);
+        var isCaptchaValid = ReCaptcha.Validate(encodedResponse);
+        System.Diagnostics.Debug.WriteLine(isCaptchaValid);
+
+        //done at the customvalidator side
+        if (!isCaptchaValid)
+        {
+            System.Diagnostics.Debug.WriteLine("Captcha failure");
+            args.IsValid = false;
+
+            // E.g. Return to view or set an error message to visible
+        }
+        else
+        {
+            args.IsValid = true;
+        }
+        //captcha end
+    }
+
     // did this for nothing TT; forgot that server does not know user's data so check is pointless; at least it knows the username tho TT
-//    protected void existingNric_validate(object source, ServerValidateEventArgs args)
-//    {
-//        
-//        UserCustomer customer = new UserCustomer();
-//        List<string> cusList = customer.getAllNric();
-//        System.Diagnostics.Debug.WriteLine("nric in list :" + cusList.Count);
-//
-//        string currentnirc = nricInput.Text;
-//        System.Diagnostics.Debug.WriteLine("curr nric :" + currentnirc);
-//
-//        int validateme = 0;
-//
-//        for (int i = 0; i < cusList.Count; i++)
-//        {
-//            if (currentnirc.Equals(cusList[i]))
-//            {
-//                validateme++;
-//            }
-//
-//
-//
-//
-//
-//        }
-//        if (validateme != 0)
-//        {
-//            args.IsValid = false;
-//        }
-//        else
-//        {
-//            args.IsValid = true;
-//        }
-//
-//
-//
-//    }
+    //    protected void existingNric_validate(object source, ServerValidateEventArgs args)
+    //    {
+    //        
+    //        UserCustomer customer = new UserCustomer();
+    //        List<string> cusList = customer.getAllNric();
+    //        System.Diagnostics.Debug.WriteLine("nric in list :" + cusList.Count);
+    //
+    //        string currentnirc = nricInput.Text;
+    //        System.Diagnostics.Debug.WriteLine("curr nric :" + currentnirc);
+    //
+    //        int validateme = 0;
+    //
+    //        for (int i = 0; i < cusList.Count; i++)
+    //        {
+    //            if (currentnirc.Equals(cusList[i]))
+    //            {
+    //                validateme++;
+    //            }
+    //
+    //
+    //
+    //
+    //
+    //        }
+    //        if (validateme != 0)
+    //        {
+    //            args.IsValid = false;
+    //        }
+    //        else
+    //        {
+    //            args.IsValid = true;
+    //        }
+    //
+    //
+    //
+    //    }
 
 
 

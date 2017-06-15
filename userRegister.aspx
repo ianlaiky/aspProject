@@ -266,7 +266,7 @@
     
         <div class="input-group">
             <span class="input-group-addon">
-                <i class="material-icons">perm_identity</i>
+                <i class="material-icons">account_circle</i>
             </span>
            
         
@@ -285,14 +285,14 @@
         
         <div class="input-group">
             <span class="input-group-addon">
-                <i class="material-icons">perm_identity</i>
+                <i class="material-icons"><i class="material-icons">chrome_reader_mode</i></i>
             </span>
            
            
             <asp:TextBox ID="nricInput" runat="server" class="form-control" placeholder="Nric..."></asp:TextBox>
             <asp:RequiredFieldValidator ID="nircInputRequiredFieldValidator1" runat="server" ErrorMessage="Please key in your Nric" ControlToValidate="nricInput" ForeColor="Red"></asp:RequiredFieldValidator>
             
-            <asp:CustomValidator ID="nricCustomValidator1" runat="server" ErrorMessage="Existing Nric Found, try signing in instead" ControlToValidate="nricInput" ForeColor="Red"></asp:CustomValidator>
+          
 
             <asp:HiddenField ID="HiddenFieldNricEncrypted" runat="server" />
 
@@ -312,7 +312,7 @@
              
             
 
-             <span data-ng-class="strength">Password Strength is: {{strength}}</span> 
+             <span data-ng-class="strength">Your Password Strength is: {{strength}}</span> 
              <asp:RequiredFieldValidator ID="passwordRequireValidator" runat="server" ErrorMessage="Password not entered" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
              <asp:TextBox ID="confirmpassword" runat="server" class="form-control" placeholder="Confirm password..."></asp:TextBox>
              <span id="plscheckpassword" style="color: red"></span>
@@ -395,7 +395,7 @@
 
         <center>
  <div class="g-recaptcha" data-sitekey="6Ld9kCMUAAAAAJUvZurvKQGtAybXBjEKmi3w9-Q5" runat="server"></div>
-
+<asp:CustomValidator ID="CaptchaCustomValidator1" OnServerValidate="captcha_validate" runat="server" ErrorMessage="Please do the captcha" ForeColor="Red"></asp:CustomValidator>
 </center>
 
     </div>
