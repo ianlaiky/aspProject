@@ -23,11 +23,11 @@ public partial class login : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("passwordlogin.aspx");
+        Response.Redirect("2faLogin.aspx", false);
     }
 
     protected void Button2_Click1(object sender, EventArgs e)
     {
-        Response.Redirect("forgetpasswordForm.aspx");
+        Response.Redirect("forgetpasswordForm.aspx",false);
     }
 }
