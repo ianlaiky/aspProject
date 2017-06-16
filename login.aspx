@@ -26,24 +26,13 @@
                 </div>
             </div>
 
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="material-icons">lock_outline</i>
-                </span>
-                <div class="form-group label-floating">
-                    <label class="control-label">Password</label>
-                   
-                    
-                    <asp:TextBox  class="form-control" type="password" ID="TextBox2" runat="server"></asp:TextBox>
-
-                </div>
-            </div>
+          
     
         </div>
         <div class="footer text-center">
         
             
-            <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
+            <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button1" runat="server" Text="Next" OnClick="Button1_Click" />
            
         </div>
          <div class="footer text-center">
