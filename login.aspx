@@ -43,7 +43,7 @@
         <div class="footer text-center">
         
             
-            <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button1" runat="server" Text="Next" OnClick="Button1_Click" />
+            <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
            
         </div>
          <div class="footer text-center">
