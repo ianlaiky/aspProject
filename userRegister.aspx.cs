@@ -157,9 +157,15 @@ public partial class userRegister : System.Web.UI.Page
 
 
          //metd for encrypot
-            string enryptedAddress = encryptData(uAddress, uPasswordhash, salttoByte);
+            string encryptedPhone = encryptData(uPhoneNo, uPasswordhash, salttoByte);
+            string enryptedAddress = encryptData(uAddress, uPasswordhash, salttoByte);
+            string encryptedFirstName = encryptData(uFirstName, uPasswordhash, salttoByte);
+            string encryptedLastName = encryptData(uLastName, uPasswordhash, salttoByte);
+            string encryptedEmail = encryptData(uEmail, uPasswordhash, salttoByte);
+            string encryptedBirthday = encryptData(uBirthday, uPasswordhash, salttoByte);
+            string encryptedNric = encryptData(uNric, uPasswordhash, salttoByte);
 
-            UserCustomer newuser = new UserCustomer(uUsername, finalHashval, uPasswordSalt,uPhoneNo, enryptedAddress, uFirstName,uLastName,uEmail,uBirthday,uemailverified,uphoneVerified,uNric);
+            UserCustomer newuser = new UserCustomer(uUsername, finalHashval, uPasswordSalt, encryptedPhone, enryptedAddress, encryptedFirstName, encryptedLastName, encryptedEmail, encryptedBirthday, uemailverified,uphoneVerified, encryptedNric);
             newuser.CustomerInsert();
 
             //hmm
@@ -306,12 +312,20 @@ public partial class userRegister : System.Web.UI.Page
        
 
         string sendback = Convert.ToBase64String(cipherText);
+
         System.Diagnostics.Debug.WriteLine("Encrypted cipher test " + sendback);
 
-        string decrdfs = decryptData(sendback, hash, salttoByte);
-        //TODO WORK ON THE DECRYPT; IT CHURING OUT SOMETING WEIRD
-        System.Diagnostics.Debug.WriteLine("Original " + data);
-        System.Diagnostics.Debug.WriteLine("decrypted cipher test " + decrdfs);
+        byte[] testingtodelete = Convert.FromBase64String(sendback);
+        string testing2 = Convert.ToBase64String(testingtodelete);
+        System.Diagnostics.Debug.WriteLine("Encrypted cipher testINGGG " + testing2);
+
+
+
+        //decrypt testing
+//        string decrdfs = decryptData(sendback, hash, salttoByte);
+//       
+//        System.Diagnostics.Debug.WriteLine("Original " + data);
+//        System.Diagnostics.Debug.WriteLine("decrypted cipher test " + decrdfs);
 
 
         return sendback;
@@ -332,7 +346,8 @@ public partial class userRegister : System.Web.UI.Page
         byte[] plainText = Convert.FromBase64String(data);
         cipherText = decryptTransform.TransformFinalBlock(plainText, 0, plainText.Length);
 
-        string resu = Convert.ToBase64String(cipherText);
+
+        string resu = Encoding.UTF8.GetString(cipherText);
 
         return resu;
     }

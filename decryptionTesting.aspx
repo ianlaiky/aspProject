@@ -76,7 +76,7 @@
     </script>
     
     
-    
+    cleint decryp test:<br>
     Cipher text: <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
     <br/>
     Key:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
@@ -101,7 +101,13 @@
     <asp:Button ID="Button2" runat="server" Text="Button" OnClientClick="if(!hash()){return false}"/>
     
     
-
+    server decrypt test<br/>
+    
+    data:<asp:TextBox ID="TextBox7" runat="server"></asp:TextBox><br/>
+    hashKey:<asp:TextBox ID="TextBox8" runat="server"></asp:TextBox><br/>
+    salt:<asp:TextBox ID="TextBox9" runat="server"></asp:TextBox><br/>
+    
+    <asp:Button ID="Button3" runat="server" Text="Button" OnClick="Button3_OnClick"/>
 
 </asp:Content>
 

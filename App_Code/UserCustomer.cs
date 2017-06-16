@@ -12,6 +12,7 @@ using System.Configuration;
 public class UserCustomer
 {
     string _connStr = ConfigurationManager.ConnectionStrings["FanclubContext"].ConnectionString;
+
     public UserCustomer()
     {
         //
@@ -19,7 +20,9 @@ public class UserCustomer
     }
 
 
-    public UserCustomer(string username, string passwordhash, string passwordsalt, string phoneNo, string address, string firstName, string lastName, string email, string birthday, string emailVerified, string phoneVerified, string nric)
+    public UserCustomer(string username, string passwordhash, string passwordsalt, string phoneNo, string address,
+        string firstName, string lastName, string email, string birthday, string emailVerified, string phoneVerified,
+        string nric)
     {
         this.Username = username;
         this.Passwordhash = passwordhash;
@@ -59,7 +62,7 @@ public class UserCustomer
 
     public string Nric { get; set; }
 
-    
+
     public int CustomerInsert()
     {
         string msg = null;
@@ -98,12 +101,11 @@ public class UserCustomer
     } //end Insert
 
 
-
     public List<String> getAllUserName()
     {
         List<String> names = new List<String>();
         string username;
-       
+
         string queryStr = "SELECT username FROM Customer";
         SqlConnection conn = new SqlConnection(_connStr);
         SqlCommand cmd = new SqlCommand(queryStr, conn);
@@ -114,16 +116,15 @@ public class UserCustomer
         while (dr.Read())
         {
             username = dr["username"].ToString();
-            
+
             names.Add(username);
         }
         conn.Close();
         dr.Close();
         dr.Dispose();
         return names;
-
-
     }
+
     public List<String> getAllNric()
     {
         List<String> names = new List<String>();
@@ -146,8 +147,59 @@ public class UserCustomer
         dr.Close();
         dr.Dispose();
         return names;
-
-
     }
 
+    public UserCustomer getAllDataByName(string name)
+    {
+        UserCustomer cus = null;
+      
+        string username,
+            passwordhash,
+            passwordsalt,
+            phoneNo,
+            address,
+            firstName,
+            lastName,
+            email,
+            birthday,
+            emailverified,
+            phoneverified,
+            nric;
+
+        string queryStr = "SELECT* FROM Customer WHERE username = @username";
+        SqlConnection conn = new SqlConnection(_connStr);
+        SqlCommand cmd = new SqlCommand(queryStr, conn);
+        cmd.Parameters.AddWithValue("@username", name);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+        if (dr.Read())
+        {
+            username = dr["username"].ToString();
+            passwordhash = dr["passwordhash"].ToString();
+            passwordsalt = dr["passwordsalt"].ToString();
+            phoneNo = dr["phoneNo"].ToString();
+            address = dr["address"].ToString();
+            firstName = dr["firstName"].ToString();
+            lastName = dr["lastName"].ToString();
+            email = dr["email"].ToString();
+            birthday = dr["birthday"].ToString();
+            emailverified = dr["emailVerified"].ToString();
+            phoneverified = dr["phoneVerified"].ToString();
+            nric = dr["nric"].ToString();
+
+            cus = new UserCustomer(username,passwordhash,passwordsalt,phoneNo,address,firstName,lastName,email,birthday,emailverified,phoneverified,nric);
+        
+
+            
+        }
+        else
+        {
+            cus = null;
+        }
+        conn.Close();
+        dr.Close();
+        dr.Dispose();
+        return cus;
+
+    }
 }

@@ -58,5 +58,58 @@ public partial class decryptionTesting : System.Web.UI.Page
         System.Diagnostics.Debug.WriteLine("IV: " + IV);
 
 
+
+        System.Diagnostics.Debug.WriteLine("Testing Retrieve Mtd " );
+        UserCustomer custTest = new UserCustomer();
+        custTest = custTest.getAllDataByName("123");
+        System.Diagnostics.Debug.WriteLine("username " + custTest.Username);
+        System.Diagnostics.Debug.WriteLine("hash " + custTest.Passwordhash);
+        System.Diagnostics.Debug.WriteLine("salt " + custTest.Passwordsalt);
+        System.Diagnostics.Debug.WriteLine("PhoneNo " + custTest.PhoneNo);
+        System.Diagnostics.Debug.WriteLine("Address " + custTest.Address);
+        System.Diagnostics.Debug.WriteLine("FirstName " + custTest.FirstName);
+        System.Diagnostics.Debug.WriteLine("LastName " + custTest.LastName);
+        System.Diagnostics.Debug.WriteLine("Email " + custTest.Email);
+        System.Diagnostics.Debug.WriteLine("Birthday " + custTest.Birthday);
+        System.Diagnostics.Debug.WriteLine("EmailVerified " + custTest.EmailVerified);
+        System.Diagnostics.Debug.WriteLine("PhoneVerified " + custTest.PhoneVerified);
+        System.Diagnostics.Debug.WriteLine("Nric " + custTest.Nric);
+
+
+
+
+
+    }
+
+    protected void Button3_OnClick(object sender, EventArgs e)
+    {
+        string retrievedata = TextBox7.Text;
+        string rethashKey = TextBox8.Text;
+        string retrSalt = TextBox9.Text;
+
+        byte[] salttoByte = Convert.FromBase64String(retrSalt);
+        string hash = rethashKey;
+        string data = retrievedata;
+
+        byte[] cipherText;
+
+        Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(hash, salttoByte);
+
+        RijndaelManaged cipher = new RijndaelManaged();
+        cipher.Key = pdb.GetBytes(32);
+        cipher.IV = pdb.GetBytes(16);
+        ICryptoTransform decryptTransform = cipher.CreateDecryptor();
+
+        byte[] plainText = Convert.FromBase64String(data);
+        cipherText = decryptTransform.TransformFinalBlock(plainText, 0, plainText.Length);
+
+
+        string resu = Encoding.UTF8.GetString(cipherText);
+
+
+        System.Diagnostics.Debug.WriteLine("THE DATA IS: " + resu);
+
+
+
     }
 }
