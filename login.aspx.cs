@@ -30,4 +30,16 @@ public partial class login : System.Web.UI.Page
     {
         Response.Redirect("forgetpasswordForm.aspx");
     }
+
+    protected void CustomValidator1_OnServerValidate(object source, ServerValidateEventArgs args)
+    {
+
+        string username = TextBox1.Text;
+     
+
+
+
+
+
+    }
 }
