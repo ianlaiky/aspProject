@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Security.Cryptography;
+using System.Text;
 
 
 public partial class userRegister : System.Web.UI.Page
@@ -115,9 +117,49 @@ public partial class userRegister : System.Web.UI.Page
             string uphoneVerified = "false";
             string uNric = HiddenFieldNricEncrypted.Value;
 
+            //hash on server side
+            SHA512Managed hashing = new SHA512Managed();
+
+            string finalHashval;
+            string serverhashwithSaltText = uPasswordhash + uPasswordSalt;
+
+            System.Diagnostics.Debug.WriteLine("combining salt" + serverhashwithSaltText);
+
+            byte[] serverHashwithSaltHashed = hashing.ComputeHash(Encoding.UTF8.GetBytes(serverhashwithSaltText));
+
+            System.Diagnostics.Debug.WriteLine("Server hashed value before convert" + serverHashwithSaltHashed);
+
+            finalHashval = Convert.ToBase64String(serverHashwithSaltHashed);
+            System.Diagnostics.Debug.WriteLine("Server hashed value " + finalHashval);
 
 
-            UserCustomer newuser = new UserCustomer(uUsername,uPasswordhash,uPasswordSalt,uPhoneNo,uAddress,uFirstName,uLastName,uEmail,uBirthday,uemailverified,uphoneVerified,uNric);
+            //            System.Diagnostics.Debug.WriteLine("DEBUGGING__???");
+            //
+            //            string teststring = "hello";
+            //
+            //            byte[] encodedteststring = hashing.ComputeHash(Encoding.UTF8.GetBytes(teststring));
+            //
+            //            string resultingtest = Convert.ToBase64String(encodedteststring);
+            //
+            //            System.Diagnostics.Debug.WriteLine("test hash val " + resultingtest);
+
+
+
+            //todo look into this for rfc2928 for key derivation
+
+            byte[] salttoByte = Convert.FromBase64String(uPasswordSalt);
+            System.Diagnostics.Debug.WriteLine(" ");
+            System.Diagnostics.Debug.Write("Salt in byte array: ");
+            for (int i = 0; i < salttoByte.Length; i++)
+            {
+                System.Diagnostics.Debug.Write(salttoByte[i]);
+            }
+
+
+         //metd for encrypot
+            string enryptedAddress = encryptData(uAddress, uPasswordhash, salttoByte);
+
+            UserCustomer newuser = new UserCustomer(uUsername, finalHashval, uPasswordSalt,uPhoneNo, enryptedAddress, uFirstName,uLastName,uEmail,uBirthday,uemailverified,uphoneVerified,uNric);
             newuser.CustomerInsert();
 
             //hmm
@@ -142,6 +184,7 @@ public partial class userRegister : System.Web.UI.Page
         catch (Exception e)
         {
             string dummydata = "091dummydataOnlyonce";
+     
             UserCustomer n = new UserCustomer(dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata);
             n.CustomerInsert();
 
@@ -246,6 +289,53 @@ public partial class userRegister : System.Web.UI.Page
     //
     //    }
 
+
+    protected string encryptData(string data,string hash,byte[] salttoByte)
+    {
+        byte[] cipherText;
+
+        Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(hash, salttoByte);
+
+        RijndaelManaged cipher = new RijndaelManaged();
+        cipher.Key = pdb.GetBytes(32);
+        cipher.IV = pdb.GetBytes(16);
+        ICryptoTransform enCryptoTransform = cipher.CreateEncryptor();
+        byte[] plainText = Encoding.UTF8.GetBytes(data);
+        cipherText = enCryptoTransform.TransformFinalBlock(plainText, 0,plainText.Length);
+
+       
+
+        string sendback = Convert.ToBase64String(cipherText);
+        System.Diagnostics.Debug.WriteLine("Encrypted cipher test " + sendback);
+
+        string decrdfs = decryptData(sendback, hash, salttoByte);
+        //TODO WORK ON THE DECRYPT; IT CHURING OUT SOMETING WEIRD
+        System.Diagnostics.Debug.WriteLine("Original " + data);
+        System.Diagnostics.Debug.WriteLine("decrypted cipher test " + decrdfs);
+
+
+        return sendback;
+    }
+
+    //confu
+    protected string decryptData(string data, string hash, byte[] salttoByte)
+    {
+        byte[] cipherText;
+
+        Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(hash, salttoByte);
+
+        RijndaelManaged cipher = new RijndaelManaged();
+        cipher.Key = pdb.GetBytes(32);
+        cipher.IV = pdb.GetBytes(16);
+        ICryptoTransform decryptTransform = cipher.CreateDecryptor();
+
+        byte[] plainText = Convert.FromBase64String(data);
+        cipherText = decryptTransform.TransformFinalBlock(plainText, 0, plainText.Length);
+
+        string resu = Convert.ToBase64String(cipherText);
+
+        return resu;
+    }
 
 
 

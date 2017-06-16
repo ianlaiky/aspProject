@@ -10,7 +10,24 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <script>
-        
+        function hash() {
+            console.log("hash start");
+
+            var val = document.getElementById("<%=TextBox4.ClientID%>").value;
+            var salt = document.getElementById("<%=TextBox5.ClientID%>").value;
+
+            var hash = val + salt;
+
+            console.log("hash val before hash: " + hash);
+            var resultinghash = md5(hash);
+
+            document.getElementById("<%=TextBox6.ClientID%>").value = resultinghash;
+
+
+            return false;
+
+        }
+
 
         function decrypt() {
 
@@ -68,16 +85,23 @@
     
     Plain: <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
     
-    
-    
-    
-    
-    
+   
     
 
     
     
-    <asp:Button ID="Button1" runat="server" Text="Button" OnClientClick="if(!decrypt()){return false}"/>
+    <asp:Button ID="Button1" runat="server" Text="Button" OnClientClick="if(!decrypt()){return false}"/> <br/> <br/> <br/>
+    
+    value:<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+    <br />
+    hash:<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+    <br />
+    result: <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+    <br />
+    <asp:Button ID="Button2" runat="server" Text="Button" OnClientClick="if(!hash()){return false}"/>
+    
+    
+
 
 </asp:Content>
 
