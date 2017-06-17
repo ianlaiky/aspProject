@@ -22,7 +22,9 @@
                   
                     
                     <asp:TextBox class="form-control" name="username" ID="TextBox1" runat="server"></asp:TextBox>
-                   
+
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Account Non existent" ControlToValidate="TextBox1" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Pls enter soemthing" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
                 </div>
             </div>
 

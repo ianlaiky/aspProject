@@ -168,7 +168,7 @@ public partial class userRegister : System.Web.UI.Page
             UserCustomer newuser = new UserCustomer(uUsername, finalHashval, uPasswordSalt, encryptedPhone, enryptedAddress, encryptedFirstName, encryptedLastName, encryptedEmail, encryptedBirthday, uemailverified,uphoneVerified, encryptedNric);
             newuser.CustomerInsert();
 
-            //hmm
+            //hmm to be continued
             Response.Redirect("userRegisterInputConf.aspx");
 
 
@@ -183,6 +183,7 @@ public partial class userRegister : System.Web.UI.Page
         UserCustomer customer = new UserCustomer();
         List<String> usernamelist = customer.getAllUserName();
 
+        //auto random data insert to db incase of failure; prevent null 
         try
         {
             System.Diagnostics.Debug.WriteLine("validator custom check " + usernamelist.Count + usernamelist[0]);

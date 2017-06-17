@@ -10,20 +10,18 @@ public partial class login : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+
+
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        
-    }
-    //    protected void forgetpassword(object sender, EventArgs e)
-    //    {
-    //        Response.Redirect("2faLogin.aspx", false);
-    //    }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("passwordlogin.aspx");
+        if (Page.IsValid)
+        {
+            Session["usernameLogin"] = TextBox1.Text;
+            Response.Redirect("passwordlogin.aspx");
+        }
     }
 
     protected void Button2_Click1(object sender, EventArgs e)
@@ -33,13 +31,19 @@ public partial class login : System.Web.UI.Page
 
     protected void CustomValidator1_OnServerValidate(object source, ServerValidateEventArgs args)
     {
-
         string username = TextBox1.Text;
-     
+
+        UserCustomer cu = new UserCustomer();
+        cu = cu.getAllDataByName(username);
 
 
-
-
-
+        if (cu == null)
+        {
+            args.IsValid = false;
+        }
+        else
+        {
+            args.IsValid = true;
+        }
     }
 }

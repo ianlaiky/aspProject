@@ -151,7 +151,7 @@ public class UserCustomer
 
     public UserCustomer getAllDataByName(string name)
     {
-        UserCustomer cus = null;
+        UserCustomer cus;
       
         string username,
             passwordhash,
