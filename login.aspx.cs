@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -44,6 +45,19 @@ public partial class login : System.Web.UI.Page
         else
         {
             args.IsValid = true;
+        }
+    }
+
+    protected void usernameRe_OnServerValidate(object source, ServerValidateEventArgs args)
+    {
+        Regex r = new Regex("^[a-zA-Z0-9]*$");
+        if (r.IsMatch(data))
+        {
+            args.IsValid = true;
+        }
+        else
+        {
+            args.IsValid = false;
         }
     }
 }
