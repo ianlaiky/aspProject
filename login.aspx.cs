@@ -19,7 +19,7 @@ public partial class login : System.Web.UI.Page
     {
         if (Page.IsValid)
         {
-            Session["usernameLogin"] = TextBox1.Text;
+            Session["usernameLogin"] = Server.HtmlEncode(TextBox1.Text);
             Response.Redirect("passwordlogin.aspx");
         }
     }
@@ -31,7 +31,7 @@ public partial class login : System.Web.UI.Page
 
     protected void CustomValidator1_OnServerValidate(object source, ServerValidateEventArgs args)
     {
-        string username = TextBox1.Text;
+        string username = Server.HtmlEncode(TextBox1.Text);
 
         UserCustomer cu = new UserCustomer();
         cu = cu.getAllDataByName(username);
