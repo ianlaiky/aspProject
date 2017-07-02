@@ -69,7 +69,7 @@
 
             } else {
 
-                document.getElementById("error1").innerHTML = "Ding ! Enter a password thx!!";
+                document.getElementById("error1").innerHTML = "Error! Please enter a password";
                 return false;
             }
 
