@@ -48,7 +48,7 @@ public partial class login : System.Web.UI.Page
         }
     }
 
-    protected void usernameRe_OnServerValidate(object source, ServerValidateEventArgs args)
+    protected void username_OnServerValidate(object source, ServerValidateEventArgs args)
     {
         Regex r = new Regex("^[a-zA-Z0-9]*$");
         if (r.IsMatch(data))

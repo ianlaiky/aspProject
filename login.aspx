@@ -25,7 +25,7 @@
 
                     <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Account Non existent" ControlToValidate="TextBox1" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Pls enter soemthing" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
-                    <asp:CustomValidator ID="usernameRe" runat="server" ErrorMessage="Only alphanumeric characters allowed" ControlToValidate="TextBox1" ForeColor="Red" OnServerValidate="usernameRe_OnServerValidate"></asp:CustomValidator>
+                    <asp:CustomValidator ID="username" runat="server" ErrorMessage="Only alphanumeric characters allowed" ControlToValidate="TextBox1" ForeColor="Red" OnServerValidate="usernameRe_OnServerValidate"></asp:CustomValidator>
 
                 </div>
             </div>
