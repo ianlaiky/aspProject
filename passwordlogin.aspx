@@ -85,7 +85,7 @@
 
         </div>
         <p class="category text-center">
-            <span style="font-size: 20px" class="label label-success">FAN CLUB BANKINGS</span>
+            <span style="font-size: 20px" class="label label-primary">FAN CLUB BANKINGS</span>
         </p>
         <div class="card-content">
 
@@ -99,9 +99,9 @@
 
                     <asp:TextBox class="form-control" type="password" ID="TextBox2" runat="server"></asp:TextBox>
                     <span id="error1" style="color: red"></span>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Pls enter a password" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Pls enter a password" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
                     <br/>
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Password invalid" ForeColor="Red" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="*Password is invalid" ForeColor="Red" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>
                 </div>
             </div>
 
