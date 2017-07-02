@@ -18,13 +18,13 @@
                     <i class="material-icons">face</i>
                 </span>
                 <div class="form-group label-floating">
-                    <label class="control-label">First Name</label>
+                    <label class="control-label">Enter Username</label>
                   
                     
                     <asp:TextBox class="form-control" name="username" ID="TextBox1" runat="server"></asp:TextBox>
 
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Account Non existent" ControlToValidate="TextBox1" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Pls enter soemthing" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Account is not Valid" ControlToValidate="TextBox1" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter username" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
                 </div>
             </div>
 
