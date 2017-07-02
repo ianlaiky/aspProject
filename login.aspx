@@ -18,7 +18,7 @@
                     <i class="material-icons">face</i>
                 </span>
                 <div class="form-group label-floating">
-                    <label class="control-label">First Name</label>
+                    <label class="control-label">Enter Username</label>
                   
                     
                     <asp:TextBox class="form-control" name="username" ID="TextBox1" runat="server"></asp:TextBox>
