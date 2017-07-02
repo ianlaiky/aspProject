@@ -104,14 +104,14 @@ public partial class userRegister : System.Web.UI.Page
 
 
 
-            string uUsername = Username.Text;
+            string uUsername = Server.HtmlEncode(Username.Text);
             string uPasswordhash = TextBox1.Text;
             string uPasswordSalt = HiddenFieldForSalt.Value;
             string uFirstName = HiddenFieldFirstNameEncrypted.Value;
             string uLastName = HiddenFieldLastNameEncrypted.Value;
-            string uPhoneNo = phoneNumberInput.Text;
+            string uPhoneNo = Server.HtmlEncode(phoneNumberInput.Text);
             string uAddress = HiddenFieldAddressEncrypted.Value;
-            string uEmail = emailInput.Text;
+            string uEmail = Server.HtmlEncode(emailInput.Text);
             string uBirthday = HiddenFieldBirthdayEncrypted.Value;
             string uemailverified = "false";
             string uphoneVerified = "false";

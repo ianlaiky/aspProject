@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.master" AutoEventWireup="true" CodeFile="userRegister.aspx.cs" Inherits="userRegister" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.master" AutoEventWireup="true" CodeFile="userRegister.aspx.cs" Inherits="userRegister" ValidateRequest="false"%>
 <%@ Import Namespace="System.Security.Cryptography" %>
 
 
@@ -9,7 +9,7 @@
     <script src="assets/js/sha1.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.js"></script>
-
+    <script src="assets/js/StringEscapeProperly.js"></script>
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
@@ -25,6 +25,12 @@
 
         $(function () {
             $("#<%=birthdayInput.ClientID%>").datepicker();
+
+            var test1 = htmlEncode("<b>Test</b>");
+
+//            alert(test1);
+
+
         });
       
 
@@ -102,35 +108,35 @@
 
                 //encryption process starts here
                 //encrypted for first name
-                var retrievefirstname = document.getElementById('<%=firstNameInput.ClientID%>').value;
+                var retrievefirstname = htmlEncode(document.getElementById('<%=firstNameInput.ClientID%>').value);
                 retrievefirstname = retrievefirstname.toString();
                 var cipherFirstname = CryptoJS.AES.encrypt(retrievefirstname, sha1AsKey);
 //                console.log("Debug cipher for firstname: " + cipherFirstname);
                 document.getElementById('<%=HiddenFieldFirstNameEncrypted.ClientID%>').value = cipherFirstname;
 
                 //encrypted for lastname 
-                var retrieveLastName = document.getElementById('<%=lastNameInput.ClientID%>').value;
+                var retrieveLastName = htmlEncode(document.getElementById('<%=lastNameInput.ClientID%>').value);
                 retrieveLastName = retrieveLastName.toString();
                 var cipherLastname = CryptoJS.AES.encrypt(retrieveLastName, sha1AsKey);
 //                console.log("Debug cipher for lastname: " + cipherLastname);
                 document.getElementById('<%=HiddenFieldLastNameEncrypted.ClientID%>').value = cipherLastname;
 
                 //encrypted for address 
-                var retrieveaddress = document.getElementById('<%=addressInput.ClientID%>').value;
+                var retrieveaddress = htmlEncode(document.getElementById('<%=addressInput.ClientID%>').value);
                 retrieveaddress = retrieveaddress.toString();
                 var cipheraddress = CryptoJS.AES.encrypt(retrieveaddress, sha1AsKey);
 //                console.log("Debug cipher for address: " + cipheraddress);
                 document.getElementById('<%=HiddenFieldAddressEncrypted.ClientID%>').value = cipheraddress;
 
                 //encrypted for birthday
-                var retrievebirthday =  document.getElementById('<%=birthdayInput.ClientID%>').value;
+                var retrievebirthday = htmlEncode(document.getElementById('<%=birthdayInput.ClientID%>').value);
                 retrievebirthday = retrievebirthday.toString();
                 var cipherbirthday = CryptoJS.AES.encrypt(retrievebirthday, sha1AsKey);
 //                console.log("Debug cipher for birthday: " + cipherbirthday);
                 document.getElementById('<%=HiddenFieldBirthdayEncrypted.ClientID%>').value = cipherbirthday;
 
                 //encrypted for nric 
-                var retrieveNric = document.getElementById('<%=nricInput.ClientID%>').value;
+                var retrieveNric = htmlEncode(document.getElementById('<%=nricInput.ClientID%>').value);
                 retrieveNric = retrieveNric.toString();
                 var cipherNric = CryptoJS.AES.encrypt(retrieveNric, sha1AsKey);
                 //console.log("Debug cipher for nric: " + cipherNric);
