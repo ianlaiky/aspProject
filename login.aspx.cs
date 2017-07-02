@@ -51,6 +51,9 @@ public partial class login : System.Web.UI.Page
     protected void username_OnServerValidate(object source, ServerValidateEventArgs args)
     {
         Regex r = new Regex("^[a-zA-Z0-9]*$");
+
+        String data = TextBox1.Text;
+
         if (r.IsMatch(data))
         {
             args.IsValid = true;
