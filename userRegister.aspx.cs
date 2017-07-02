@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 
 public partial class userRegister : System.Web.UI.Page
@@ -232,6 +233,20 @@ public partial class userRegister : System.Web.UI.Page
 
     }
 
+    protected Boolean specialCharCheck(String data)
+    {
+        Regex r = new Regex("^[a-zA-Z0-9]*$");
+        if (r.IsMatch(data))
+        {
+           return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
 
     protected void captcha_validate(object source, ServerValidateEventArgs args)
     {
@@ -354,7 +369,42 @@ public partial class userRegister : System.Web.UI.Page
     }
 
 
+    protected void usernameRex_OnServerValidate(object source, ServerValidateEventArgs args)
+    {
 
+        String data = Username.Text;
+
+        args.IsValid = specialCharCheck(data);
+
+
+
+
+
+    }
+
+    protected void nricRex_OnServerValidate(object source, ServerValidateEventArgs args)
+    {
+        String data = nricInput.Text;
+        args.IsValid = specialCharCheck(data);
+    }
+
+    protected void firstNameRex_OnServerValidate(object source, ServerValidateEventArgs args)
+    {
+        String data = firstNameInput.Text;
+        args.IsValid = specialCharCheck(data);
+    }
+
+    protected void lastNameRex_OnServerValidate(object source, ServerValidateEventArgs args)
+    {
+        String data = lastNameInput.Text;
+        args.IsValid = specialCharCheck(data);
+    }
+
+    protected void phoneRex_OnServerValidate(object source, ServerValidateEventArgs args)
+    {
+        String data = phoneNumberInput.Text;
+        args.IsValid = specialCharCheck(data);
+    }
 }
 public static class AntiforgeryChecker
 {

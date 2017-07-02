@@ -280,7 +280,7 @@
            
             <asp:RequiredFieldValidator ID="UserNameValidator" runat="server" ErrorMessage="Please key in a username" ControlToValidate="Username" ForeColor="Red"></asp:RequiredFieldValidator>  <br/>
             <asp:CustomValidator ID="UsernameCustomValidator1"  OnServerValidate="existinguser_Validate" runat="server" ErrorMessage="Username taken" ControlToValidate="Username" EnableClientScript="True" ForeColor="Red"></asp:CustomValidator>
-            
+            <asp:CustomValidator ID="usernameRex" runat="server" ErrorMessage="Only alphanumeric characters allowed" OnServerValidate="usernameRex_OnServerValidate" ControlToValidate="Username" ForeColor="Red"></asp:CustomValidator>
 
            
 
@@ -297,7 +297,7 @@
            
             <asp:TextBox ID="nricInput" runat="server" class="form-control" placeholder="Nric..."></asp:TextBox>
             <asp:RequiredFieldValidator ID="nircInputRequiredFieldValidator1" runat="server" ErrorMessage="Please key in your Nric" ControlToValidate="nricInput" ForeColor="Red"></asp:RequiredFieldValidator>
-            
+            <asp:CustomValidator ID="nricRex" runat="server" ErrorMessage="Only alphanumeric characters allowed" ControlToValidate="nricInput" ForeColor="Red" OnServerValidate="nricRex_OnServerValidate"></asp:CustomValidator>
           
 
             <asp:HiddenField ID="HiddenFieldNricEncrypted" runat="server" />
@@ -334,9 +334,11 @@
             <div>
                 <asp:TextBox ID="firstNameInput" runat="server" class="form-control" placeholder="First Name..."></asp:TextBox>
                 <asp:RequiredFieldValidator ID="firstNameRequiredFieldValidator" runat="server" ErrorMessage="Please enter first name" ControlToValidate="firstNameInput" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:CustomValidator ID="firstNameRex" runat="server" ErrorMessage="Only alphanumeric characters allowed" ForeColor="Red" OnServerValidate="firstNameRex_OnServerValidate" ControlToValidate="firstNameInput"></asp:CustomValidator>
                 <asp:TextBox ID="lastNameInput" runat="server" class="form-control" placeholder="Last Name..."></asp:TextBox>
                 <asp:RequiredFieldValidator ID="lastNameRequiredFieldValidator" runat="server" ErrorMessage="Please enter last name" ControlToValidate="lastNameInput" ForeColor="Red"></asp:RequiredFieldValidator>
-                
+                <asp:CustomValidator ID="lastNameRex" runat="server" ErrorMessage="Only alphanumeric characters allowed" ControlToValidate="lastNameInput" ForeColor="Red" OnServerValidate="lastNameRex_OnServerValidate"></asp:CustomValidator>
+
                 <asp:HiddenField ID="HiddenFieldFirstNameEncrypted" runat="server" />
                 <asp:HiddenField ID="HiddenFieldLastNameEncrypted" runat="server" />
             </div>
@@ -352,7 +354,7 @@
             </span>
             <asp:TextBox ID="phoneNumberInput" runat="server" class="form-control" placeholder="Phone Number..."></asp:TextBox>
             <asp:RequiredFieldValidator ID="PhoneNoRequiredFieldValidator" runat="server" ErrorMessage="Please Key in Phone number" ControlToValidate="phoneNumberInput" ForeColor="Red"></asp:RequiredFieldValidator>
-
+            <asp:CustomValidator ID="phoneRex" runat="server" ErrorMessage="Only alphanumeric characters allowed" ControlToValidate="phoneNumberInput" ForeColor="Red" OnServerValidate="phoneRex_OnServerValidate"></asp:CustomValidator>
 
         </div>
 
