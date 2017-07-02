@@ -314,13 +314,13 @@
                 <i class="material-icons">lock_outline</i>
             </span>
           
-               <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Password..." ng-model="user.password" password-strength="user.password"></asp:TextBox>
+               <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Password..." ng-model="user.password" password-strength="user.password" type="password"></asp:TextBox>
              
             
 
              <span data-ng-class="strength">Your Password Strength is: {{strength}}</span> 
              <asp:RequiredFieldValidator ID="passwordRequireValidator" runat="server" ErrorMessage="Password not entered" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
-             <asp:TextBox ID="confirmpassword" runat="server" class="form-control" placeholder="Confirm password..."></asp:TextBox>
+             <asp:TextBox ID="confirmpassword" runat="server" class="form-control" placeholder="Confirm password..." type="password"></asp:TextBox>
              <span id="plscheckpassword" style="color: red"></span>
 
         </div>
