@@ -14,6 +14,7 @@
                     <textarea class="form-control" placeholder="Here can be your nice text" rows="1"></textarea>
                 </td>
             </tr>
+
             <tr>
                 <td class="auto-style2">Email of account holder(if you wish to notify them of payment:</td>
                 <td>
@@ -21,12 +22,16 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Your initials:</td>
-                <td>
+                <td class="auto-style2" style="height: 97px">Your initials:</td>
+                <td style="height: 97px">
                     <textarea class="form-control" placeholder="Here can be your nice text" rows="1"></textarea>
                 </td>
             </tr>
         </table>
+    <button runat="server" id="uxSearch" class="btn btn-default">
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    Submit
+</button>
     
 </asp:Content>
 
