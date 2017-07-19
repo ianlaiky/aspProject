@@ -26,17 +26,15 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter your email" ControlToValidate="tbEmail"></asp:RequiredFieldValidator> </td>
             </tr>
             <tr>
-                <td class="auto-style2" style="height: 97px">Your initials:</td>
+                <td class="auto-style2" style="height: 97px">Balance:</td>
                 <td style="height: 97px">
-                    <asp:TextBox ID="tbInt" runat="server"></asp:TextBox> 
+                    <asp:TextBox ID="tbBal" runat="server"></asp:TextBox> 
                 </td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please enter your initials" ControlToValidate="tbInt"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please enter your balance" ControlToValidate="tbBal"></asp:RequiredFieldValidator>
                  </tr>
         </table>
-    <button runat="server" id="uxSearch" class="btn btn-default">
-    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-    Submit
-</button>
+    <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click"  />
+   
     
 </asp:Content>
 
