@@ -5561,7 +5561,7 @@ select.selectpicker {
 html * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 99px;
+   
 }
 
 h1, .h1 {
