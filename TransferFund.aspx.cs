@@ -27,13 +27,12 @@ public partial class TransferFund : System.Web.UI.Page
         {
             using (SqlConnection con = new SqlConnection()) // parameterized queries handles sql injections!!
             {
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO Account VALUES(@name,@email,@accountNo,@bal)"))
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO Account VALUES(@name,@accountNo,@bal)"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
-                    {
+                    
 
                         cmd.Parameters.AddWithValue("@name", name);
-                        cmd.Parameters.AddWithValue("@email", email);
                         cmd.Parameters.AddWithValue("@accountNo", accountNo);
                         cmd.Parameters.AddWithValue("@bal", bal);
 
