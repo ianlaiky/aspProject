@@ -11,103 +11,110 @@ using System.Configuration;
 /// Summary description for Fund
 /// </summary>
 public class Fund
+
+
 {
-    //Private string _connStr = Properties.Settings.Default.DBConnStr;
-    //System.Configuration.ConnectionStringSettings _connStr;
-    string _connStr =
-   ConfigurationManager.ConnectionStrings["HealthDBContext"].ConnectionString;
-    private string _name = null;
-    private string _email = string.Empty;
-    private string _accountNo = ""; // this is another way to specify empty string
-    private decimal _bal = 0;
-    // Default constructor
+    string _connStr = ConfigurationManager.ConnectionStrings["FanclubContext"].ConnectionString;
+    string username;
+  
+    private double bal;
+
+
     public Fund()
     {
+        
     }
-    // Constructor that take in all data required to build a Product object
-    public Fund(string name, string accountNo, string email, decimal bal)
+    public Fund(string username,double bal)
     {
-        _name = name;
-        _email = email;
-        _accountNo = accountNo;
-        _bal = bal;
-    }
-    // Constructor that take in all except product ID
-    public Fund(string accountNo, string email,
-    decimal bal)
- : this(null, accountNo, email, bal)
-    {
+        this.username = username;
+      
+        this.bal = bal;
+
     }
 
-
-    // Constructor that take in only Product ID. The other attributes will be set to 0 or
-    public Fund(string name)
-    : this(name, "", "", 0)
+    public string Username
     {
-    }
-    // Get/Set the attributes of the Product object.
-    // Note the attribute name (e.g. Product_ID) is same as the actual database field name.
-    // This is for ease of referencing.
-    public string name
-    {
-        get { return name; }
-        set { _name = value; }
-    }
-    public string accountNo
-    {
-        get { return _accountNo; }
-        set { _accountNo = value; }
-    }
-    public string email
-    {
-        get { return _email; }
-        set { _email = value; }
-    }
-    public decimal bal
-    {
-        get { return _bal; }
-        set { _bal = value; }
+        get { return username; }
+        set { username = value; }
     }
 
+ 
 
-    public List<Fund> getFundAll()
+    public double Bal
     {
-        List<Fund> fundList = new List<Fund>();
-        string name, accountNo, email;
-        decimal bal;
-        string queryStr = "SELECT * FROM Account Order By username";
-        SqlConnection conn = new SqlConnection(_connStr);
-        SqlCommand cmd = new SqlCommand(queryStr, conn);
-        conn.Open();
-        SqlDataReader dr = cmd.ExecuteReader();
-        while (dr.Read())
-        {
-            name = dr["username"].ToString();
-            accountNo = dr["accountNo"].ToString();
-            email = dr["email"].ToString();
-            bal = decimal.Parse(dr["balance"].ToString());
-            Fund a = new Fund(name, accountNo, email, bal);
-            fundList.Add(a);
-        }
-        conn.Close();
-        dr.Close();
-        dr.Dispose();
-        return fundList;
+        get { return bal; }
+        set { bal = value; }
     }
-   
+
     public int FundInsert()
     {
+        string msg = null;
         int result = 0;
-        string queryStr = "INSERT INTO Account(username,accountNo, balance)"
-    + "values (@name, @accountNo, @bal)";
-        SqlConnection conn = new SqlConnection(_connStr);
-        SqlCommand cmd = new SqlCommand(queryStr, conn);
-        cmd.Parameters.AddWithValue("@name", this.name);
-        cmd.Parameters.AddWithValue("@accountNo", this.accountNo);
-        cmd.Parameters.AddWithValue("@bal", this.bal);
-        conn.Open();
-        result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
-        conn.Close();
-        return result;
+        string queryStr =
+            "INSERT INTO Account(username,balance)" +
+            "values (@username,@bal)";
+        //+ "values (@Product_ID, @Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
+        try
+        {
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@username", Username);
+         
+            cmd.Parameters.AddWithValue("@bal", Bal);
+           
+
+
+            conn.Open();
+            result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
+            conn.Close();
+            return result;
+        }
+        catch (SqlException ex)
+        {
+           throw new Exception(ex.ToString());
+        }
+    } //end Insert
+
+
+
+
+
+
+    public void setNewFund(string user)
+    {
+        string msg = null;
+        int result = 0;
+        string queryStr =
+            "Update Account set balance=@bal where username=@user";
+          
+        try
+        {
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@username", user);
+          
+            cmd.Parameters.AddWithValue("@bal", Bal);
+
+
+
+            conn.Open();
+            result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
+            conn.Close();
+          
+        }
+        catch (SqlException ex)
+        {
+            throw new Exception(ex.ToString());
+        }
+
     }
+
+//    public double getCurrentFund(string username)
+//    {
+//        
+//
+//    }
+
+
+
 }
