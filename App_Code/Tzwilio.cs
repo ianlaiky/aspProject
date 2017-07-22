@@ -46,9 +46,9 @@ public class Tzwilio
         try
         {
             // Your Account SID from twilio.com/console
-            var accountSid = "ACa1126441199f69f7fe3d08c38004da41";
+            const string accountSid = "ACa1126441199f69f7fe3d08c38004da41";
             // Your Auth Token from twilio.com/console
-            var authToken = "e3fdbb9a5b96a5f170be0b455cd4ef8a";
+            const string authToken = "e3fdbb9a5b96a5f170be0b455cd4ef8a";
 
             TwilioClient.Init(accountSid, authToken);
 
@@ -57,9 +57,9 @@ public class Tzwilio
                 from: new PhoneNumber("+16304746289 "),
                 body: Message);
 
-            Console.WriteLine(message.Sid);
-            Console.Write("Press any key to continue.");
-            Console.ReadKey();
+//            Console.WriteLine(message.Sid);
+//            Console.Write("Press any key to continue.");
+//            Console.ReadKey();
 
             ht = true;
         }

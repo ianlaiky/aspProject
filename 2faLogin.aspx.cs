@@ -83,5 +83,7 @@ public partial class _2faLogin : System.Web.UI.Page
         
                 Tzwilio g = new Tzwilio(resPhone, digit);
                 g.choasSms();
+
+        Response.Redirect("2faLogin.aspx",true);
     }
 }
