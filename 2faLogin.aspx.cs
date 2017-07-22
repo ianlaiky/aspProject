@@ -23,7 +23,7 @@ public partial class _2faLogin : System.Web.UI.Page
 
         if (tex.Equals(Session["rngPhoneL"].ToString()))
         {
-            Response.Redirect("TransferFund.aspx", false);
+            Response.Redirect("TransferFund.aspx", true);
         }
         else
         {
@@ -84,6 +84,6 @@ public partial class _2faLogin : System.Web.UI.Page
                 Tzwilio g = new Tzwilio(resPhone, digit);
                 g.choasSms();
 
-        Response.Redirect("2faLogin.aspx",true);
+//        Response.Redirect("2faLogin.aspx",true);
     }
 }
