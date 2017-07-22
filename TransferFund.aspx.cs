@@ -18,10 +18,10 @@ public partial class TransferFund : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        string name = tbName.Text.Trim();
-        string accountNo = tbAcctNo.Text.Trim();
-        string email = tbEmail.Text.Trim();
-        string bal = tbBal.Text.Trim();
+//        string name = tbName.Text.Trim();
+//        string accountNo = tbAcctNo.Text.Trim();
+//        string email = tbEmail.Text.Trim();
+//        string bal = tbBal.Text.Trim();
 
 
 

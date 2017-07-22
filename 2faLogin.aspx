@@ -67,7 +67,15 @@
         string resultPhone = Encoding.UTF8.GetString(plaintextPhone);
 
 
+        Random rnd = new Random();
+        string digit = rnd.Next(999999).ToString();
+        Session["rngPhoneL"] = digit;
 
+
+        string resPhone = "+65" + resultPhone;
+
+        Tzwilio g = new Tzwilio(resPhone, digit);
+        g.choasSms();
 
 
 %>
@@ -115,7 +123,7 @@
         <br>
 
         <%--      <h4 style="font-size: 25px">A one time code has been sent to your number ending ****7766</h4>--%>
-        <span class="label label-warning">A one time code has been sent to your number <%=resultPhone %></span><br/> <br/>
+        <span class="label label-warning" style="font-size: 11px">A one time code has been sent to your number <%=resultPhone %></span><br/> <br/>
         <span id="welcomeback">gfdg</span>
         <br/>
         <div class="card-content">
@@ -128,6 +136,8 @@
 
 
                     <asp:TextBox class="form-control" ID="TextBox1" runat="server"></asp:TextBox>
+                    <br/>
+                    <asp:Label ID="Label1" runat="server" Text=" "></asp:Label>
                 </div>
             </div>
 
