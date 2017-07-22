@@ -46,7 +46,7 @@ public class Fund
         set { bal = value; }
     }
 
-    public int FundInsert()
+    public int FundInsertNewUserOnly()
     {
         string msg = null;
         int result = 0;
@@ -80,7 +80,7 @@ public class Fund
 
 
 
-    public void setNewFund(string user)
+    public void setNewFund(string user,double fund)
     {
         string msg = null;
         int result = 0;
@@ -93,7 +93,7 @@ public class Fund
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@username", user);
           
-            cmd.Parameters.AddWithValue("@bal", Bal);
+            cmd.Parameters.AddWithValue("@bal", fund);
 
 
 
@@ -109,11 +109,76 @@ public class Fund
 
     }
 
-//    public double getCurrentFund(string username)
-//    {
-//        
-//
-//    }
+    public double getCurrentFund(string username)
+    {
+        double bal = 0;
+
+
+        try
+        {
+            string queryStr = "SELECT balance FROM Account WHERE username = @username";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@username", username);
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                bal = Convert.ToDouble(dr["balance"].ToString());
+
+
+
+
+
+
+            }
+            conn.Close();
+            dr.Close();
+            dr.Dispose();
+            return bal;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.ToString());
+        }
+       
+      
+  
+    }
+
+
+    public bool chaosTransfer(string fromUser, string toUser, double transferAmount)
+    {
+        bool hey = false;
+
+        try
+        {
+            double partyA = getCurrentFund(fromUser);
+            double partyANewFund = partyA - transferAmount;
+
+            setNewFund(fromUser, partyANewFund);
+
+            double partyB = getCurrentFund(toUser);
+            double partyBNewFund = partyB + transferAmount;
+
+            setNewFund(toUser, partyBNewFund);
+
+            hey = true;
+
+
+        }
+        catch(Exception ex)
+        {
+            throw new Exception(ex.ToString());
+        }
+        return hey;
+
+
+
+
+
+
+    }
 
 
 
