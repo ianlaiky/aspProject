@@ -17,25 +17,26 @@ public partial class userTwilioTest : System.Web.UI.Page
 
     protected void Button1_OnClick(object sender, EventArgs e)
     {
+//
+//        Tzwilio d = new Tzwilio("+6598517761","test");
+//        d.choasSms();
 
 
-
-
-        // Your Account SID from twilio.com/console
-        var accountSid = "ACa1126441199f69f7fe3d08c38004da41";
-        // Your Auth Token from twilio.com/console
-        var authToken = "e3fdbb9a5b96a5f170be0b455cd4ef8a";
-
-        TwilioClient.Init(accountSid, authToken);
-
-        var message = MessageResource.Create(
-            to: new PhoneNumber("+6598517761"),
-            from: new PhoneNumber("+16304746289 "),
-            body: "Hello from C#");
-
-        Console.WriteLine(message.Sid);
-        Console.Write("Press any key to continue.");
-        Console.ReadKey();
+//        // Your Account SID from twilio.com/console
+//        var accountSid = "ACa1126441199f69f7fe3d08c38004da41";
+//        // Your Auth Token from twilio.com/console
+//        var authToken = "e3fdbb9a5b96a5f170be0b455cd4ef8a";
+//
+//        TwilioClient.Init(accountSid, authToken);
+//
+//        var message = MessageResource.Create(
+//            to: new PhoneNumber("+6598517761"),
+//            from: new PhoneNumber("+16304746289 "),
+//            body: "Hello from C#");
+//
+//        Console.WriteLine(message.Sid);
+//        Console.Write("Press any key to continue.");
+//        Console.ReadKey();
 
 
 

@@ -235,7 +235,7 @@ public partial class userRegister : System.Web.UI.Page
 
     protected Boolean specialCharCheck(String data)
     {
-        Regex r = new Regex("^[a-zA-Z0-9]*$");
+        Regex r = new Regex("^[a-zA-Z0-9\\-\\s]+$");
         if (r.IsMatch(data))
         {
            return true;

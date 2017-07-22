@@ -53,7 +53,7 @@ public class Tzwilio
             TwilioClient.Init(accountSid, authToken);
 
             var message = MessageResource.Create(
-                to: new PhoneNumber(Message),
+                to: new PhoneNumber(Phone),
                 from: new PhoneNumber("+16304746289 "),
                 body: Message);
 

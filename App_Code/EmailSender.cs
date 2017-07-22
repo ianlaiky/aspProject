@@ -56,7 +56,7 @@ public class EmailSender
         set { body = value; }
     }
 
-    public RestResponse SendSimpleMessage()
+    public RestResponse SendEmail()
     {
 
         string sendtopara = RealName + " <" + Email + ">";
@@ -75,7 +75,7 @@ public class EmailSender
         request.AddParameter("subject", Header);
         request.AddParameter("text", Body);
         request.Method = Method.POST;
-        System.Diagnostics.Debug.WriteLine("sa");
+//        System.Diagnostics.Debug.WriteLine("sa");
         return (RestResponse)client.Execute(request);
     }
 

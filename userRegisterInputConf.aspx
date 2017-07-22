@@ -19,7 +19,9 @@
         </div>
         
     </div>
-   <a class="btn btn-primary">Send confirmation</a>
+<%--   <a class="btn btn-primary">Send confirmation</a>--%>
+        
+        <asp:Button ID="Button1" runat="server" Text="Send confirmation" class="btn btn-primary"/>
     
     <br/>
     <br/>
