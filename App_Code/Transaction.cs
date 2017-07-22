@@ -73,8 +73,8 @@ public class Transaction
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@id", getCurrentId()+1);
-            cmd.Parameters.AddWithValue("@sender",Sender);
+            cmd.Parameters.AddWithValue("@id", getCurrentId() + 1);
+            cmd.Parameters.AddWithValue("@sender", Sender);
             cmd.Parameters.AddWithValue("@recipent", Recipient);
             cmd.Parameters.AddWithValue("@amount", Amount);
             cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd h:mm tt"));
@@ -94,6 +94,7 @@ public class Transaction
             throw new Exception(ex.ToString());
         }
     } //end Insert
+
     public int getCurrentId()
     {
         int amt = 0;
@@ -142,10 +143,12 @@ public class Transaction
 
 
 
-          
+
         }
         catch (Exception ex)
         {
             throw new Exception(ex.ToString());
         }
     }
+}
+    
