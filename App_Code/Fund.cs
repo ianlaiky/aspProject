@@ -147,7 +147,7 @@ public class Fund
     }
 
 
-    public bool chaosTransfer(string fromUser, string toUser, double transferAmount)
+    public bool chaosTransfer(string fromUser, string toUser, double transferAmount,string description)
     {
         bool hey = false;
 
@@ -163,7 +163,18 @@ public class Fund
 
             setNewFund(toUser, partyBNewFund);
 
+
+            Transaction f = new Transaction(fromUser,toUser,transferAmount,description);
+            f.TransactionInsert();
+
+
+
             hey = true;
+
+
+
+
+
 
 
         }
