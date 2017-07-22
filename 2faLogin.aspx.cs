@@ -27,7 +27,7 @@ public partial class _2faLogin : System.Web.UI.Page
         //        }
         //        else
         //        {
-        //            Label1.Text="Wrong OTP";
+        //            Label1.Text="Wrong OTP inputed, Please key in the correct one";
         //        }
 
 

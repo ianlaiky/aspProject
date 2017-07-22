@@ -29,13 +29,14 @@
           
             <div class="input-group">
                 <span class="input-group-addon">
-                    <i class="material-icons">face</i>
+                    <i class="material-icons">cake</i>
                 </span>
                 <div class="form-group label-floating">
                     <label class="control-label">Please key in your Birthday</label>
                   
                     
                     <asp:TextBox class="form-control" name="username" ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="birthdayInputRequiredFieldValidator" runat="server" ErrorMessage="Please enter your birthday" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
 
                   
 
@@ -44,13 +45,13 @@
 
             <div class="input-group">
                 <span class="input-group-addon">
-                    <i class="material-icons">face</i>
+                    <i class="material-icons">email</i>
                 </span>
                 <div class="form-group label-floating">
                     <label class="control-label">Please key in your Email</label>
                   
                     
-                    <asp:TextBox class="form-control" name="username" ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:TextBox class="form-control" name="username" ID="TextBox3" runat="server" ></asp:TextBox>
 
                   
 
@@ -61,7 +62,7 @@
             <br/>
             
            <center>
-               <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />
+<%--               <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />--%>
                <asp:Button  class="btn btn-danger" ID="Button1" runat="server" Text="Enter" /></center>
     
         </div>

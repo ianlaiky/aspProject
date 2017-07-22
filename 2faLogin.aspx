@@ -132,7 +132,9 @@
         <span class="label label-warning" style="font-size: 11px">A one time code has been sent to your number <%=resultPhone %></span><br/> <br/>
         <span id="welcomeback">gfdg</span>
         <br/>
+        <br/>
        <center> <asp:Button  class="btn btn-danger" ID="Button100" runat="server" Text="Request For OTP" OnClick="Button100_Click" /></center>
+        
 
         <br/>
         <div class="card-content">
@@ -146,7 +148,7 @@
 
                     <asp:TextBox class="form-control" ID="TextBox1" runat="server"></asp:TextBox>
                     <br/>
-                    <asp:Label ID="Label1" runat="server" Text=" "></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text=" " ForeColor="red"></asp:Label>
                 </div>
             </div>
 
