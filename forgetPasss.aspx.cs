@@ -12,30 +12,37 @@ public partial class forgetPasss : System.Web.UI.Page
 
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void Button1_Click(object sender, EventArgs e)
     {
-        string username = TextBox1.Text.Trim();
-        string Nric = TextBox6.Text.Trim();
-        string phoneNumber = TextBox5.Text.Trim();
-        string email = TextBox3.Text.Trim();
-        string birthday = TextBox2.Text.Trim();
 
-        UserCustomer dsa = new UserCustomer();
-        string dbgetPo = dsa.getAllDataByName(username).ForgetHash;
+       
+            string username = TextBox1.Text.Trim();
+            string Nric = TextBox6.Text.Trim();
+            string phoneNumber = TextBox5.Text.Trim();
+            string email = TextBox3.Text.Trim();
+            string birthday = TextBox2.Text.Trim();
+
+            UserCustomer dsa = new UserCustomer();
+            string dbgetPo = dsa.getAllDataByName(username).ForgetHash;
 
 
 
 
-        string checkVali = HiddenFieldCheckForValBu.Value.Trim();
+            string checkVali = HiddenFieldCheckForValBu.Value.Trim();
 
-        if (dbgetPo.Equals(checkVali))
-        {
-            Response.Redirect("EmailOtp.aspx");
-        }
-        else
-        {
-            Label1.Text = "One of the fields is incorrect";
-        }
+        System.Diagnostics.Debug.Write("ds"+checkVali);
+
+            if (dbgetPo.Equals(checkVali))
+            {
+                Response.Redirect("EmailOtp.aspx");
+            }
+            else
+            {
+                Label1.Text = "One of the fields is incorrect";
+            }
+
+
+        
 
 
 

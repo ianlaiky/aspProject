@@ -1,20 +1,36 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/login.master" AutoEventWireup="true" CodeFile="forgetPasss.aspx.cs" Inherits="forgetPasss" %>
-
+<script src="assets/js/md5.min.js"></script>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-    <script src="assets/js/md5.min.js"/>
-      <script>
+   
+    
+
+
+
+
+
+
+
+
+    <script>
           
 
         function validationnn() {
-            var lala = document.getElementById("<%=TextBox1.ClientID%>").value +
-                document.getElementById("<%=TextBox6.ClientID%>").value +
-                document.getElementById("<%=TextBox5.ClientID%>").value +
-                document.getElementById("<%=TextBox3.ClientID%>").value +
-                document.getElementById("<%=TextBox2.ClientID%>").value;
+            console.log("dsds");
+            document.getElementById("<%=HiddenFieldCheckForValBu.ClientID%>").value = "hello";
+//            var lala = document.getElementById("<%=TextBox1.ClientID%>").value +
+//                document.getElementById("<%=TextBox6.ClientID%>").value +
+//                document.getElementById("<%=TextBox5.ClientID%>").value +
+//                document.getElementById("<%=TextBox3.ClientID%>").value +
+//                document.getElementById("<%=TextBox2.ClientID%>").value;
+//
+//            var saa = md5(lala);
+//
+//            console.log(saa);
+//           
+//
+//            document.getElementById("<%=HiddenFieldCheckForValBu.ClientID%>").value = saa;
 
-            var saa = md5(lala);
-
-            document.getElementById("<%=HiddenFieldCheckForValBu.ClientID%>").value = saa;
+            return true;
 
         }
 
@@ -25,16 +41,7 @@
 
 
 
-      </script>
-
-
-
-
-
-
-
-
-
+    </script>
     
 
     <div class="card card-login card-hidden">
@@ -123,7 +130,7 @@
             <br/>
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             <center>
-                <asp:Button class="btn btn-danger" ID="Button1" onClientClick="" runat="server" Text="Enter"/>
+                <asp:Button class="btn btn-danger" ID="Button1" onClientClick="if(!validationnn()){return false}" runat="server" Text="Enter" OnClick="Button1_Click"/>
             </center>
 
         </div>
