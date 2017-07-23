@@ -1,21 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/login.master" AutoEventWireup="true" CodeFile="EmailOtp.aspx.cs" Inherits="EmailOtp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-    
+
 
     <%
-
-
-
-
-
-
-
-
     %>
 
-    
-    
 
     <div class="card card-login card-hidden">
         <div class="card-header text-center" data-background-color="rose">
@@ -23,10 +13,17 @@
 
         </div>
         <p class="category text-center">
-            <span style="font-size: 25px" class="label label-info">Fan Club Bankings</span>
-            <asp:Label ID="Label2" runat="server" Text="Please enter the otp that was sent to your email"></asp:Label>
+
+
+            <span style="font-size: 25px" class="label label-danger">Fan Club Bankings</span>
+
 
         </p>
+        <br/>
+            <span class="label label-primary" style="font-size: 12px">Please enter the otp that was sent to your email</span>
+        <br/>
+        <Br />
+
         <br/>
         <div class="card-content">
             <div class="input-group">
@@ -43,12 +40,12 @@
 
                 </div>
             </div>
-            <br />
+            <br/>
             <asp:Label ID="Label1" runat="server" Text="" ForeColor="red"></asp:Label>
             <center>
                 <asp:Button class="btn btn-danger" ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click"/>
 
-                <br />
+                <br/>
                 <asp:Label ID="otpError" runat="server" Text="" foreColor="Red"></asp:Label>
 
             </center>
@@ -57,4 +54,3 @@
 
     </div>
 </asp:Content>
-
