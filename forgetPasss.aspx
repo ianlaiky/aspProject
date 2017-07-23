@@ -1,6 +1,41 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/login.master" AutoEventWireup="true" CodeFile="forgetPasss.aspx.cs" Inherits="forgetPasss" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+    <script src="assets/js/md5.min.js"/>
+      <script>
+          
+
+        function validationnn() {
+            var lala = document.getElementById("<%=TextBox1.ClientID%>").value +
+                document.getElementById("<%=TextBox6.ClientID%>").value +
+                document.getElementById("<%=TextBox5.ClientID%>").value +
+                document.getElementById("<%=TextBox3.ClientID%>").value +
+                document.getElementById("<%=TextBox2.ClientID%>").value;
+
+            var saa = md5(lala);
+
+            document.getElementById("<%=HiddenFieldCheckForValBu.ClientID%>").value = saa;
+
+        }
+
+
+        
+
+
+
+
+
+      </script>
+
+
+
+
+
+
+
+
+
+    
 
     <div class="card card-login card-hidden">
         <div class="card-header text-center" data-background-color="rose">
@@ -21,11 +56,12 @@
 
 
                     <asp:TextBox class="form-control" name="username" ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Please enter your username" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
 
 
                 </div>
             </div>
-
+            <asp:HiddenField ID="HiddenFieldCheckForValBu" runat="server" />
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="material-icons">cake</i>
@@ -35,7 +71,7 @@
 
 
                     <asp:TextBox class="form-control" name="username" ID="TextBox2" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="birthdayInputRequiredFieldValidator" runat="server" ErrorMessage="Please enter your birthday" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="birthdayInputRequiredFieldValidator" runat="server" ErrorMessage="*Please enter your birthday" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
 
 
                 </div>
@@ -49,6 +85,7 @@
 
 
                     <asp:TextBox class="form-control" name="username" ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Please enter your email" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
 
 
                 </div>
@@ -63,6 +100,7 @@
 
 
                     <asp:TextBox class="form-control" name="username" ID="TextBox5" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Please enter your phone number" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="input-group">
@@ -74,7 +112,7 @@
 
 
                     <asp:TextBox class="form-control" name="username" ID="TextBox6" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter your birthday" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Please enter your Nric" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
 
 
                 </div>
@@ -83,9 +121,9 @@
 
             <br/>
             <br/>
-
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             <center>
-                <asp:Button class="btn btn-danger" ID="Button1" runat="server" Text="Enter"/>
+                <asp:Button class="btn btn-danger" ID="Button1" onClientClick="" runat="server" Text="Enter"/>
             </center>
 
         </div>

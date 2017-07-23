@@ -128,8 +128,8 @@
     <div class="card card-login card-hidden">
         <br>
 
-        <span class="label label-warning" style="font-size: 11px">A one time code will be sent to your number <%=resultPhone %></span><br/> <br/>
-        <span id="welcomeback">gfdg</span>
+        <span class="label label-warning" style="font-size: 11.5px">A one time code will be sent to your number <%=resultPhone %></span><br/> <br/>
+        <span id="welcomeback" style="font-Size:16px" font-Weight="bold">gfdg</span>
         <br/>
         <br/>
        <center> <asp:Button  class="btn btn-danger" ID="Button100" runat="server" Text="Request For OTP" OnClick="Button100_Click" /></center>
