@@ -202,4 +202,62 @@ public class UserCustomer
         return cus;
 
     }
+
+    public void updateStatusEmail(string user,string status)
+    {
+        string msg = null;
+        int result = 0;
+        string queryStr =
+            "Update Customer set emailVerified=@emailver where username=@user";
+
+        try
+        {
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@user", user);
+
+            cmd.Parameters.AddWithValue("@emailver", status);
+
+
+
+            conn.Open();
+            result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
+            conn.Close();
+
+        }
+        catch (SqlException ex)
+        {
+            throw new Exception(ex.ToString());
+        }
+
+    }
+
+    public void updateStatusphone(string user, string status)
+    {
+        string msg = null;
+        int result = 0;
+        string queryStr =
+            "Update Customer set phoneVerified=@lver where username=@user";
+
+        try
+        {
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@user", user);
+
+            cmd.Parameters.AddWithValue("@lver", status);
+
+
+
+            conn.Open();
+            result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
+            conn.Close();
+
+        }
+        catch (SqlException ex)
+        {
+            throw new Exception(ex.ToString());
+        }
+
+    }
 }

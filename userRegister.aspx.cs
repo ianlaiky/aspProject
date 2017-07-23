@@ -164,12 +164,18 @@ public partial class userRegister : System.Web.UI.Page
             string encryptedLastName = encryptData(uLastName, uPasswordhash, salttoByte);
             string encryptedEmail = encryptData(uEmail, uPasswordhash, salttoByte);
             string encryptedBirthday = encryptData(uBirthday, uPasswordhash, salttoByte);
-            string encryptedNric = encryptData(uNric, uPasswordhash, salttoByte);
+            string encryptedNric = encryptData(uNric, uPasswordhash, salttoByte);
+
+            Session["nextPageUserRegEMail"] = uEmail;
+            Session["nextPageUserRegPhone"] = uPhoneNo;
+
+            Session["nextPageUserReg"] = uUsername;
+
 
             UserCustomer newuser = new UserCustomer(uUsername, finalHashval, uPasswordSalt, encryptedPhone, enryptedAddress, encryptedFirstName, encryptedLastName, encryptedEmail, encryptedBirthday, uemailverified,uphoneVerified, encryptedNric);
             newuser.CustomerInsert();
 
-            //hmm to be continued
+
             Response.Redirect("userRegisterInputConf.aspx");
 
 
