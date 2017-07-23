@@ -34,11 +34,21 @@ public partial class forgetPasss : System.Web.UI.Page
 
             if (dbgetPo.Equals(checkVali))
             {
-                Response.Redirect("EmailOtp.aspx");
+
+
+                Session["forgetPassTosaveusername"] = username;
+                Session["forgetPassTosavenric"] = Nric;
+                Session["forgetPassTosavephoneNumber"] = phoneNumber;
+                Session["forgetPassTosaveemail"] = email;
+                Session["forgetPassTosavebirthday"] = birthday;
+
+
+
+            Response.Redirect("EmailOtp.aspx");
             }
             else
             {
-                Label1.Text = "One of the fields is incorrect";
+                Label1.Text = "*One of the fields you have entered is incorrect";
             }
 
 

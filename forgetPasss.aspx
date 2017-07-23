@@ -129,7 +129,7 @@
 
             <br/>
             <br/>
-            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="" ForeColor="red"></asp:Label>
             <center>
                 <asp:Button class="btn btn-danger" ID="Button1" onClientClick="if(!validationnn()){return false}" runat="server" Text="Enter" OnClick="Button1_Click"/>
             </center>
