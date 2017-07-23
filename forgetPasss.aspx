@@ -30,7 +30,7 @@
 
             document.getElementById("<%=HiddenFieldCheckForValBu.ClientID%>").value = saa;
 
-            return false;
+            return true;
 
         }
 
