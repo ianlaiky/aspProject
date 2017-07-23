@@ -293,4 +293,41 @@ public class UserCustomer
         }
 
     }
+
+    public void updateforForgetpass(string user,string passwordHash, string phoneNo,string address, string firstName, string lastname, string email, string birthday, string nric)
+    {
+        string msg = null;
+        int result = 0;
+        string queryStr =
+            "Update Customer set passwordhash=@passwordHash,phoneNo=@phoneNo,address=@address,firstName=@fname,lastName=@lname,email=@email,birthday=@birthday,nric=@nric where username=@user";
+
+        try
+        {
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@user", user);
+            cmd.Parameters.AddWithValue("@passwordHash", passwordHash);
+            cmd.Parameters.AddWithValue("@phoneNo", phoneNo);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@fname", firstName);
+            cmd.Parameters.AddWithValue("@lname", lastname);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@birthday", birthday);
+            cmd.Parameters.AddWithValue("@nric", nric);
+
+           
+
+
+
+            conn.Open();
+            result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
+            conn.Close();
+
+        }
+        catch (SqlException ex)
+        {
+            throw new Exception(ex.ToString());
+        }
+
+    }
 }
