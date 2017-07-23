@@ -73,9 +73,10 @@ public partial class newPassword : System.Web.UI.Page
 
 
 
+        //label sucess
 
 
-        Response.Redirect("");
+        Response.Redirect("addressConfirm.aspx");
 
 
 
