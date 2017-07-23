@@ -14,12 +14,24 @@ public partial class forgetPasss : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
+        string username = TextBox1.Text.Trim();
+        string birthday = TextBox2.Text.Trim();
+        string email = TextBox3.Text.Trim();
+        string phoneNumber = TextBox5.Text.Trim();
+        string Nric = TextBox6.Text.Trim();
+        
 
-//    Tzwilio d = new Tzwilio("+6598517761","testung");
-//        d.choasSms();
 
 
-//        EmailSender s = new EmailSender("Aravin", "aravinmanokaran10@gmail.com","21/09/1997","Hi, Reagrds");
-//        s.SendSimpleMessage();
+
+
+
+
+        //    Tzwilio d = new Tzwilio("+6598517761","testung");
+        //        d.choasSms();
+
+
+        //        EmailSender s = new EmailSender("Aravin", "aravinmanokaran10@gmail.com","21/09/1997","Hi, Reagrds");
+        //        s.SendSimpleMessage();
     }
 }

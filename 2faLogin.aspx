@@ -128,8 +128,7 @@
     <div class="card card-login card-hidden">
         <br>
 
-        <%--      <h4 style="font-size: 25px">A one time code has been sent to your number ending ****7766</h4>--%>
-        <span class="label label-warning" style="font-size: 11px">A one time code has been sent to your number <%=resultPhone %></span><br/> <br/>
+        <span class="label label-warning" style="font-size: 11px">A one time code will be sent to your number <%=resultPhone %></span><br/> <br/>
         <span id="welcomeback">gfdg</span>
         <br/>
         <br/>
