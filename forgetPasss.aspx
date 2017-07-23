@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/login.master" AutoEventWireup="true" CodeFile="forgetPasss.aspx.cs" Inherits="forgetPasss" %>
-<script src="assets/js/md5.min.js"></script>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
    
-    
+    <script src="assets/js/md5.min.js"></script>
 
 
 
@@ -30,7 +30,7 @@
 //
 //            document.getElementById("<%=HiddenFieldCheckForValBu.ClientID%>").value = saa;
 
-            return true;
+            return false;
 
         }
 
