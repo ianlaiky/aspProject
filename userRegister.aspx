@@ -401,11 +401,11 @@
             <span class="input-group-addon">
                 <i class="material-icons">cake</i>
             </span>
-            <asp:TextBox ID="birthdayInput" runat="server" class="form-control" placeholder="Birthday..."></asp:TextBox>
+            <asp:TextBox ID="birthdayInput" runat="server" class="form-control" placeholder="Birthday..." ControlToValidate="birthdayInput"></asp:TextBox>
             <asp:RequiredFieldValidator ID="birthdayInputRequiredFieldValidator" runat="server" ErrorMessage="Please enter your birthday" ControlToValidate="birthdayInput" ForeColor="Red"></asp:RequiredFieldValidator>
               
 
-
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Please enter a valid birthday" ForeColor="Red" ValidationExpression="[0-9/]*" ControlToValidate="birthdayInput"></asp:RegularExpressionValidator>
             <asp:HiddenField ID="HiddenFieldBirthdayEncrypted" runat="server" />
             
             
