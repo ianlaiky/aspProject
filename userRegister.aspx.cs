@@ -253,6 +253,20 @@ public partial class userRegister : System.Web.UI.Page
 
     }
 
+    protected Boolean specialCharCheckEmail(String data)
+    {
+        Regex r = new Regex(@"^[a-zA-Z0-9#,-]*$");
+        if (r.IsMatch(data))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
 
     protected void captcha_validate(object source, ServerValidateEventArgs args)
     {
@@ -406,11 +420,7 @@ public partial class userRegister : System.Web.UI.Page
         args.IsValid = specialCharCheck(data);
     }
 
-    protected void phoneRex_OnServerValidate(object source, ServerValidateEventArgs args)
-    {
-        String data = phoneNumberInput.Text;
-        args.IsValid = specialCharCheck(data);
-    }
+   
 }
 public static class AntiforgeryChecker
 {

@@ -371,7 +371,7 @@
             </span>
             <asp:TextBox ID="phoneNumberInput" runat="server" class="form-control" placeholder="Phone Number..."></asp:TextBox>
             <asp:RequiredFieldValidator ID="PhoneNoRequiredFieldValidator" runat="server" ErrorMessage="Please Key in Phone number" ControlToValidate="phoneNumberInput" ForeColor="Red"></asp:RequiredFieldValidator>
-            <asp:CustomValidator ID="phoneRex" runat="server" ErrorMessage="Only alphanumeric characters allowed" ControlToValidate="phoneNumberInput" ForeColor="Red" OnServerValidate="phoneRex_OnServerValidate"></asp:CustomValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please key in a valid phone number" ForeColor="Red" ValidationExpression="[0-9-]*" ControlToValidate="phoneNumberInput"></asp:RegularExpressionValidator>
 
         </div>
 
@@ -381,7 +381,8 @@
             </span>
             <asp:TextBox ID="addressInput" runat="server" class="form-control" placeholder="Address..."></asp:TextBox>
             <asp:RequiredFieldValidator ID="addressInputRequiredFieldValidator" runat="server" ErrorMessage="Please enter an address" ControlToValidate="addressInput" ForeColor="Red"></asp:RequiredFieldValidator>
-
+            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please key in a valid address, special characters such as # , - is allowed" ValidationExpression="[a-zA-Z0-9 #,-]*" ControlToValidate="addressInput" ForeColor="Red"></asp:RegularExpressionValidator>
             <asp:HiddenField ID="HiddenFieldAddressEncrypted" runat="server" />
 
         </div>
