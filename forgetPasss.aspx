@@ -63,7 +63,7 @@
 
 
                     <asp:TextBox class="form-control" name="username" ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Please enter your username" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Please enter your username" ControlToValidate="TextBox1" ForeColor="Red"></asp:RequiredFieldValidator>
 
 
                 </div>
@@ -77,7 +77,7 @@
                     <label class="control-label">Please key in your Birthday</label>
 
 
-                    <asp:TextBox class="form-control" name="username" ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox class="form-control" name="bday" ID="TextBox2" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="birthdayInputRequiredFieldValidator" runat="server" ErrorMessage="*Please enter your birthday" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
 
 
@@ -91,8 +91,9 @@
                     <label class="control-label">Please key in your Email</label>
 
 
-                    <asp:TextBox class="form-control" name="username" ID="TextBox3" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Please enter your email" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:TextBox class="form-control" name="email" ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Please enter your email" ControlToValidate="TextBox3" ForeColor="Red"></asp:RequiredFieldValidator>  <asp:RegularExpressionValidator ID="EmailRegularExpressionValidator1" runat="server" ErrorMessage="*Please enter a valid email address" ControlToValidate="TextBox3" ForeColor="Red" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                  
 
 
                 </div>
@@ -106,8 +107,8 @@
                     <label class="control-label">Please key in your Phone Number</label>
 
 
-                    <asp:TextBox class="form-control" name="username" ID="TextBox5" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Please enter your phone number" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:TextBox class="form-control" name="phonenumber" ID="TextBox5" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Please enter your phone number" ControlToValidate="TextBox5" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="input-group">
@@ -118,8 +119,8 @@
                     <label class="control-label">Please key in Your Nric</label>
 
 
-                    <asp:TextBox class="form-control" name="username" ID="TextBox6" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Please enter your Nric" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:TextBox class="form-control" name="nric" ID="TextBox6" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Please enter your Nric" ControlToValidate="TextBox6" ForeColor="Red"></asp:RequiredFieldValidator>
 
 
                 </div>
