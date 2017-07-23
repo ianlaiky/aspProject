@@ -105,6 +105,19 @@
 
                 console.log("dasds " + plaintext);
 
+                //hashing to validate the forget
+                var hahahss = document.getElementById("<%=Username.ClientID%>").value +
+                    document.getElementById('<%=nricInput.ClientID%>').value +
+                    document.getElementById('<%=phoneNumberInput.ClientID%>').value +
+                    document.getElementById('<%=emailInput.ClientID%>').value +
+                    document.getElementById('<%=birthdayInput.ClientID%>').value;
+
+                var tosaveforget = md5(hahahss);
+                document.getElementById("<%=HiddenFieldForsavingHashOfForget.ClientID%>").value = tosaveforget;
+
+
+
+                
 
                 //encryption process starts here
                 //encrypted for first name
@@ -268,6 +281,10 @@
         
 <%--        salt hidden textbox--%>
         <asp:HiddenField ID="HiddenFieldForSalt" runat="server" />
+        
+<%--        hidden field for forgetpass vald--%>
+        <asp:HiddenField ID="HiddenFieldForsavingHashOfForget" runat="server" />
+
 
     
         <div class="input-group">

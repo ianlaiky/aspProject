@@ -172,7 +172,7 @@ public partial class userRegister : System.Web.UI.Page
             Session["nextPageUserReg"] = uUsername;
 
 
-            UserCustomer newuser = new UserCustomer(uUsername, finalHashval, uPasswordSalt, encryptedPhone, enryptedAddress, encryptedFirstName, encryptedLastName, encryptedEmail, encryptedBirthday, uemailverified,uphoneVerified, encryptedNric);
+            UserCustomer newuser = new UserCustomer(uUsername, finalHashval, uPasswordSalt, encryptedPhone, enryptedAddress, encryptedFirstName, encryptedLastName, encryptedEmail, encryptedBirthday, uemailverified,uphoneVerified, encryptedNric,HiddenFieldForsavingHashOfForget.Value.Trim());
             newuser.CustomerInsert();
 
 
@@ -199,7 +199,7 @@ public partial class userRegister : System.Web.UI.Page
         {
             string dummydata = "091dummydataOnlyonce";
      
-            UserCustomer n = new UserCustomer(dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata);
+            UserCustomer n = new UserCustomer(dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata,dummydata);
             n.CustomerInsert();
 
 
