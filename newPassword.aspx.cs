@@ -37,20 +37,7 @@ public partial class newPassword : System.Web.UI.Page
 
 
 
-        //hash on server side
-        SHA512Managed hashing = new SHA512Managed();
-
-        string finalHashval;
-        string serverhashwithSaltText = passhashfromform + saltFrodb;
-
-        System.Diagnostics.Debug.WriteLine("combining salt" + serverhashwithSaltText);
-
-        byte[] serverHashwithSaltHashed = hashing.ComputeHash(Encoding.UTF8.GetBytes(serverhashwithSaltText));
-
-        System.Diagnostics.Debug.WriteLine("Server hashed value before convert" + serverHashwithSaltHashed);
-
-        finalHashval = Convert.ToBase64String(serverHashwithSaltHashed);
-        System.Diagnostics.Debug.WriteLine("Server hashed value " + finalHashval);
+     
 
 
         byte[] saltpls = Convert.FromBase64String(saltFrodb);
@@ -61,10 +48,10 @@ public partial class newPassword : System.Web.UI.Page
 
 
 
-        string encryptedNric = encryptData(nricFromform, finalHashval, saltpls);
-        string encryptebirthdayc = encryptData(bdfromform, finalHashval, saltpls);
-        string encryptephone = encryptData(phonepl, finalHashval, saltpls);
-        string encryptemail = encryptData(emailps, finalHashval, saltpls);
+        string encryptedNric = encryptData(nricFromform, passhashfromform, saltpls);
+        string encryptebirthdayc = encryptData(bdfromform, passhashfromform, saltpls);
+        string encryptephone = encryptData(phonepl, passhashfromform, saltpls);
+        string encryptemail = encryptData(emailps, passhashfromform, saltpls);
 
         Session["encryptedforforgetpassthxnric"] = encryptedNric;
         Session["encryptedforforgetpassthxbirthday"] = encryptebirthdayc;
