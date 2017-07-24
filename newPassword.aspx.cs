@@ -61,8 +61,9 @@ public partial class newPassword : System.Web.UI.Page
         Session["encryptedforforgetpassthxbirthday"] = encryptebirthdayc;
         Session["encryptedforforgetpassthxphone"] = encryptephone;
         Session["encryptedforforgetpassthxemail"] = encryptemail;
+        Session["sha1askeyforcleintx"] = HiddenFieldsha1fornextuser.Value;
 
-
+        
 
         //label sucess
 
