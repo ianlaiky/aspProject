@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
    
+    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="CustomValidator"></asp:CustomValidator>
+   
     <script src="assets/js/md5.min.js"></script>
 
 
@@ -64,6 +66,7 @@
 
                     <asp:TextBox class="form-control" name="username" ID="TextBox1" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Please enter your username" ControlToValidate="TextBox1" ForeColor="Red"></asp:RequiredFieldValidator>
+<%--                    <asp:CustomValidator ID="CustomValidator2" runat="server" ErrorMessage="Account is not valid"></asp:CustomValidator>--%>
 
 
                 </div>
@@ -105,6 +108,7 @@
                 </span>
                 <div class="form-group label-floating">
                     <label class="control-label">Please key in your Phone Number</label>
+                    
 
 
                     <asp:TextBox class="form-control" name="phonenumber" ID="TextBox5" runat="server"></asp:TextBox>
