@@ -13,15 +13,15 @@
     <script>
         $(function () {
 
-
-            var sha1AsKey = sha1.create();
-            sha1AsKey =  "<%=Session["sha1askeyforcleintx"].ToString()%>";
-
-            console.log("fd");
-            var ciphertext = CryptoJS.AES.encrypt('my messtage', sha1AsKey);
-
-
-            console.log("cipher " + ciphertext);
+//
+//            var sha1AsKey = sha1.create();
+//    
+//
+//            console.log("fd");
+//            var ciphertext = CryptoJS.AES.encrypt('my messtage', sha1AsKey);
+//
+//
+//            console.log("cipher " + ciphertext);
 
         });
 
@@ -34,52 +34,72 @@
 //
           
 
-            var sha1AsKey = sha1.create();
-            sha1AsKey =  "<%=Session["sha1askeyforcleintx"].ToString()%>";
+//            var ciphertext = CryptoJS.AES.encrypt('my messtage', "123");
+//            
+//            
+//                        console.log("cipher " + ciphertext);
 
 
-            console.log(sha1asKey);
-            console.log(htmlEncode(document.getElementById('<%=TextBox1.ClientID%>').value));
+//
+//            console.log("dsa");
+//            console.log(htmlEncode(document.getElementById('<%=TextBox1.ClientID%>').value));
+
+
+//
+            var sha1AsKey = "<%=Session["sha1askeyforcleintx"].ToString()%>";
+            sha1AsKey = sha1AsKey.toString();
+
+
+
+
+
+
+////
+//
+            var tetsifgd = CryptoJS.AES.encrypt("fsdfd", sha1AsKey);
+            console.log(tetsifgd+"");
+
 
 
 //            
 //
 //
            //encrypted for first name
-//            var retrievefirstname = htmlEncode(document.getElementById('<%=TextBox1.ClientID%>').value);
-//            retrievefirstname = retrievefirstname.toString();
+            var retrievefirstname = htmlEncode(document.getElementById('<%=TextBox1.ClientID%>').value);
+            retrievefirstname = retrievefirstname.toString();
+
+            var cipherFirstnameee = CryptoJS.AES.encrypt(retrievefirstname, sha1AsKey);
+            var cipherFirstnameeeeeee = cipherFirstnameee + "";
 //
-//            var cipherFirstname = CryptoJS.AES.encrypt(retrievefirstname, sha1AsKey);
+            document.getElementById('<%=HiddenFieldFirstNameEncrypted.ClientID%>').value = cipherFirstnameeeeeee ;
+
+            console.log(cipherFirstnameeeeeee);
+            //            
+
+//
+//
+//
+//
 ////
-//            document.getElementById('<%=HiddenFieldFirstNameEncrypted.ClientID%>').value = cipherFirstname;
-//
-//            console.log(cipherFirstname);
-//            //            
-
-//
-//
-//
-//
-//
-//            //encrypted for lastname 
-//            var retrieveLastName = htmlEncode(document.getElementById('<%=TextBox2.ClientID%>').value);
-//            retrieveLastName = retrieveLastName.toString();
-//            var cipherLastname = CryptoJS.AES.encrypt(retrieveLastName, sha1AsKey);
-////                console.log("Debug cipher for lastname: " + cipherLastname);
-//            document.getElementById('<%=HiddenFieldLastNameEncrypted.ClientID%>').value = cipherLastname;
-//
-//
-//
-//
-//            //encrypted for address 
-//            var retrieveaddress = htmlEncode(document.getElementById('<%=TextBox4.ClientID%>').value);
-//            retrieveaddress = retrieveaddress.toString();
-//            var cipheraddress = CryptoJS.AES.encrypt(retrieveaddress, sha1AsKey);
-////                console.log("Debug cipher for address: " + cipheraddress);
-//            document.getElementById('<%=HiddenFieldAddressEncrypted.ClientID%>').value = cipheraddress;
+            //encrypted for lastname S
+            var retrieveLastName = htmlEncode(document.getElementById('<%=TextBox2.ClientID%>').value);
+            retrieveLastName = retrieveLastName.toString();
+            var cipherLastname = CryptoJS.AES.encrypt(retrieveLastName, sha1AsKey);
+//                console.log("Debug cipher for lastname: " + cipherLastname);
+            document.getElementById('<%=HiddenFieldLastNameEncrypted.ClientID%>').value = cipherLastname+"";
 
 
-            return false;
+
+
+            //encrypted for address 
+            var retrieveaddress = htmlEncode(document.getElementById('<%=TextBox4.ClientID%>').value);
+            retrieveaddress = retrieveaddress.toString();
+            var cipheraddress = CryptoJS.AES.encrypt(retrieveaddress, sha1AsKey);
+//                console.log("Debug cipher for address: " + cipheraddress);
+            document.getElementById('<%=HiddenFieldAddressEncrypted.ClientID%>').value = cipheraddress+"";
+
+
+            return true;
 
         }
 
