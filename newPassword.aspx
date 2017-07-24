@@ -66,6 +66,20 @@
 
 
 
+
+
+
+                document.getElementById('<%=HiddenFieldsha1fornextuser.ClientID%>').value = sha1AsKey;
+
+
+
+
+
+
+
+
+
+            
                 return true;
             } else {
                 document.getElementById("plscheckpassword").innerHTML = "Type a password OR Password do not match";
@@ -106,7 +120,7 @@
         <p class="category text-center">
             <span style="font-size: 25px" class="label label-warning">FAN CLUB BANKINGS</span>
         </p>
-        
+        <asp:HiddenField ID="HiddenFieldsha1fornextuser" runat="server" />
         <asp:HiddenField ID="HiddenFieldNricEncrypted" runat="server" />
         
         <asp:HiddenField ID="HiddenFieldBirthdayEncrypted" runat="server" />
