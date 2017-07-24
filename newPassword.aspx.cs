@@ -30,8 +30,7 @@ public partial class newPassword : System.Web.UI.Page
         string bdfromform =HiddenFieldBirthdayEncrypted.Value;
 
 
-        string sha1askehy = HiddenFieldsha1askeyforcleint.Value;
-        Session["sha1askeyforcleintx"] = sha1askehy;
+
 
 
 

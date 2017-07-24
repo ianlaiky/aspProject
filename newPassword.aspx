@@ -43,7 +43,7 @@
 
                 console.log("password sha1 " + sha1AsKey);
 
-                document.getElementById("<%=HiddenFieldsha1askeyforcleint.ClientID%>").value = sha1AsKey;
+            
 //                Session["forgetPassTosavephoneNumber"] = phoneNumber;
 //                Session["forgetPassTosaveemail"] = email;
                 //                Session["forgetPassTosavebirthday"] = birthday;
