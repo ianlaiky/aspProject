@@ -18,7 +18,7 @@ public partial class addressConfirm : System.Web.UI.Page
         UserCustomer cs = new UserCustomer();
 
         string saltFrodb = cs.getAllDataByName(Session["forgetPassTosaveusername"].ToString()).Passwordsalt;
-
+        byte[] saltpls = Convert.FromBase64String(saltFrodb);
 
         //pass from form
         string passfromform = Session["md5hashforforgetpassplsthx"].ToString();
@@ -39,10 +39,23 @@ public partial class addressConfirm : System.Web.UI.Page
         System.Diagnostics.Debug.WriteLine("Server hashed value " + finalHashval);
 
 
+        //get
+        string encryptedfirstname = HiddenFieldFirstNameEncrypted.Value;
+        string encryptedlastname = HiddenFieldLastNameEncrypted.Value;
+        string encrypaddress = HiddenFieldAddressEncrypted.Value;
+
+        System.Diagnostics.Debug.WriteLine("dasdsa"+encryptedfirstname);
+        System.Diagnostics.Debug.WriteLine(encryptedlastname);
+        System.Diagnostics.Debug.WriteLine(encrypaddress);
 
 
 
+        string passhashfromform = Session["md5hashforforgetpassplsthx"].ToString();
 
+   
+        string savetofirstname = encryptData(encryptedfirstname, passhashfromform, saltpls);
+        string savetolastanme = encryptData(encryptedlastname, passhashfromform, saltpls);
+        string savetoaddress = encryptData(encrypaddress, passhashfromform, saltpls);
 
 
 
@@ -61,18 +74,19 @@ public partial class addressConfirm : System.Web.UI.Page
 
         string encryptednric = Session["encryptedforforgetpassthxnric"].ToString();
         string encryptedbirthday = Session["encryptedforforgetpassthxbirthday"].ToString();
-        string encryotedSession = Session["encryptedforforgetpassthxphone"].ToString();
+        string encryotedphone = Session["encryptedforforgetpassthxphone"].ToString();
         string encryptedemail = Session["encryptedforforgetpassthxemail"].ToString();
 
 
+        string usernamm = Session["forgetPassTosaveusername"].ToString();
+
+        UserCustomer asc = new UserCustomer();
+        asc.updateforForgetpass(usernamm, finalHashval, encryotedphone, savetoaddress, savetofirstname, savetolastanme, encryptedemail, encryptedbirthday, encryptednric);
 
 
 
 
-
-
-
-
+        Response.Redirect("successForgetPass.aspx");
 
 
 

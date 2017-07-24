@@ -33,6 +33,7 @@
 
                 document.getElementById("<%=TextBox1.ClientID%>").value = md5(saltByUser);
                 document.getElementById("<%=TextBox2.ClientID%>").value = md5(saltByUser);
+           
 
 
                 var sha1AsKey = sha1.create();
@@ -42,7 +43,7 @@
 
                 console.log("password sha1 " + sha1AsKey);
 
-
+                document.getElementById("<%=HiddenFieldsha1askeyforcleint.ClientID%>").value = sha1AsKey;
 //                Session["forgetPassTosavephoneNumber"] = phoneNumber;
 //                Session["forgetPassTosaveemail"] = email;
                 //                Session["forgetPassTosavebirthday"] = birthday;
@@ -106,7 +107,7 @@
         <p class="category text-center">
             <span style="font-size: 25px" class="label label-warning">FAN CLUB BANKINGS</span>
         </p>
-        
+        <asp:HiddenField ID="HiddenFieldsha1askeyforcleint" runat="server" />
         <asp:HiddenField ID="HiddenFieldNricEncrypted" runat="server" />
         
         <asp:HiddenField ID="HiddenFieldBirthdayEncrypted" runat="server" />
