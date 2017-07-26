@@ -15,10 +15,34 @@ public class Transaction
 
 {
     string _connStr = ConfigurationManager.ConnectionStrings["FanclubContext"].ConnectionString;
+    private int id;
     private string sender;
     private string recipient;
     private double amount;
+    private string date;
     private string description;
+
+    public Transaction(int id, string sender, string recipient, double amount, string date, string description)
+    {
+        this.id = id;
+        this.sender = sender;
+        this.recipient = recipient;
+        this.amount = amount;
+        this.date = date;
+        this.description = description;
+    }
+
+    public string Date
+    {
+        get { return date; }
+        set { date = value; }
+    }
+
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
 
     public Transaction()
     {
@@ -54,6 +78,8 @@ public class Transaction
         set { description = value; }
     }
 
+
+
     public Transaction(string sender, string recipient, double amount, string description)
     {
         this.sender = sender;
@@ -61,6 +87,8 @@ public class Transaction
         this.amount = amount;
         this.description = description;
     }
+
+ 
 
     public int TransactionInsert()
     {
@@ -150,5 +178,51 @@ public class Transaction
             throw new Exception(ex.ToString());
         }
     }
+
+
+    protected List<Transaction> getAllData()
+    {
+        int id;
+        string sender;
+        string recipient;
+        double amount;
+        string date;
+        string desc;
+
+
+      
+            List<Transaction> dataaa = new List<Transaction>();
+            
+
+            string queryStr = "SELECT * FROM Customer";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            //Continue to read the resultsets row by row if not the end
+
+            while (dr.Read())
+            {
+                id = Convert.ToInt32(dr["Id"].ToString());
+                sender = dr["sender"].ToString();
+                recipient = dr["recipeint"].ToString();
+                amount = Convert.ToDouble(dr["amount"].ToString());
+                date = dr["date"].ToString();
+                desc = dr["description"].ToString();
+                
+                
+                Transaction cfsd = new Transaction(id,sender,recipient,amount,date,desc);
+                dataaa.Add(cfsd);
+
+
+
+
+            }
+            conn.Close();
+            dr.Close();
+            dr.Dispose();
+            return dataaa;
+        
+}
 }
     
