@@ -91,7 +91,7 @@ public class Fund
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@username", user);
+            cmd.Parameters.AddWithValue("@user", user);
           
             cmd.Parameters.AddWithValue("@bal", fund);
 
