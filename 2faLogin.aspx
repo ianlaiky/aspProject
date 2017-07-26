@@ -66,8 +66,16 @@
         string resultNric = Encoding.UTF8.GetString(plaintextNric);
         string resultPhone = Encoding.UTF8.GetString(plaintextPhone);
 
-
-
+//
+//        Random rnd = new Random();
+//        string digit = rnd.Next(999999).ToString();
+//        Session["rngPhoneL"] = digit;
+//
+//
+//        string resPhone = "+65" + resultPhone;
+//
+//        Tzwilio g = new Tzwilio(resPhone, digit);
+//        g.choasSms();
 
 
 %>
@@ -97,6 +105,7 @@
         console.log("Firstname " + decLastName);
 
         var print = "Welcome Back, " + decFirstName + " " + decLastName + ", Nric: " + decNric;
+
         $(document).ready(function () {
             console.log("readydfsdfg!");
 
@@ -107,16 +116,25 @@
 
         });
    
+   
 
 
+        
 
     </script>
+    <br />
+    <br/>
+   
     <div class="card card-login card-hidden">
         <br>
 
-        <%--      <h4 style="font-size: 25px">A one time code has been sent to your number ending ****7766</h4>--%>
-        <span class="label label-warning">A one time code has been sent to your number <%=resultPhone %></span><br/> <br/>
-        <span id="welcomeback">gfdg</span>
+        <span class="label label-warning" style="font-size: 11.5px">A one time code will be sent to your number <%=resultPhone %></span><br/> <br/>
+        <span id="welcomeback" style="font-Size:16px" font-Weight="bold">gfdg</span>
+        <br/>
+        <br/>
+       <center> <asp:Button  class="btn btn-danger" ID="Button100" runat="server" Text="Request For OTP" OnClick="Button100_Click" /></center>
+        
+
         <br/>
         <div class="card-content">
             <div class="input-group">
@@ -128,6 +146,8 @@
 
 
                     <asp:TextBox class="form-control" ID="TextBox1" runat="server"></asp:TextBox>
+                    <br/>
+                    <asp:Label ID="Label1" runat="server" Text=" " ForeColor="red"></asp:Label>
                 </div>
             </div>
 

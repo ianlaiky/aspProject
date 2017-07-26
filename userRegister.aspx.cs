@@ -164,12 +164,18 @@ public partial class userRegister : System.Web.UI.Page
             string encryptedLastName = encryptData(uLastName, uPasswordhash, salttoByte);
             string encryptedEmail = encryptData(uEmail, uPasswordhash, salttoByte);
             string encryptedBirthday = encryptData(uBirthday, uPasswordhash, salttoByte);
-            string encryptedNric = encryptData(uNric, uPasswordhash, salttoByte);
+            string encryptedNric = encryptData(uNric, uPasswordhash, salttoByte);
 
-            UserCustomer newuser = new UserCustomer(uUsername, finalHashval, uPasswordSalt, encryptedPhone, enryptedAddress, encryptedFirstName, encryptedLastName, encryptedEmail, encryptedBirthday, uemailverified,uphoneVerified, encryptedNric);
+            Session["nextPageUserRegEMail"] = uEmail;
+            Session["nextPageUserRegPhone"] = uPhoneNo;
+
+            Session["nextPageUserReg"] = uUsername;
+
+
+            UserCustomer newuser = new UserCustomer(uUsername, finalHashval, uPasswordSalt, encryptedPhone, enryptedAddress, encryptedFirstName, encryptedLastName, encryptedEmail, encryptedBirthday, uemailverified,uphoneVerified, encryptedNric,HiddenFieldForsavingHashOfForget.Value.Trim());
             newuser.CustomerInsert();
 
-            //hmm to be continued
+
             Response.Redirect("userRegisterInputConf.aspx");
 
 
@@ -193,7 +199,7 @@ public partial class userRegister : System.Web.UI.Page
         {
             string dummydata = "091dummydataOnlyonce";
      
-            UserCustomer n = new UserCustomer(dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata);
+            UserCustomer n = new UserCustomer(dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata, dummydata,dummydata);
             n.CustomerInsert();
 
 
@@ -235,10 +241,24 @@ public partial class userRegister : System.Web.UI.Page
 
     protected Boolean specialCharCheck(String data)
     {
-        Regex r = new Regex("^[a-zA-Z0-9]*$");
+        Regex r = new Regex("^[a-zA-Z0-9\\-\\s]+$");
         if (r.IsMatch(data))
         {
            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    protected Boolean specialCharCheckEmail(String data)
+    {
+        Regex r = new Regex(@"^[a-zA-Z0-9#,-]*$");
+        if (r.IsMatch(data))
+        {
+            return true;
         }
         else
         {
@@ -400,11 +420,7 @@ public partial class userRegister : System.Web.UI.Page
         args.IsValid = specialCharCheck(data);
     }
 
-    protected void phoneRex_OnServerValidate(object source, ServerValidateEventArgs args)
-    {
-        String data = phoneNumberInput.Text;
-        args.IsValid = specialCharCheck(data);
-    }
+   
 }
 public static class AntiforgeryChecker
 {

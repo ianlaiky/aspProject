@@ -105,6 +105,19 @@
 
                 console.log("dasds " + plaintext);
 
+                //hashing to validate the forget
+                var hahahss = document.getElementById("<%=Username.ClientID%>").value +
+                    document.getElementById('<%=nricInput.ClientID%>').value +
+                    document.getElementById('<%=phoneNumberInput.ClientID%>').value +
+                    document.getElementById('<%=emailInput.ClientID%>').value +
+                    document.getElementById('<%=birthdayInput.ClientID%>').value;
+
+                var tosaveforget = md5(hahahss);
+                document.getElementById("<%=HiddenFieldForsavingHashOfForget.ClientID%>").value = tosaveforget;
+
+
+
+                
 
                 //encryption process starts here
                 //encrypted for first name
@@ -268,6 +281,10 @@
         
 <%--        salt hidden textbox--%>
         <asp:HiddenField ID="HiddenFieldForSalt" runat="server" />
+        
+<%--        hidden field for forgetpass vald--%>
+        <asp:HiddenField ID="HiddenFieldForsavingHashOfForget" runat="server" />
+
 
     
         <div class="input-group">
@@ -354,7 +371,7 @@
             </span>
             <asp:TextBox ID="phoneNumberInput" runat="server" class="form-control" placeholder="Phone Number..."></asp:TextBox>
             <asp:RequiredFieldValidator ID="PhoneNoRequiredFieldValidator" runat="server" ErrorMessage="Please Key in Phone number" ControlToValidate="phoneNumberInput" ForeColor="Red"></asp:RequiredFieldValidator>
-            <asp:CustomValidator ID="phoneRex" runat="server" ErrorMessage="Only alphanumeric characters allowed" ControlToValidate="phoneNumberInput" ForeColor="Red" OnServerValidate="phoneRex_OnServerValidate"></asp:CustomValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please key in a valid phone number" ForeColor="Red" ValidationExpression="[0-9-]*" ControlToValidate="phoneNumberInput"></asp:RegularExpressionValidator>
 
         </div>
 
@@ -364,7 +381,8 @@
             </span>
             <asp:TextBox ID="addressInput" runat="server" class="form-control" placeholder="Address..."></asp:TextBox>
             <asp:RequiredFieldValidator ID="addressInputRequiredFieldValidator" runat="server" ErrorMessage="Please enter an address" ControlToValidate="addressInput" ForeColor="Red"></asp:RequiredFieldValidator>
-
+            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please key in a valid address, special characters such as # , - is allowed" ValidationExpression="[a-zA-Z0-9 #,-]*" ControlToValidate="addressInput" ForeColor="Red"></asp:RegularExpressionValidator>
             <asp:HiddenField ID="HiddenFieldAddressEncrypted" runat="server" />
 
         </div>
@@ -383,11 +401,11 @@
             <span class="input-group-addon">
                 <i class="material-icons">cake</i>
             </span>
-            <asp:TextBox ID="birthdayInput" runat="server" class="form-control" placeholder="Birthday..."></asp:TextBox>
+            <asp:TextBox ID="birthdayInput" runat="server" class="form-control" placeholder="Birthday..." ControlToValidate="birthdayInput"></asp:TextBox>
             <asp:RequiredFieldValidator ID="birthdayInputRequiredFieldValidator" runat="server" ErrorMessage="Please enter your birthday" ControlToValidate="birthdayInput" ForeColor="Red"></asp:RequiredFieldValidator>
               
 
-
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Please enter a valid birthday" ForeColor="Red" ValidationExpression="[0-9/]*" ControlToValidate="birthdayInput"></asp:RegularExpressionValidator>
             <asp:HiddenField ID="HiddenFieldBirthdayEncrypted" runat="server" />
             
             

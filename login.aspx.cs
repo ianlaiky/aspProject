@@ -27,7 +27,7 @@ public partial class login : System.Web.UI.Page
 
     protected void Button2_Click1(object sender, EventArgs e)
     {
-        Response.Redirect("forgetpasswordForm.aspx");
+        Response.Redirect("forgetPasss.aspx");
     }
 
     protected void CustomValidator1_OnServerValidate(object source, ServerValidateEventArgs args)
