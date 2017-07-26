@@ -20,7 +20,7 @@ public partial class TransferFund : System.Web.UI.Page
     {
         string name = tbName.Text.Trim();
         
-        double amt = double.ParseDouble(amt);
+         amt = double.ParseDouble(tbAmt.Text.Trim);
         string des = tbDes.Text.Trim();
         
         Fund f = new Fund();
