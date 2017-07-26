@@ -26,7 +26,7 @@
                 <asp:TextBox ID="tbDes" runat="server"></asp:TextBox>
                 </td>
             </tr>
-
+         <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
           
           
         </table>
