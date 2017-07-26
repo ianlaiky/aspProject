@@ -101,7 +101,7 @@
                     <span id="error1" style="color: red"></span>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Pls enter a password" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
                     <br/>
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="*Password is invalid" ForeColor="Red" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>
+                    <asp:Label ID="Labelerr" runat="server" Text="Label"></asp:Label>
                 </div>
             </div>
 

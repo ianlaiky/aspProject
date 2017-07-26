@@ -20,8 +20,36 @@ public partial class login : System.Web.UI.Page
     {
         if (Page.IsValid)
         {
-            Session["usernameLogin"] = Server.HtmlEncode(TextBox1.Text);
-            Response.Redirect("passwordlogin.aspx");
+
+
+            UserCustomer ds = new UserCustomer();
+            UserCustomer aq = new UserCustomer();
+            aq = ds.getAllDataByName(TextBox1.Text);
+
+
+
+            int att = aq.Attempt;
+
+            if (att < 4)
+            {
+
+                Session["usernameLogin"] = Server.HtmlEncode(TextBox1.Text);
+                Response.Redirect("passwordlogin.aspx");
+
+            }
+            else
+            {
+                Labelatte.Text = "Account locked, you had 3 failed logon attempts";
+
+            }
+
+
+
+
+
+
+
+
         }
     }
 
