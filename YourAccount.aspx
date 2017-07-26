@@ -11,13 +11,13 @@
                 <td class="auto-style2">
                     <div class="col-sm-4">
 	<div class="form-group">
-    	<input type="text" value="$0.00" placeholder="" class="form-control" />
+       $
 	</div>
                 </td>
                 <td>
                   <div class="col-sm-4">
 	<div class="form-group">
-    	<input type="text" value="$0.00" placeholder="" class="form-control" />
+     $
 	</div>
                 </td>
             </tr>
@@ -36,7 +36,7 @@
     <thead>
         <tr>
             <th class="text-center">#</th>
-            <th>Transaction Date</th>
+            <th>Transaction</th>
             <th>Value Date</th>
             <th>Description</th>
             <th>Withdrawels(SGD)</th>

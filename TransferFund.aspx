@@ -5,33 +5,30 @@
     
      <table class="auto-style1">
             <tr>
-                <td class="auto-style2">Name(as per bank&#39;s record):</td>
+                <td class="auto-style2">Username:</td>
                 <td>
                     <asp:TextBox ID="tbName" runat="server"></asp:TextBox>
                 </td>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter your name" Font-Bold="False" ControlToValidate="tbName"></asp:RequiredFieldValidator> </tr>
             <tr>
-                <td class="auto-style2">Account no:</td>
+                <td class="auto-style2">Transfer Amount:</td>
                 <td>
-                    <asp:TextBox ID="tbAcctNo" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter account no" ControlToValidate="tbAcctNo"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="tbAmt" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter account no" ControlToValidate="tbAmt"></asp:RequiredFieldValidator>
 
+                </td>
+                </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label1" runat="server" Text="Description:"></asp:Label>
+                </td>
+                <td>
+                <asp:TextBox ID="tbDes" runat="server"></asp:TextBox>
                 </td>
             </tr>
 
-            <tr>
-                <td class="auto-style2">Email of account holder(if you wish to notify them of payment:</td>
-                <td>
-                    <asp:TextBox ID="tbEmail" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter your email" ControlToValidate="tbEmail"></asp:RequiredFieldValidator> </td>
-            </tr>
-            <tr>
-                <td class="auto-style2" style="height: 97px">Balance:</td>
-                <td style="height: 97px">
-                    <asp:TextBox ID="tbBal" runat="server"></asp:TextBox> 
-                </td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please enter your balance" ControlToValidate="tbBal"></asp:RequiredFieldValidator>
-                 </tr>
+          
+          
         </table>
     <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click"  />
    
