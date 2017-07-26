@@ -7,7 +7,9 @@ using System.Web.UI.WebControls;
 using System.Security.Cryptography;
 using System.Text;
 using System.Data;
-using System.Data.SqlClient;using System.Configuration;
+using System.Data.SqlClient;
+using System.Configuration;
+
 
 public partial class TransferFund : System.Web.UI.Page
 {
