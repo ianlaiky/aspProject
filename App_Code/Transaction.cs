@@ -241,7 +241,7 @@ public class Transaction
         List<Transaction> dataaa = new List<Transaction>();
 
 
-        string queryStr = "SELECT * FROM Customer where sender=@sender";
+        string queryStr = "SELECT * FROM Transactions where sender=@sender";
 
         SqlConnection conn = new SqlConnection(_connStr);
         SqlCommand cmd = new SqlCommand(queryStr, conn);
