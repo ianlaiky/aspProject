@@ -176,6 +176,9 @@ public partial class userRegister : System.Web.UI.Page
             newuser.CustomerInsert();
 
 
+            Fund fd = new Fund(uUsername, 0.0);
+            fd.FundInsertNewUserOnly();
+
             Response.Redirect("userRegisterInputConf.aspx");
 
 

@@ -19,8 +19,8 @@ public partial class TransferFund : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         string name = tbName.Text.Trim();
-        
-         amt = double.ParseDouble(tbAmt.Text.Trim);
+
+        double amt = Convert.ToDouble(tbAmt.Text.Trim());
         string des = tbDes.Text.Trim();
         
         Fund f = new Fund();
