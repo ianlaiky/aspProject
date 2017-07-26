@@ -180,7 +180,7 @@ public class Transaction
     }
 
 
-    protected List<Transaction> getAllData()
+    public List<Transaction> getAllData()
     {
         int id;
         string sender;
@@ -227,7 +227,7 @@ public class Transaction
 
 
 
-    protected List<Transaction> getAllDataBySender(string username)
+    public List<Transaction> getAllDataBySender(string username)
     {
         int id;
         string sender;
