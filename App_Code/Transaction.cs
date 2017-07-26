@@ -224,5 +224,54 @@ public class Transaction
             return dataaa;
         
 }
+
+
+
+    protected List<Transaction> getAllDataBySender(string username)
+    {
+        int id;
+        string sender;
+        string recipient;
+        double amount;
+        string date;
+        string desc;
+
+
+
+        List<Transaction> dataaa = new List<Transaction>();
+
+
+        string queryStr = "SELECT * FROM Customer where sender=@sender";
+
+        SqlConnection conn = new SqlConnection(_connStr);
+        SqlCommand cmd = new SqlCommand(queryStr, conn);
+        cmd.Parameters.AddWithValue("@sender", username);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+        //Continue to read the resultsets row by row if not the end
+
+        while (dr.Read())
+        {
+            id = Convert.ToInt32(dr["Id"].ToString());
+            sender = dr["sender"].ToString();
+            recipient = dr["recipeint"].ToString();
+            amount = Convert.ToDouble(dr["amount"].ToString());
+            date = dr["date"].ToString();
+            desc = dr["description"].ToString();
+
+
+            Transaction cfsd = new Transaction(id, sender, recipient, amount, date, desc);
+            dataaa.Add(cfsd);
+
+
+
+
+        }
+        conn.Close();
+        dr.Close();
+        dr.Dispose();
+        return dataaa;
+
+    }
 }
     
