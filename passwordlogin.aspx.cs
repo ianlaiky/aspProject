@@ -23,15 +23,14 @@ public partial class login : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        if (Page.IsValid)
-        {
+      
 
             UserCustomer ssdsd = new UserCustomer();
-
+        ssdsd= ssdsd.getAllDataByName(Session["usernameLogin"].ToString());
             int cuas = ssdsd.Attempt;
+        System.Diagnostics.Debug.WriteLine(cuas);
 
-
-            if (cuas < 4)
+            if (cuas < 3)
             {
 
                 string username = (string) Session["usernameLogin"];
@@ -85,7 +84,7 @@ public partial class login : System.Web.UI.Page
             }
 
 
-        }
+        
     }
 
 

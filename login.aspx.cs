@@ -30,7 +30,7 @@ public partial class login : System.Web.UI.Page
 
             int att = aq.Attempt;
 
-            if (att < 4)
+            if (att < 3)
             {
 
                 Session["usernameLogin"] = Server.HtmlEncode(TextBox1.Text);
