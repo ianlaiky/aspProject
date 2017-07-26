@@ -105,7 +105,7 @@ public class Transaction
 
         try
         {
-            string queryStr = "SELECT Id FROM Account";
+            string queryStr = "SELECT Id FROM Transactions";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
 
