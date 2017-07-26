@@ -67,13 +67,13 @@ public class Transaction
         string msg = null;
         int result = 0;
         string queryStr =
-            "INSERT INTO Transactions values(@id,@sender,@recipent,@amount,@date,@desc)";
+            "INSERT INTO Transactions (sender,recipeint,amount,date,description) values(@sender,@recipent,@amount,@date,@desc)";
         //+ "values (@Product_ID, @Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
         try
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@id", getCurrentId() + 1);
+//            cmd.Parameters.AddWithValue("@id", getCurrentId() + 1);
             cmd.Parameters.AddWithValue("@sender", Sender);
             cmd.Parameters.AddWithValue("@recipent", Recipient);
             cmd.Parameters.AddWithValue("@amount", Amount);
