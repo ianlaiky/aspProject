@@ -67,7 +67,7 @@ public class Transaction
         string msg = null;
         int result = 0;
         string queryStr =
-            "INSERT INTO Transactions vales(@id,@sender,@recipent,@amount,@date,@desc)";
+            "INSERT INTO Transactions values(@id,@sender,@recipent,@amount,@date,@desc)";
         //+ "values (@Product_ID, @Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
         try
         {
