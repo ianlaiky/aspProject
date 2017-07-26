@@ -11,6 +11,7 @@ public partial class login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -80,7 +81,9 @@ public partial class login : System.Web.UI.Page
             else
             {
 
-                Labelerr.Text = "Account locked, you had 3 failed logon attempts";
+           
+
+            Labelerr.Text = "Account locked, you had 3 failed logon attempts";
             }
 
 
@@ -88,5 +91,8 @@ public partial class login : System.Web.UI.Page
     }
 
 
- 
+    protected void Button2_OnClick(object sender, EventArgs e)
+    {
+        Response.Redirect("forgetPasss.aspx");
+    }
 }
