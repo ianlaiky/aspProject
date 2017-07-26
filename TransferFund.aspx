@@ -8,13 +8,12 @@
                 <td class="auto-style2">Username:</td>
                 <td>
                     <asp:TextBox ID="tbName" runat="server"></asp:TextBox>
-                </td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter your name" Font-Bold="False" ControlToValidate="tbName"></asp:RequiredFieldValidator> </tr>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please provide your name" Font-Bold="False" ControlToValidate="tbName"></asp:RequiredFieldValidator></td> </tr>
             <tr>
                 <td class="auto-style2">Transfer Amount:</td>
                 <td>
                     <asp:TextBox ID="tbAmt" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter account no" ControlToValidate="tbAmt"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please provide the transfer amount" ControlToValidate="tbAmt"></asp:RequiredFieldValidator>
 
                 </td>
                 </tr>
@@ -24,9 +23,9 @@
                 </td>
                 <td>
                 <asp:TextBox ID="tbDes" runat="server"></asp:TextBox>
-                </td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please provide some description" Font-Bold="False" ControlToValidate="tbDes"></asp:RequiredFieldValidator> </td>
             </tr>
-
+         <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
           
           
         </table>

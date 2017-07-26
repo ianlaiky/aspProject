@@ -18,13 +18,23 @@ public partial class TransferFund : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        string name = tbName.Text.Trim();
+        try
+        {
+            string name = tbName.Text.Trim();
 
-        double amt = Convert.ToDouble(tbAmt.Text.Trim());
-        string des = tbDes.Text.Trim();
+            double amt = Convert.ToDouble(tbAmt.Text.Trim());
+            string des = tbDes.Text.Trim();
         
-        Fund f = new Fund();
-        f.chaosTransfer(Session["usernameLogin"].ToString(), name, amt, des);
+            Fund f = new Fund();
+            f.chaosTransfer(Session["usernameLogin"].ToString(), name, amt, des);
+
+
+            Label2.Text = "Successful transfered";
+        }
+        catch (Exception exception)
+        {
+           throw new Exception(exception.ToString());
+        }
 
     }
 }
