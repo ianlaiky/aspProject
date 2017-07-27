@@ -358,10 +358,10 @@
 <%--                    $1$<!-- Insert all the awesome body content here#1#--%>
 <%--               <a  class="btn btn-default" href="YourAccount.aspx">Home</a>--%>
 <%--                     <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>--%>
-<%--                        <form runat="server">--%>
-<%--                               <asp:ContentPlaceHolder ID="MainContent" runat="server"/> --%>
-<%--                 --%>
-<%--</form>--%>
+                        <form runat="server">
+                               <asp:ContentPlaceHolder ID="MainContent" runat="server"/> 
+                 
+</form>
 <%----%>
 <%--                    $1$-->#1#--%>
 <%--                </div>--%>

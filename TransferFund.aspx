@@ -14,10 +14,7 @@
                 <%--<!-- Insert all the awesome body content here--%>
                 <a  class="btn btn-default" href="YourAccount.aspx">Home</a>
                 <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>
-                <form runat="server">
-                    <asp:ContentPlaceHolder ID="MainContent" runat="server"/> 
-                 
-                </form>
+              
 
                 <%---->--%>
             </div>
