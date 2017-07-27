@@ -15,7 +15,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
     protected void Button1_OnClick(object sender, EventArgs e)
     {
 
-        
+        /*
 
         if (Session["emailClickedRConf"] == null)
         {
@@ -94,7 +94,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
 
 
 
-
+    */
     
 
 
@@ -103,6 +103,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
 
     protected void Button3_OnClick(object sender, EventArgs e)
     {
+        
 
         string tree = Session["rngPhoneLEmailUserReg"].ToString();
 
@@ -138,7 +139,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
 
     protected void Button2_OnClick(object sender, EventArgs e)
     {
-        
+        /*
 
         if (Session["phoneClickedRConf"] == null)
         {
@@ -216,7 +217,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
 
 
         }
-        
+        */
 
     }
 

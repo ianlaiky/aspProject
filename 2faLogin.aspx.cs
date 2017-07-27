@@ -21,21 +21,33 @@ public partial class _2faLogin : System.Web.UI.Page
         string tex = TextBox1.Text.Trim();
 
         //uncomment this
-                if (tex.Equals(Session["rngPhoneL"].ToString()))
-                {
-                    Response.Redirect("TransferFund.aspx", true);
-                }
-                else
-                {
-                    Label1.Text="Wrong OTP inputed, Please key in the correct one";
-                }
+//                if (tex.Equals(Session["rngPhoneL"].ToString()))
+//                {
+//
+//
+//                    if (Session["usernameLogin"].ToString().Equals("admin"))
+//                    {
+//                        Response.Redirect("adminpg.aspx", true);
+//            }
+//                    else
+//                    {
+//                        Response.Redirect("TransferFund.aspx", true);
+//                    }
+//
+//
+//                    
+//                }
+//                else
+//                {
+//                    Label1.Text="Wrong OTP inputed, Please key in the correct one";
+//                }
 
 
 
 
 
 
-//        Response.Redirect("YourAccount.aspx", true);
+        Response.Redirect("YourAccount.aspx", true);
     }
 
     protected void Button100_Click(object sender, EventArgs e)
