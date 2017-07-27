@@ -24,7 +24,7 @@ public partial class forgetPasss : System.Web.UI.Page
 
         if (cu == null)
         {
-            Label1.Text = "Invalid user";
+            Label2.Text = "Invalid user";
 
         }
         else
