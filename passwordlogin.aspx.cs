@@ -74,7 +74,7 @@ public partial class login : System.Web.UI.Page
                     sd.updateuserattempts(username, curreatt + 1);
 
 
-                    Labelerr.Text = "Incorrect password";
+                    Labelerr.Text = "The poassword you entered is Incorrect password";
                 }
 
             }
