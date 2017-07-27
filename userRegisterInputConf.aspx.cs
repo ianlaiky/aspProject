@@ -15,7 +15,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
     protected void Button1_OnClick(object sender, EventArgs e)
     {
 
-        /*
+        
 
         if (Session["emailClickedRConf"] == null)
         {
@@ -95,7 +95,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
 
 
 
-    */
+    
 
 
 

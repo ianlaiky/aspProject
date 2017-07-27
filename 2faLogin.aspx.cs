@@ -35,7 +35,7 @@ public partial class _2faLogin : System.Web.UI.Page
 
 
 
-        Response.Redirect("YourAccount.aspx", true);
+//        Response.Redirect("YourAccount.aspx", true);
     }
 
     protected void Button100_Click(object sender, EventArgs e)
