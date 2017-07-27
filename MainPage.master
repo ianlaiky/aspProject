@@ -98,7 +98,7 @@
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
    <%--//to be added, username--%>
-                        Ian
+<%--                        John
                     </a>
                     <%--<div class="collapse" id="collapseExample">--%>
                         <%--<ul class="nav">--%>
