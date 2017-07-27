@@ -347,26 +347,26 @@
                         <%--<button type="submit" class="btn btn-white btn-round btn-just-icon">--%>
                         <%--<i class="material-icons">search</i>--%>
                         <%--<div class="ripple-container"></div>--%>
-<%--                        </button>--%>
+                        </button>
                     </form>
                 </div>
             </div>
         </nav>
-<%--        <div class="content">--%>
-<%--            <div class="container-fluid">--%>
-<%--                <div class="col-sm-8 col-sm-offset-2">--%>
-<%--                    $1$<!-- Insert all the awesome body content here#1#--%>
-<%--               <a  class="btn btn-default" href="YourAccount.aspx">Home</a>--%>
-<%--                     <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>--%>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <%--<!-- Insert all the awesome body content here--%>
+               <a  class="btn btn-default" href="YourAccount.aspx">Home</a>
+                     <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>
                         <form runat="server">
                                <asp:ContentPlaceHolder ID="MainContent" runat="server"/> 
                  
 </form>
-<%----%>
-<%--                    $1$-->#1#--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+
+                    <%---->--%>
+                </div>
+            </div>
+        </div>
         <footer class="footer">
             <div class="container-fluid">
                 <%--<nav class="pull-left">--%>
