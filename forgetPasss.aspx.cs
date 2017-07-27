@@ -15,8 +15,21 @@ public partial class forgetPasss : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
 
-       
-            string username = TextBox1.Text.Trim();
+
+        string usernameee = TextBox1.Text.Trim();
+
+        UserCustomer cu = new UserCustomer();
+        cu = cu.getAllDataByName(usernameee);
+
+
+        if (cu == null)
+        {
+            Label1.Text = "Invalid user";
+
+        }
+        else
+        {
+              string username = TextBox1.Text.Trim();
             string Nric = TextBox6.Text.Trim();
             string phoneNumber = TextBox5.Text.Trim();
             string email = TextBox3.Text.Trim();
@@ -51,8 +64,9 @@ public partial class forgetPasss : System.Web.UI.Page
                 Label1.Text = "*One of the fields you have entered is incorrect";
             }
 
+        }
 
-        
+
 
 
 
@@ -68,5 +82,9 @@ public partial class forgetPasss : System.Web.UI.Page
 
         //        EmailSender s = new EmailSender("Aravin", "aravinmanokaran10@gmail.com","21/09/1997","Hi, Reagrds");
         //        s.SendSimpleMessage();
+
+
+
+
     }
 }
