@@ -1,29 +1,41 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainPage.master" AutoEventWireup="true" CodeFile="YourAccount.aspx.cs" Inherits="YourAccount" %>
  
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+    <%
+      
+      
+      Fund fd = new Fund();
+     double tr =  fd.getCurrentFund(Session["usernameLogin"].ToString());
 
+
+
+    %>
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">What you have:</td>
-                <td>What you own:</td>
+                
             </tr>
             <tr>
                 <td class="auto-style2">
                     <div class="col-sm-4">
 	<div class="form-group">
-       $
+     <h2>  $<%=tr %></h2>
 	</div>
+                </div>
+
                 </td>
                 <td>
                   <div class="col-sm-4">
 	<div class="form-group">
-     $
+     
 	</div>
-                </td>
-            </tr>
+                <td>
+                </div>    </tr>
+  
+           
         </table>
 <!-- markup -->
-<input class="datepicker form-control" type="text" value="03/12/2016"/>
+
 
 <!-- javascript -->
 
@@ -35,13 +47,55 @@
     <table class="table">
     <thead>
         <tr>
-            <th class="text-center">#</th>
-            <th>Transaction</th>
-            <th>Value Date</th>
+           
+            <th>Transaction No</th>
+            <th>Sender</th>
+            <th>Recipient</th>
+            <th>Amount(SGD)</th>
+            <th>Date</th>
             <th>Description</th>
-            <th>Withdrawels(SGD)</th>
-            <th>Deposits(SGD)</th>
+            
+            
+            
+
         </tr>
+        <%
+            Transaction us = new Transaction();
+            List<Transaction> objer= us.getAllDataBySender(Session["usernameLogin"].ToString());
+
+            for (int i = 0; i < objer.Count; i++)
+            {
+
+
+
+        %>
+        <tr>
+            <td>
+                <%=objer[i].Id %>
+            </td>
+            <td>
+                <%=objer[i].Sender %>
+            </td>
+            <td>
+                <%=objer[i].Recipient %>
+            </td>
+            <td>
+                <%=objer[i].Amount %>
+            </td>
+            <td>
+                <%=objer[i].Date %>
+            </td>
+            <td>
+                
+                <%=objer[i].Description %>
+            </td>
+        </tr>
+        
+        
+        <%
+            }
+        %>
+
     </thead>
     </table>
 

@@ -10,6 +10,21 @@
     <script src="assets/js/md5.min.js"></script>
 
     <%
+
+        UserCustomer ssdsd = new UserCustomer();
+        ssdsd= ssdsd.getAllDataByName(Session["usernameLogin"].ToString());
+        int cuas = ssdsd.Attempt;
+        System.Diagnostics.Debug.WriteLine(cuas);
+
+        if (cuas < 4)
+        {
+            Button2.Visible = false;
+        }
+        else
+        {
+            Button2.Visible = true;
+        }
+
         //check to see if user have keyed in username if username isnt keyed in, auto redirect to login.aspx
         string name = null;
         name = (string) Session["usernameLogin"];
@@ -101,7 +116,7 @@
                     <span id="error1" style="color: red"></span>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Pls enter a password" ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
                     <br/>
-                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="*Password is invalid" ForeColor="Red" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>
+                    <asp:Label ID="Labelerr" runat="server" Text="" ForeColor="Red"></asp:Label>
                 </div>
             </div>
 
@@ -111,6 +126,10 @@
 
             <asp:Button class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button1" runat="server" Text="Next" OnClientClick="if (!hash()) { return false }" OnClick="Button1_Click"/>
 
+            
+            
+            
+            <asp:Button class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button2" runat="server" Text="Reset Password" OnClick="Button2_OnClick"/>
 
         </div>
         <div class="footer text-center">

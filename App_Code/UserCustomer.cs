@@ -294,6 +294,36 @@ public class UserCustomer
 
     }
 
+
+    public void updateuserattempts(string user, int att)
+    {
+        string msg = null;
+        int result = 0;
+        string queryStr =
+            "Update Customer set attempts=@lver where username=@user";
+
+        try
+        {
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@user", user);
+
+            cmd.Parameters.AddWithValue("@lver", att);
+
+
+
+            conn.Open();
+            result += cmd.ExecuteNonQuery(); // Returns no. of rows affected. Must be > 0
+            conn.Close();
+
+        }
+        catch (SqlException ex)
+        {
+            throw new Exception(ex.ToString());
+        }
+
+    }
+
     public void updateforForgetpass(string user,string passwordHash, string phoneNo,string address, string firstName, string lastname, string email, string birthday, string nric)
     {
         string msg = null;

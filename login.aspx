@@ -22,11 +22,11 @@
                   
                     
                     <asp:TextBox class="form-control" name="username" ID="TextBox1" runat="server"></asp:TextBox>
-
+                    <asp:Label ID="Labelatte" runat="server" Text="" ForeColor="Red"></asp:Label>
                     <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="*Account is not valid" ControlToValidate="TextBox1" ForeColor="Red" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Pls enter username" ControlToValidate="TextBox1" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:CustomValidator ID="username" runat="server" ErrorMessage="*Only alphanumeric characters allowed" ControlToValidate="TextBox1" ForeColor="Red" OnServerValidate="usernameRe_OnServerValidate"></asp:CustomValidator>
-
+                  
                 </div>
             </div>
 

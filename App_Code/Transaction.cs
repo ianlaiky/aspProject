@@ -15,10 +15,34 @@ public class Transaction
 
 {
     string _connStr = ConfigurationManager.ConnectionStrings["FanclubContext"].ConnectionString;
+    private int id;
     private string sender;
     private string recipient;
     private double amount;
+    private string date;
     private string description;
+
+    public Transaction(int id, string sender, string recipient, double amount, string date, string description)
+    {
+        this.id = id;
+        this.sender = sender;
+        this.recipient = recipient;
+        this.amount = amount;
+        this.date = date;
+        this.description = description;
+    }
+
+    public string Date
+    {
+        get { return date; }
+        set { date = value; }
+    }
+
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
 
     public Transaction()
     {
@@ -54,6 +78,8 @@ public class Transaction
         set { description = value; }
     }
 
+
+
     public Transaction(string sender, string recipient, double amount, string description)
     {
         this.sender = sender;
@@ -62,18 +88,20 @@ public class Transaction
         this.description = description;
     }
 
+ 
+
     public int TransactionInsert()
     {
         string msg = null;
         int result = 0;
         string queryStr =
-            "INSERT INTO Transactions vales(@id,@sender,@recipent,@amount,@date,@desc)";
+            "INSERT INTO Transactions (sender,recipeint,amount,date,description) values(@sender,@recipent,@amount,@date,@desc)";
         //+ "values (@Product_ID, @Product_Name, @Product_Desc, @Unit_Price, @Product_Image,@Stock_Level)";
         try
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@id", getCurrentId() + 1);
+//            cmd.Parameters.AddWithValue("@id", getCurrentId() + 1);
             cmd.Parameters.AddWithValue("@sender", Sender);
             cmd.Parameters.AddWithValue("@recipent", Recipient);
             cmd.Parameters.AddWithValue("@amount", Amount);
@@ -105,7 +133,7 @@ public class Transaction
 
         try
         {
-            string queryStr = "SELECT Id FROM Account";
+            string queryStr = "SELECT Id FROM Transactions";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
 
@@ -152,5 +180,98 @@ public class Transaction
     }
 
 
+    public List<Transaction> getAllData()
+    {
+        int id;
+        string sender;
+        string recipient;
+        double amount;
+        string date;
+        string desc;
+
+
+      
+            List<Transaction> dataaa = new List<Transaction>();
+            
+
+            string queryStr = "SELECT * FROM Customer";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            //Continue to read the resultsets row by row if not the end
+
+            while (dr.Read())
+            {
+                id = Convert.ToInt32(dr["Id"].ToString());
+                sender = dr["sender"].ToString();
+                recipient = dr["recipeint"].ToString();
+                amount = Convert.ToDouble(dr["amount"].ToString());
+                date = dr["date"].ToString();
+                desc = dr["description"].ToString();
+                
+                
+                Transaction cfsd = new Transaction(id,sender,recipient,amount,date,desc);
+                dataaa.Add(cfsd);
+
+
+
+
+            }
+            conn.Close();
+            dr.Close();
+            dr.Dispose();
+            return dataaa;
+        
+}
+
+
+
+    public List<Transaction> getAllDataBySender(string username)
+    {
+        int id;
+        string sender;
+        string recipient;
+        double amount;
+        string date;
+        string desc;
+
+
+
+        List<Transaction> dataaa = new List<Transaction>();
+
+
+        string queryStr = "SELECT * FROM Transactions where sender=@sender";
+
+        SqlConnection conn = new SqlConnection(_connStr);
+        SqlCommand cmd = new SqlCommand(queryStr, conn);
+        cmd.Parameters.AddWithValue("@sender", username);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+        //Continue to read the resultsets row by row if not the end
+
+        while (dr.Read())
+        {
+            id = Convert.ToInt32(dr["Id"].ToString());
+            sender = dr["sender"].ToString();
+            recipient = dr["recipeint"].ToString();
+            amount = Convert.ToDouble(dr["amount"].ToString());
+            date = dr["date"].ToString();
+            desc = dr["description"].ToString();
+
+
+            Transaction cfsd = new Transaction(id, sender, recipient, amount, date, desc);
+            dataaa.Add(cfsd);
+
+
+
+
+        }
+        conn.Close();
+        dr.Close();
+        dr.Dispose();
+        return dataaa;
+
+    }
 }
     
