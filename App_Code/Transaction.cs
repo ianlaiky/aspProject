@@ -194,7 +194,7 @@ public class Transaction
             List<Transaction> dataaa = new List<Transaction>();
             
 
-            string queryStr = "SELECT * FROM Customer";
+            string queryStr = "SELECT * FROM Transactions";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             conn.Open();
