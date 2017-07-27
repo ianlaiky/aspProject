@@ -3,6 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 
     
+    
+    
+    
+    
+    
+    <div class="content">
+        <div class="container-fluid">
+            <div class="col-sm-8 col-sm-offset-2">
+                <%--<!-- Insert all the awesome body content here--%>
+                <a  class="btn btn-default" href="YourAccount.aspx">Home</a>
+                <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>
+              
+
+                <%---->--%>
+            </div>
+        </div>
+    </div>
      <table class="auto-style1">
             <tr>
                 <td class="auto-style2">Username:</td>
