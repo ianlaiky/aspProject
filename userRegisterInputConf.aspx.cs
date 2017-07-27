@@ -138,7 +138,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
 
     protected void Button2_OnClick(object sender, EventArgs e)
     {
-        /*
+        
 
         if (Session["phoneClickedRConf"] == null)
         {
@@ -216,7 +216,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
 
 
         }
-        */
+        
 
     }
 

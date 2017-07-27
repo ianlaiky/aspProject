@@ -21,14 +21,14 @@ public partial class _2faLogin : System.Web.UI.Page
         string tex = TextBox1.Text.Trim();
 
         //uncomment this
-        //        if (tex.Equals(Session["rngPhoneL"].ToString()))
-        //        {
-        //            Response.Redirect("TransferFund.aspx", true);
-        //        }
-        //        else
-        //        {
-        //            Label1.Text="Wrong OTP inputed, Please key in the correct one";
-        //        }
+                if (tex.Equals(Session["rngPhoneL"].ToString()))
+                {
+                    Response.Redirect("TransferFund.aspx", true);
+                }
+                else
+                {
+                    Label1.Text="Wrong OTP inputed, Please key in the correct one";
+                }
 
 
 
@@ -77,15 +77,15 @@ public partial class _2faLogin : System.Web.UI.Page
         string resultPhone = Encoding.UTF8.GetString(plaintextPhone);
 
         //uncomment this
-//        Random rnd = new Random();
-//                string digit = rnd.Next(999999).ToString();
-//                Session["rngPhoneL"] = digit;
-//        
-//        
-//                string resPhone = "+65" + resultPhone;
-//        
-//                Tzwilio g = new Tzwilio(resPhone, digit);
-//                g.choasSms();
+        Random rnd = new Random();
+                string digit = rnd.Next(999999).ToString();
+                Session["rngPhoneL"] = digit;
+        
+        
+                string resPhone = "+65" + resultPhone;
+        
+                Tzwilio g = new Tzwilio(resPhone, digit);
+                g.choasSms();
 
 
     }
