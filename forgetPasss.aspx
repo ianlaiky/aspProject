@@ -65,7 +65,7 @@
 
 
                     <asp:TextBox class="form-control" name="username" ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:Label ID="Label2" runat="server" Text="Label" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="" ForeColor="Red"></asp:Label>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Please enter your username" ControlToValidate="TextBox1" ForeColor="Red"></asp:RequiredFieldValidator>
 <%--                    <asp:CustomValidator ID="CustomValidator2" runat="server" ErrorMessage="Account is not valid"></asp:CustomValidator>--%>
 
