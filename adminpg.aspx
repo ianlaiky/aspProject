@@ -3,7 +3,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 
-    
+    <tr>
+        <td>
+                    <asp:Label ID="Label1" runat="server" Text="Username: "></asp:Label>
+                </td>
+                <td>
+                <asp:TextBox ID="tbName" runat="server"></asp:TextBox>
+    </tr>
      <table class="table">
     <thead>
         <tr>
