@@ -16,13 +16,13 @@
         int cuas = ssdsd.Attempt;
         System.Diagnostics.Debug.WriteLine(cuas);
 
-        if (cuas < 4)
+        if (cuas == 3)
         {
-            Button2.Visible = false;
+            Button2.Visible = true;
         }
         else
         {
-            Button2.Visible = true;
+            Button2.Visible = false;
         }
 
         //check to see if user have keyed in username if username isnt keyed in, auto redirect to login.aspx
