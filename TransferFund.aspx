@@ -2,7 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 
-    
+    <%
+        if (Session["adminlogoncheckpls"].ToString().Equals("true"))
+        {
+            Response.Redirect("adminpg.aspx",true);
+        }
+      
+
+
+
+    %>
      <table class="auto-style1">
             <tr>
                 <td class="auto-style2">Username:</td>

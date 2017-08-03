@@ -10,13 +10,13 @@
 
             if (!Session["Authtokenforloginlogoutdel"].Equals(Request.Cookies["Authtokenforloginlogoutdel"].Value))
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("login.aspx",true);
             }
 
 
         }else
         {
-            Response.Redirect("login.aspx");
+            Response.Redirect("login.aspx",true);
         }
 
 

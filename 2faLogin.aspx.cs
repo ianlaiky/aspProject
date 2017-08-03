@@ -17,43 +17,51 @@ public partial class _2faLogin : System.Web.UI.Page
     protected void Button2_Click(object sender, EventArgs e)
     {
 
+        if (Session["rngPhoneL"] == null)
+        {
+            Session["rngPhoneL"] = "";
+        }
+
 
         string tex = TextBox1.Text.Trim();
 
         //uncomment this
-//        if (tex.Equals(Session["rngPhoneL"].ToString()))
-//        {
-//            string guid = Guid.NewGuid().ToString();
-//            Session["Authtokenforloginlogoutdel"] = guid;
+        if (tex.Equals(Session["rngPhoneL"].ToString()))
+        {
+            string guid = Guid.NewGuid().ToString();
+            Session["Authtokenforloginlogoutdel"] = guid;
+
+            Response.Cookies.Add(new HttpCookie("Authtokenforloginlogoutdel",guid));
+
+
+            if (Session["usernameLogin"].ToString().Equals("admin"))
+            {
+                System.Diagnostics.Debug.WriteLine("adm");
+                Session["loggedInCheckCfm"] = "true";
+                Session["adminlogoncheckpls"] = "true";
+                Response.Redirect("adminpg.aspx", true);
+            }
+            else
+            {
+                Session["adminlogoncheckpls"] = "false";
+                Session["loggedInCheckCfm"] = "true";
+                Response.Redirect("YourAccount.aspx", true);
+            }
+        }
+        else
+        {
+            Label1.Text = "Wrong OTP inputed, Please key in the correct one";
+        }
+
+
+
+        //toggle
+//        string guidd = Guid.NewGuid().ToString();
+//        Session["Authtokenforloginlogoutdel"] = guidd;
 //
-//            Response.Cookies.Add(new HttpCookie("Authtokenforloginlogoutdel",guid));
-//
-//
-//            if (Session["usernameLogin"].ToString().Equals("admin"))
-//            {
-//                Session["loggedInCheckCfm"] = "true";
-//                Response.Redirect("adminpg.aspx", true);
-//            }
-//            else
-//            {
-//                Session["loggedInCheckCfm"] = "true";
-//                Response.Redirect("TransferFund.aspx", true);
-//            }
-//        }
-//        else
-//        {
-//            Label1.Text = "Wrong OTP inputed, Please key in the correct one";
-//        }
-
-
-
-
-        string guidd = Guid.NewGuid().ToString();
-        Session["Authtokenforloginlogoutdel"] = guidd;
-
-        Response.Cookies.Add(new HttpCookie("Authtokenforloginlogoutdel", guidd));
-        Session["loggedInCheckCfm"] = "true";
-        Response.Redirect("YourAccount.aspx", true);
+//        Response.Cookies.Add(new HttpCookie("Authtokenforloginlogoutdel", guidd));
+//        Session["loggedInCheckCfm"] = "true";
+//        Response.Redirect("YourAccount.aspx", true);
     }
 
     protected void Button100_Click(object sender, EventArgs e)
@@ -94,15 +102,22 @@ public partial class _2faLogin : System.Web.UI.Page
 
         string resultPhone = Encoding.UTF8.GetString(plaintextPhone);
 
+
+
+
+
+
         //uncomment this
 
-        /*
+        
 
         Random rnd = new Random();
                 string digit = rnd.Next(999999).ToString();
                 Session["rngPhoneL"] = digit;
+        System.Diagnostics.Debug.WriteLine(digit);
+
         
-        
+        /*
                 string resPhone = "+65" + resultPhone;
         
                 Tzwilio g = new Tzwilio(resPhone, digit);

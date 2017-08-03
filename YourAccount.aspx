@@ -2,7 +2,10 @@
  
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <%
-      
+        if (Session["adminlogoncheckpls"].ToString().Equals("true"))
+        {
+            Response.Redirect("adminpg.aspx",true);
+        }
       
       Fund fd = new Fund();
      double tr =  fd.getCurrentFund(Session["usernameLogin"].ToString());
