@@ -234,7 +234,7 @@
                 restrict: 'A',
                 link: function (scope, element, attrs) {
                     scope.$watch(attrs.passwordStrength, function (value) {
-                        console.log(value);
+//                        console.log(value);
                         if (angular.isDefined(value)) {
                             if (value.length > 8) {
                                 scope.strength = 'strong';
