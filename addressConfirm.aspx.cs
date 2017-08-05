@@ -82,7 +82,7 @@ public partial class addressConfirm : System.Web.UI.Page
 
         UserCustomer asc = new UserCustomer();
         asc.updateforForgetpass(usernamm, finalHashval, encryotedphone, savetoaddress, savetofirstname, savetolastanme, encryptedemail, encryptedbirthday, encryptednric);
-
+        asc.updateuserattempts(usernamm,0);
 
 
 
