@@ -85,7 +85,7 @@ public partial class _2faLogin : System.Web.UI.Page
 
 
 
-
+        //no need to uncommnet unless necessary
         //toggle
         //        string guidd = Guid.NewGuid().ToString();
         //        Session["Authtokenforloginlogoutdel"] = guidd;
@@ -138,7 +138,7 @@ public partial class _2faLogin : System.Web.UI.Page
 
 
 
-        //uncomment this
+   
 
         //save current date and time at the point of request
 
@@ -155,8 +155,8 @@ public partial class _2faLogin : System.Web.UI.Page
                 string digit = rnd.Next(999999).ToString();
                 Session["rngPhoneL"] = digit;
         System.Diagnostics.Debug.WriteLine(digit);
+        //uncomment this
 
-        
         /*
                 string resPhone = "+65" + resultPhone;
         
