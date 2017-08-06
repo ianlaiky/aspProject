@@ -249,11 +249,6 @@ public class Fund
 
 
 
-        //decrypt testing
-        //        string decrdfs = decryptData(sendback, hash, salttoByte);
-        //       
-        //        System.Diagnostics.Debug.WriteLine("Original " + data);
-        //        System.Diagnostics.Debug.WriteLine("decrypted cipher test " + decrdfs);
 
 
         return sendback;
@@ -286,11 +281,6 @@ public class Fund
 
 
 
-        //decrypt testing
-        //        string decrdfs = decryptData(sendback, hash, salttoByte);
-        //       
-        //        System.Diagnostics.Debug.WriteLine("Original " + data);
-        //        System.Diagnostics.Debug.WriteLine("decrypted cipher test " + decrdfs);
 
 
         return sendback;
@@ -322,11 +312,7 @@ public class Fund
 
 
 
-        //decrypt testing
-        //        string decrdfs = decryptData(sendback, hash, salttoByte);
-        //       
-        //        System.Diagnostics.Debug.WriteLine("Original " + data);
-        //        System.Diagnostics.Debug.WriteLine("decrypted cipher test " + decrdfs);
+      
 
 
         return sendback;
