@@ -10,6 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.js"></script>
     <script src="assets/js/md5.min.js"></script>
+    <a  class="btn btn-default" href="adminpg.aspx">Home</a>
+    <a  class="btn btn-default" href="adminpgtoviewLost.aspx">View user bankbook request</a>
     <div style="text-align: center;" >
         <h3>Users that request new bankbook</h3>
     </div>

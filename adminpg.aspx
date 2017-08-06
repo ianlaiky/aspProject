@@ -2,7 +2,10 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-    
+    <a  class="btn btn-default" href="adminpg.aspx">Home</a>
+    <a  class="btn btn-default" href="adminpgtoviewLost.aspx">View user bankbook request</a>
+    <br />
+    <br />
     <%
 
         System.Diagnostics.Debug.WriteLine(Session["adminlogoncheckpls"].ToString());
