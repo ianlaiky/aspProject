@@ -14,6 +14,6 @@ public partial class Error404 : System.Web.UI.Page
 
     protected void Button1_OnClick(object sender, EventArgs e)
     {
-        Response.Redirect("login.aspx");
+        Response.Redirect("login.aspx",true);
     }
 }

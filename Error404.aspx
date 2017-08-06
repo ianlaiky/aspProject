@@ -13,7 +13,10 @@
     <br/>
     <br/>
     <div style="text-align: center;" >
-        <asp:Button ID="Button1" runat="server" Text="Back Home" class="btn btn-primary" OnClick="Button1_OnClick"/>
+<%--        <asp:Button ID="Button1" runat="server" Text="Back Home" class="btn btn-primary" OnClick="Button1_OnClick"/>--%>
+        
+       
+        <a class="btn btn-primary" href="login.aspx">Home</a>
     </div>
 
 

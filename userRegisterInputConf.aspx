@@ -126,7 +126,14 @@
     <br/>
     <br/>
     <br/>
-   
+
+        <div style="text-align: center;" >
+            
+            <a class="btn btn-primary" href="login.aspx">Login</a>
+        </div>
+
     </div>
 </asp:Content>
+
+
 

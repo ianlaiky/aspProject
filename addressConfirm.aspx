@@ -159,7 +159,7 @@
             </div>
             <div class="input-group">
                 <span class="input-group-addon">
-                    <i class="material-icons">face</i>
+                    <i class="material-icons">location_on</i>
                 </span>
                 <div class="form-group label-floating">
                     <label class="control-label">Please enter Address</label>
@@ -170,11 +170,14 @@
                     <%--                    <asp:CustomValidator ID="CustomValidator2" runat="server" ErrorMessage="*Account is not valid" ControlToValidate="TextBox1" ForeColor="Red" OnServerValidate="CustomValidator1_OnServerValidate"></asp:CustomValidator>--%>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Pls enter your Address" ControlToValidate="TextBox4" ForeColor="Red"></asp:RequiredFieldValidator>
                     <%--                    <asp:CustomValidator ID="CustomValidator3" runat="server" ErrorMessage="*Only alphanumeric characters allowed" ControlToValidate="TextBox1" ForeColor="Red" OnServerValidate="usernameRe_OnServerValidate"></asp:CustomValidator>--%>
-  <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button1" runat="server" Text="Next" OnClientClick="if(!encrypt()){return false}" OnClick="Button1_Click" />
+
                 </div>
             </div>
-    
+        <div style="text-align: center;" >
+            <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="Button1" runat="server" Text="Next" OnClientClick="if (!encrypt()) { return false }" OnClick="Button1_Click" />
+
         </div>
+    </div>
         <div class="footer text-center">
         
             
@@ -188,4 +191,6 @@
 
 
 </asp:Content>
+
+
 

@@ -29,7 +29,8 @@ public partial class forgetPasss : System.Web.UI.Page
         }
         else
         {
-              string username = TextBox1.Text.Trim();
+            Label2.Text = "";
+                 string username = TextBox1.Text.Trim();
             string Nric = TextBox6.Text.Trim();
             string phoneNumber = TextBox5.Text.Trim();
             string email = TextBox3.Text.Trim();

@@ -20,7 +20,7 @@
 
 
         function encrypo() {
-
+            document.getElementById("plscheckpassword").innerHTML = "";
 
             if ((document.getElementById("<%=TextBox1.ClientID%>").value !== "") &&
             ((document.getElementById("<%=TextBox1.ClientID%>").value) ===
@@ -75,7 +75,7 @@
 
 
 
-
+              
 
 
 
@@ -83,7 +83,7 @@
             
                 return true;
             } else {
-                document.getElementById("plscheckpassword").innerHTML = "Type a password OR Password do not match";
+                document.getElementById("plscheckpassword").innerHTML = "Type a password OR password do not match";
                 return false;
             }
 
@@ -152,7 +152,7 @@
 
                     <asp:TextBox class="form-control" name="username" ID="TextBox2" runat="server" type="password"></asp:TextBox>  <span id="plscheckpassword" style="color: red"></span>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox2" ErrorMessage="*Please confirm your new password" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox1" ControlToValidate="TextBox2" ErrorMessage="*Password do not match" ForeColor="Red"></asp:CompareValidator>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox1" ControlToValidate="TextBox2" ErrorMessage="" ForeColor="Red"></asp:CompareValidator>
 
                   
                 </div>

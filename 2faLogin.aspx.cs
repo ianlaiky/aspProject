@@ -157,12 +157,12 @@ public partial class _2faLogin : System.Web.UI.Page
         System.Diagnostics.Debug.WriteLine(digit);
         //uncomment this
 
-        /*
+        
                 string resPhone = "+65" + resultPhone;
         
                 Tzwilio g = new Tzwilio(resPhone, digit);
                 g.choasSms();
 
-    */
+    
     }
 }
