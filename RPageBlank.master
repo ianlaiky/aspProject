@@ -1,4 +1,6 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="register.master.cs" Inherits="register" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="RPageBlank.master.cs" Inherits="RPageBlank" %>
+
+
 
 <!DOCTYPE html>
 
@@ -6,7 +8,7 @@
 <html lang="en">
 
 <head runat="server">
-     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -20,20 +22,20 @@
     <link rel="canonical" href="http://www.creative-tim.com/product/material-dashboard-pro" />
     <!--  Social tags      -->
     <meta name="keywords"
-        content="material dashboard, bootstrap material admin, bootstrap material dashboard, material design admin, material design, creative tim, html dashboard, html css dashboard, web dashboard, freebie, free bootstrap dashboard, css3 dashboard, bootstrap admin, bootstrap dashboard, frontend, responsive bootstrap dashboard, premiu material design admin">
+          content="material dashboard, bootstrap material admin, bootstrap material dashboard, material design admin, material design, creative tim, html dashboard, html css dashboard, web dashboard, freebie, free bootstrap dashboard, css3 dashboard, bootstrap admin, bootstrap dashboard, frontend, responsive bootstrap dashboard, premiu material design admin">
     <meta name="description"
-        content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+          content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
     <meta itemprop="description"
-        content="design">
+          content="design">
     <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@creativetim">
     <meta name="twitter:title" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
     <meta name="twitter:description"
-        content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+          content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
     <meta name="twitter:creator" content="@creativetim">
     <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
     <!-- Open Graph data -->
@@ -43,7 +45,7 @@
     <meta property="og:url" content="http://www.creative-tim.com/product/material-dashboard-pro" />
     <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
     <meta property="og:description"
-        content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
+          content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
     <meta property="og:site_name" content="Creative Tim" />
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -54,7 +56,7 @@
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
 
 
 
@@ -69,71 +71,71 @@
 </head>
 
 <body>
-     <%--<script>
+<%--<script>
         $(document).ready(function () {
             console.log("ready!");
         });
 
     </script>--%>
-    <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/login.aspx">Fanclub Banking</a>
-            </div>
-            <div class="collapse navbar-collapse">
-           
-            </div>
+<nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=" dashboard.html ">Fanclub Banking</a>
         </div>
-    </nav>
-    <div class="wrapper wrapper-full-page">
-        <div class="full-page register-page" filter-color="black" data-image="assets/img/register.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="card card-signup">
-                            <h2 class="card-title text-center">Registration</h2>
-                            <div class="row">
+        <div class="collapse navbar-collapse">
+           
+        </div>
+    </div>
+</nav>
+<div class="wrapper wrapper-full-page">
+    <div class="full-page register-page" filter-color="black" data-image="assets/img/register.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="card card-signup">
+                        <h2 class="card-title text-center"></h2>
+                        <div class="row">
                              
-                                <div class="col-md-11">
+                            <div class="col-md-11">
                                    
                                  
 
 
-                                       <form class="form" runat="server" method="post" name="passwordForm" autocomplete="off">
+                                <form class="form" runat="server" method="post" name="passwordForm">
 
 
-                                         <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+                                    <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
 
-                                           </form>
+                                </form>
 
 
                                   
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container">
+        </div>
+        <footer class="footer">
+            <div class="container">
                    
-                    <p class="copyright pull-right">
-                        &copy;
+                <p class="copyright pull-right">
+                    &copy;
                     <script>
                         document.write(new Date().getFullYear())
                     </script>
-                        Fanclub
-                    </p>
-                </div>
-            </footer>
-        </div>
+                    Fanclub
+                </p>
+            </div>
+        </footer>
     </div>
+</div>
 </body>
 
 

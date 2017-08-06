@@ -1,8 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainPage.master" AutoEventWireup="true" CodeFile="YourAccount.aspx.cs" Inherits="YourAccount" %>
  
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+    <a  class="btn btn-default" href="YourAccount.aspx">Home</a>
+    <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>
+    <a  class="btn btn-default" href="requestofnewToekn.aspx">Request New BankBook</a>
     <%
-      
+        if (Session["adminlogoncheckpls"].ToString().Equals("true"))
+        {
+            Response.Redirect("adminpg.aspx",true);
+        }
       
       Fund fd = new Fund();
      double tr =  fd.getCurrentFund(Session["usernameLogin"].ToString());

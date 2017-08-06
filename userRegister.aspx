@@ -157,7 +157,7 @@
 
 
                 //decryp test
-//                var t1 = document.getElementById('<%=HiddenFieldFirstNameEncrypted.ClientID%>').value;
+//                var t1 = document.getElementById('').value;
 //                var d1 = CryptoJS.AES.decrypt(t1.toString(), sha1AsKey);
 //                var tex = d1.toString(CryptoJS.enc.Utf8);
 //
@@ -234,7 +234,7 @@
                 restrict: 'A',
                 link: function (scope, element, attrs) {
                     scope.$watch(attrs.passwordStrength, function (value) {
-                        console.log(value);
+//                        console.log(value);
                         if (angular.isDefined(value)) {
                             if (value.length > 8) {
                                 scope.strength = 'strong';

@@ -2,6 +2,16 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+    
+    <%
+
+        System.Diagnostics.Debug.WriteLine(Session["adminlogoncheckpls"].ToString());
+        if (!Session["adminlogoncheckpls"].ToString().Equals("true"))
+        {
+            Response.Redirect("YourAccount.aspx",true);
+        }
+
+         %>
 
     <tr>
         <td>

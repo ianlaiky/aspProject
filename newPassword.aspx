@@ -150,7 +150,7 @@
                     <label class="control-label">Please confirm your new Password</label>
 
 
-                    <asp:TextBox class="form-control" name="username" ID="TextBox2" runat="server" type="password"></asp:TextBox>  <span id="plscheckpassword" style="color: red">dsd</span>
+                    <asp:TextBox class="form-control" name="username" ID="TextBox2" runat="server" type="password"></asp:TextBox>  <span id="plscheckpassword" style="color: red"></span>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox2" ErrorMessage="*Please confirm your new password" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox1" ControlToValidate="TextBox2" ErrorMessage="*Password do not match" ForeColor="Red"></asp:CompareValidator>
 

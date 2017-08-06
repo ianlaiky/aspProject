@@ -94,8 +94,8 @@ public partial class userRegisterInputConf : System.Web.UI.Page
 
 
 
-
     */
+    
 
 
 
@@ -103,6 +103,7 @@ public partial class userRegisterInputConf : System.Web.UI.Page
 
     protected void Button3_OnClick(object sender, EventArgs e)
     {
+        
 
         string tree = Session["rngPhoneLEmailUserReg"].ToString();
 
