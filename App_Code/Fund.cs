@@ -295,4 +295,40 @@ public class Fund
 
         return sendback;
     }
+
+    protected double decryptDataint(string data)
+    {
+        byte[] cipherText;
+
+
+
+        RijndaelManaged cipher = new RijndaelManaged();
+        cipher.Key = Convert.FromBase64String("L15I8JAPomQ32PH8jvQr9/aVY7iq5TK1xwNSjLjZJd0=");
+        cipher.IV = Convert.FromBase64String("ArK98b41BT/x/3fbsOeiww==");
+        ICryptoTransform deCryptoTransform = cipher.CreateDecryptor();
+
+
+        byte[] ciphertext = Convert.FromBase64String(data);
+
+
+        cipherText = deCryptoTransform.TransformFinalBlock(ciphertext, 0, ciphertext.Length);
+
+
+
+
+        int sendback =Encoding.UTF8.GetString(cipherText);
+
+
+
+
+
+        //decrypt testing
+        //        string decrdfs = decryptData(sendback, hash, salttoByte);
+        //       
+        //        System.Diagnostics.Debug.WriteLine("Original " + data);
+        //        System.Diagnostics.Debug.WriteLine("decrypted cipher test " + decrdfs);
+
+
+        return sendback;
+    }
 }
