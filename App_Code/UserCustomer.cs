@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Configuration;
+using System.Security.Cryptography;
+using System.Text;
 
 /// <summary>
 /// Summary description for UserCustomer
@@ -360,4 +362,128 @@ public class UserCustomer
         }
 
     }
+
+
+
+    protected string encryptData(string data)
+    {
+        byte[] cipherText;
+
+
+
+        RijndaelManaged cipher = new RijndaelManaged();
+        cipher.Key = Convert.FromBase64String("L15I8JAPomQ32PH8jvQr9/aVY7iq5TK1xwNSjLjZJd0=");
+        cipher.IV = Convert.FromBase64String("ArK98b41BT/x/3fbsOeiww==");
+        ICryptoTransform enCryptoTransform = cipher.CreateEncryptor();
+        byte[] plainText = Encoding.UTF8.GetBytes(data);
+        cipherText = enCryptoTransform.TransformFinalBlock(plainText, 0, plainText.Length);
+
+
+
+        string sendback = Convert.ToBase64String(cipherText);
+
+
+
+
+
+
+
+        return sendback;
+    }
+
+    protected string decryptDataString(string data)
+    {
+        byte[] cipherText;
+
+
+
+        RijndaelManaged cipher = new RijndaelManaged();
+        cipher.Key = Convert.FromBase64String("L15I8JAPomQ32PH8jvQr9/aVY7iq5TK1xwNSjLjZJd0=");
+        cipher.IV = Convert.FromBase64String("ArK98b41BT/x/3fbsOeiww==");
+        ICryptoTransform deCryptoTransform = cipher.CreateDecryptor();
+
+
+        byte[] ciphertext = Convert.FromBase64String(data);
+
+
+        cipherText = deCryptoTransform.TransformFinalBlock(ciphertext, 0, ciphertext.Length);
+
+
+
+        string sendback = Encoding.UTF8.GetString(cipherText);
+
+
+
+
+
+
+
+        return sendback;
+    }
+
+
+    protected double decryptDatadouble(string data)
+    {
+        byte[] cipherText;
+
+
+
+        RijndaelManaged cipher = new RijndaelManaged();
+        cipher.Key = Convert.FromBase64String("L15I8JAPomQ32PH8jvQr9/aVY7iq5TK1xwNSjLjZJd0=");
+        cipher.IV = Convert.FromBase64String("ArK98b41BT/x/3fbsOeiww==");
+        ICryptoTransform deCryptoTransform = cipher.CreateDecryptor();
+
+
+        byte[] ciphertext = Convert.FromBase64String(data);
+
+
+        cipherText = deCryptoTransform.TransformFinalBlock(ciphertext, 0, ciphertext.Length);
+
+
+
+
+        double sendback = Convert.ToDouble(Encoding.UTF8.GetString(cipherText));
+
+
+
+
+
+
+
+        return sendback;
+    }
+
+    protected double decryptDataint(string data)
+    {
+        byte[] cipherText;
+
+
+
+        RijndaelManaged cipher = new RijndaelManaged();
+        cipher.Key = Convert.FromBase64String("L15I8JAPomQ32PH8jvQr9/aVY7iq5TK1xwNSjLjZJd0=");
+        cipher.IV = Convert.FromBase64String("ArK98b41BT/x/3fbsOeiww==");
+        ICryptoTransform deCryptoTransform = cipher.CreateDecryptor();
+
+
+        byte[] ciphertext = Convert.FromBase64String(data);
+
+
+        cipherText = deCryptoTransform.TransformFinalBlock(ciphertext, 0, ciphertext.Length);
+
+
+
+
+        int sendback = Convert.ToInt32(Encoding.UTF8.GetString(cipherText));
+
+
+
+
+
+
+
+
+        return sendback;
+    }
+
+
 }
