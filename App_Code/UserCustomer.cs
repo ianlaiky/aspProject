@@ -102,7 +102,7 @@ public class UserCustomer
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@username", Username);
+            cmd.Parameters.AddWithValue("@username", encryptData(Username));
             cmd.Parameters.AddWithValue("@passwordhash", Passwordhash);
             cmd.Parameters.AddWithValue("@passwordsalt", Passwordsalt);
             cmd.Parameters.AddWithValue("@phoneNo", PhoneNo);
