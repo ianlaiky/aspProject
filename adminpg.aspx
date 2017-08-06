@@ -13,15 +13,11 @@
 
          %>
 
-    <tr>
-        <td>
-                    <asp:Label ID="Label1" runat="server" Text="Username: "></asp:Label>
-                </td>
-                <td>
-                <asp:TextBox ID="tbName" runat="server"></asp:TextBox>
-    </tr>
-     <table class="table">
-    <thead>
+   
+       
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+     <table class="table" id="myTable">
+    
         <tr>
             <th>ID</th>
             <th>Sender</th>
@@ -80,7 +76,26 @@
         
 
         </table>
-    <asp:Button  class="btn btn-rose btn-simple btn-wd btn-lg" ID="btnSubmit" runat="server" Text="Submit"   />
+    <script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
    
     
 </asp:Content>
