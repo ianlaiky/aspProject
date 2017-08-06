@@ -14,8 +14,20 @@ using System.Text;
 public class UserCustomer
 {
     string _connStr = ConfigurationManager.ConnectionStrings["FanclubContext"].ConnectionString;
+    private string forgetHash;
+    private string username;
+    private string passwordhash;
+    private string passwordsalt;
+    private string phoneNo;
+    private string address;
+    private string firstName;
+    private string lastName;
+    private string email;
+    private string birthday;
+    private string emailVerified;
+    private string phoneVerified;
+    private string nric;
 
-  
 
     public UserCustomer()
     {
@@ -65,31 +77,161 @@ public class UserCustomer
     }
 
     public int Attempt { get; set; }
-    public string ForgetHash { get; set; }
+    public string ForgetHash
+    {
+        get
+        {
+            return decryptDataString(this.forgetHash);
+        }
+        set
+        {
+            this.forgetHash = encryptData(value);
+        }
+    }
 
-    public string Username { get; set; }
+    public string Username
+    {
+        get
+        {
+            return decryptDataString(this.username);
+        }
+        set
+        {
+            this.username = encryptData(value);
+        }
+    }
 
-    public string Passwordhash { get; set; }
+    public string Passwordhash
+    {
+        get
+        {
+            return decryptDataString(this.passwordhash);
+        }
+        set
+        {
+            this.passwordhash = encryptData(value);
+        }
+    }
 
-    public string Passwordsalt { get; set; }
+    public string Passwordsalt
+    {
+        get
+        {
+            return decryptDataString(this.passwordsalt);
+        }
+        set
+        {
+            this.passwordsalt = encryptData(value);
+        }
+    }
 
-    public string PhoneNo { get; set; }
+    public string PhoneNo
+    {
+        get
+        {
+            return decryptDataString(this.phoneNo);
+        }
+        set
+        {
+            this.phoneNo = encryptData(value);
+        }
+    }
 
-    public string Address { get; set; }
+    public string Address
+    {
+        get
+        {
+            return decryptDataString(this.address);
+        }
+        set
+        {
+            this.address = encryptData(value);
+        }
+    }
 
-    public string FirstName { get; set; }
+    public string FirstName
+    {
+        get
+        {
+            return decryptDataString(this.firstName);
+        }
+        set
+        {
+            this.firstName = encryptData(value);
+        }
+    }
 
-    public string LastName { get; set; }
+    public string LastName
+    {
+        get
+        {
+            return decryptDataString(this.lastName);
+        }
+        set
+        {
+            this.lastName = encryptData(value);
+        }
+    }
 
-    public string Email { get; set; }
+    public string Email
+    {
+        get
+        {
+            return decryptDataString(this.email);
+        }
+        set
+        {
+            this.email = encryptData(value);
+        }
+    }
 
-    public string Birthday { get; set; }
+    public string Birthday
+    {
+        get
+        {
+            return decryptDataString(this.birthday);
+        }
+        set
+        {
+            this.birthday = encryptData(value);
+        }
+    }
 
-    public string EmailVerified { get; set; }
+    public string EmailVerified
+    {
+        get
+        {
+            return decryptDataString(this.emailVerified);
+        }
+        set
+        {
+            this.emailVerified = encryptData(value);
+        }
+    }
 
-    public string PhoneVerified { get; set; }
+    public string PhoneVerified
+    {
+        get
+        {
+            return decryptDataString(this.phoneVerified);
+        }
+        set
+        {
+            this.phoneVerified = encryptData(value);
+        }
+    }
 
-    public string Nric { get; set; }
+    public string Nric
+    {
+        get
+        {
+            return decryptDataString(this.nric);
+        }
+        set
+        {
+            this.nric = encryptData(value);
+        }
+    }
 
 
     public int CustomerInsert()
@@ -104,19 +246,19 @@ public class UserCustomer
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@username", Username);
-            cmd.Parameters.AddWithValue("@passwordhash", Passwordhash);
-            cmd.Parameters.AddWithValue("@passwordsalt", Passwordsalt);
-            cmd.Parameters.AddWithValue("@phoneNo", PhoneNo);
-            cmd.Parameters.AddWithValue("@address", Address);
-            cmd.Parameters.AddWithValue("@firstName", FirstName);
-            cmd.Parameters.AddWithValue("@lastname", LastName);
-            cmd.Parameters.AddWithValue("@email", Email);
-            cmd.Parameters.AddWithValue("@birthday", Birthday);
-            cmd.Parameters.AddWithValue("@emailVerified", EmailVerified);
-            cmd.Parameters.AddWithValue("@phoneVerified", PhoneVerified);
-            cmd.Parameters.AddWithValue("@nric", Nric);
-            cmd.Parameters.AddWithValue("@forgethash", ForgetHash);
+            cmd.Parameters.AddWithValue("@username", encryptData(Username));
+            cmd.Parameters.AddWithValue("@passwordhash", encryptData(Passwordhash));
+            cmd.Parameters.AddWithValue("@passwordsalt", encryptData(Passwordsalt));
+            cmd.Parameters.AddWithValue("@phoneNo", encryptData(PhoneNo));
+            cmd.Parameters.AddWithValue("@address", encryptData(Address));
+            cmd.Parameters.AddWithValue("@firstName", encryptData(FirstName));
+            cmd.Parameters.AddWithValue("@lastname", encryptData(LastName));
+            cmd.Parameters.AddWithValue("@email", encryptData(Email));
+            cmd.Parameters.AddWithValue("@birthday", encryptData(Birthday));
+            cmd.Parameters.AddWithValue("@emailVerified", encryptData(EmailVerified));
+            cmd.Parameters.AddWithValue("@phoneVerified", encryptData(PhoneVerified));
+            cmd.Parameters.AddWithValue("@nric", encryptData(Nric));
+            cmd.Parameters.AddWithValue("@forgethash", encryptData(ForgetHash));
             cmd.Parameters.AddWithValue("@att", 0);
 
 
@@ -146,7 +288,7 @@ public class UserCustomer
 
         while (dr.Read())
         {
-            username = dr["username"].ToString();
+            username = decryptDataString(dr["username"].ToString());
 
             names.Add(username);
         }
@@ -170,7 +312,7 @@ public class UserCustomer
 
         while (dr.Read())
         {
-            username = dr["nric"].ToString();
+            username = decryptDataString(dr["nric"].ToString());
 
             names.Add(username);
         }
@@ -202,24 +344,24 @@ public class UserCustomer
         string queryStr = "SELECT* FROM Customer WHERE username = @username";
         SqlConnection conn = new SqlConnection(_connStr);
         SqlCommand cmd = new SqlCommand(queryStr, conn);
-        cmd.Parameters.AddWithValue("@username", name);
+        cmd.Parameters.AddWithValue("@username", encryptData(name));
         conn.Open();
         SqlDataReader dr = cmd.ExecuteReader();
         if (dr.Read())
         {
-            username = dr["username"].ToString();
-            passwordhash = dr["passwordhash"].ToString();
-            passwordsalt = dr["passwordsalt"].ToString();
-            phoneNo = dr["phoneNo"].ToString();
-            address = dr["address"].ToString();
-            firstName = dr["firstName"].ToString();
-            lastName = dr["lastName"].ToString();
-            email = dr["email"].ToString();
-            birthday = dr["birthday"].ToString();
-            emailverified = dr["emailVerified"].ToString();
-            phoneverified = dr["phoneVerified"].ToString();
-            nric = dr["nric"].ToString();
-            forgetHash= dr["forgethash"].ToString();
+            username = decryptDataString(dr["username"].ToString());
+            passwordhash = decryptDataString(dr["passwordhash"].ToString());
+            passwordsalt = decryptDataString(dr["passwordsalt"].ToString());
+            phoneNo = decryptDataString(dr["phoneNo"].ToString());
+            address = decryptDataString(dr["address"].ToString());
+            firstName = decryptDataString(dr["firstName"].ToString());
+            lastName = decryptDataString(dr["lastName"].ToString());
+            email = decryptDataString(dr["email"].ToString());
+            birthday = decryptDataString(dr["birthday"].ToString());
+            emailverified = decryptDataString(dr["emailVerified"].ToString());
+            phoneverified = decryptDataString(dr["phoneVerified"].ToString());
+            nric = decryptDataString(dr["nric"].ToString());
+            forgetHash= decryptDataString(dr["forgethash"].ToString());
             attempt= Convert.ToInt32(dr["attempts"].ToString());
 
             cus = new UserCustomer(username,passwordhash,passwordsalt,phoneNo,address,firstName,lastName,email,birthday,emailverified,phoneverified,nric, forgetHash, attempt);
@@ -249,9 +391,9 @@ public class UserCustomer
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@user", user);
+            cmd.Parameters.AddWithValue("@user", encryptData(user));
 
-            cmd.Parameters.AddWithValue("@emailver", status);
+            cmd.Parameters.AddWithValue("@emailver", encryptData(status));
 
 
 
@@ -278,9 +420,9 @@ public class UserCustomer
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@user", user);
+            cmd.Parameters.AddWithValue("@user", encryptData(user));
 
-            cmd.Parameters.AddWithValue("@lver", status);
+            cmd.Parameters.AddWithValue("@lver", encryptData(status));
 
 
 
@@ -308,7 +450,7 @@ public class UserCustomer
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@user", user);
+            cmd.Parameters.AddWithValue("@user", encryptData(user));
 
             cmd.Parameters.AddWithValue("@lver", att);
 
@@ -337,15 +479,15 @@ public class UserCustomer
         {
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@user", user);
-            cmd.Parameters.AddWithValue("@passwordHash", passwordHash);
-            cmd.Parameters.AddWithValue("@phoneNo", phoneNo);
-            cmd.Parameters.AddWithValue("@address", address);
-            cmd.Parameters.AddWithValue("@fname", firstName);
-            cmd.Parameters.AddWithValue("@lname", lastname);
-            cmd.Parameters.AddWithValue("@email", email);
-            cmd.Parameters.AddWithValue("@birthday", birthday);
-            cmd.Parameters.AddWithValue("@nric", nric);
+            cmd.Parameters.AddWithValue("@user", encryptData(user));
+            cmd.Parameters.AddWithValue("@passwordHash", encryptData(passwordHash));
+            cmd.Parameters.AddWithValue("@phoneNo", encryptData(phoneNo));
+            cmd.Parameters.AddWithValue("@address", encryptData(address));
+            cmd.Parameters.AddWithValue("@fname", encryptData(firstName));
+            cmd.Parameters.AddWithValue("@lname", encryptData(lastname));
+            cmd.Parameters.AddWithValue("@email", encryptData(email));
+            cmd.Parameters.AddWithValue("@birthday", encryptData(birthday));
+            cmd.Parameters.AddWithValue("@nric", encryptData(nric));
 
            
 
