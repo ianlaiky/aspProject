@@ -280,7 +280,7 @@ public class Fund
 
 
 
-        double sendback = Encoding.UTF8.GetString(cipherText);
+        double sendback = Convert.ToDouble(Encoding.UTF8.GetString(cipherText));
 
 
 

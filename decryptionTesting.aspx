@@ -108,6 +108,13 @@
     salt:<asp:TextBox ID="TextBox9" runat="server"></asp:TextBox><br/>
     
     <asp:Button ID="Button3" runat="server" Text="Button" OnClick="Button3_OnClick"/>
+    
+    
+    
+    
+    <asp:Button ID="Button4" runat="server" Text="Button" OnClick="Button4_OnClick"/>
+    
+
 
 </asp:Content>
 

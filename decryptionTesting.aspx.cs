@@ -113,4 +113,19 @@ public partial class decryptionTesting : System.Web.UI.Page
 
 
     }
+
+    protected void Button4_OnClick(object sender, EventArgs e)
+    {
+        RijndaelManaged kesa = new RijndaelManaged();
+
+        string keyyy = Convert.ToBase64String(kesa.Key);
+        string ibvvv = Convert.ToBase64String(kesa.IV);
+
+        System.Diagnostics.Debug.WriteLine("THE Key IS: " + keyyy);
+        System.Diagnostics.Debug.WriteLine("THE IV IS: " + ibvvv);
+
+
+
+
+    }
 }
