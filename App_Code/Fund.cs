@@ -316,7 +316,7 @@ public class Fund
 
 
 
-        int sendback =Encoding.UTF8.GetString(cipherText);
+        int sendback =Convert.ToInt32(Encoding.UTF8.GetString(cipherText));
 
 
 
