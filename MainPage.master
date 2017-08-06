@@ -383,8 +383,7 @@
             <div class="container-fluid">
                 <div class="col-sm-8 col-sm-offset-2">
                     <%--<!-- Insert all the awesome body content here--%>
-               <a  class="btn btn-default" href="YourAccount.aspx">Home</a>
-                     <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>
+              
                         <form runat="server">
                                <asp:ContentPlaceHolder ID="MainContent" runat="server"/> 
                  

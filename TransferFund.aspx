@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainPage.master" AutoEventWireup="true" CodeFile="TransferFund.aspx.cs" Inherits="TransferFund" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-
+    <a  class="btn btn-default" href="YourAccount.aspx">Home</a>
+    <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>
+    <a  class="btn btn-default" href="#">Request New BankBook</a>
     <%
         if (Session["adminlogoncheckpls"].ToString().Equals("true"))
         {
