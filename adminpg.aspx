@@ -18,6 +18,7 @@
             <th>Recipient</th>
             <th>Amount(SGD)</th>
             <th>Date</th>
+            <th>Description</th>
            
         </tr>         
         
@@ -56,6 +57,9 @@
             </td>
             <td>
                 <%=gfarr[i].Date %>
+            </td>
+            <td>
+                <%=gfarr[i].Description %>
             </td>
         </tr>
         
