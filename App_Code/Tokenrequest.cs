@@ -98,5 +98,41 @@ public class Tokenrequest
         return dataa;
     }
 
+    public Tokenrequest getAlldatavianame(string usernamee)
+    {
+        Tokenrequest tkreq = null;
+       
+        string addresss;
+        string queryStr = "SELECT * FROM Tokenrequest WHERE username = @username";
+        SqlConnection conn = new SqlConnection(_connStr);
+        SqlCommand cmd = new SqlCommand(queryStr, conn);
+        cmd.Parameters.AddWithValue("@username", usernamee);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+
+
+
+        if (dr.Read())
+        {
+
+            addresss = dr["address"].ToString();
+           
+            tkreq = new Tokenrequest(usernamee,addresss);
+            
+
+
+
+        }
+        else
+        {
+            tkreq = null;
+        }
+        conn.Close();
+        dr.Close();
+        dr.Dispose();
+        return tkreq;
+
+    }
+
 
 }

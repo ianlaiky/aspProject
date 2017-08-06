@@ -107,7 +107,7 @@
     <br/>
 
     <div style="text-align: center;" >
-        <asp:Button ID="Button1" class="btn btn-default" runat="server" Text="Decrypt and Send request" OnClick="Button1_OnClick"/><br/>
+        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Decrypt and Send request" OnClick="Button1_OnClick"/><br/>
         *By submitting this form, you are decrypting only your address field for the admin; Your key is not disclosed. 
     </div>
 
