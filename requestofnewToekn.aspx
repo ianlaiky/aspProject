@@ -10,7 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/aes.js"></script>
     <script src="assets/js/md5.min.js"></script>
+    <a  class="btn btn-default" href="YourAccount.aspx">Home</a>
+    <a  class="btn btn-default" href="TransferFund.aspx">Transfer fund</a>
+    <a  class="btn btn-default" href="requestofnewToekn.aspx">Request New BankBook</a>
     <div style="text-align: center;" >
+        
         <h2>Requests for new bankbook</h2>
     </div>
     
