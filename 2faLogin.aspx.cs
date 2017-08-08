@@ -158,10 +158,10 @@ public partial class _2faLogin : System.Web.UI.Page
         //uncomment this
 
         
-//                string resPhone = "+65" + resultPhone;
-//        
-//                Tzwilio g = new Tzwilio(resPhone, digit);
-//                g.choasSms();
+                string resPhone = "+65" + resultPhone;
+        
+                Tzwilio g = new Tzwilio(resPhone, digit);
+                g.choasSms();
 
     
     }
